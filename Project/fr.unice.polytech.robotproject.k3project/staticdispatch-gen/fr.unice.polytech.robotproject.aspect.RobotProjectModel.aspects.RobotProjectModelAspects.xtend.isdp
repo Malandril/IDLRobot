@@ -1,0 +1,5 @@
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.Move){
+			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.Move)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveAspect
