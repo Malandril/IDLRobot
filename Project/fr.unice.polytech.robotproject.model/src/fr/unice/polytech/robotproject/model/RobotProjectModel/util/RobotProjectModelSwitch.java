@@ -72,16 +72,63 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RobotProjectModelPackage.MOVE: {
-				Move move = (Move)theEObject;
-				T result = caseMove(move);
-				if (result == null) result = caseInstruction(move);
+			case RobotProjectModelPackage.MOVE_STRAIGHT: {
+				MoveStraight moveStraight = (MoveStraight)theEObject;
+				T result = caseMoveStraight(moveStraight);
+				if (result == null) result = caseMovement(moveStraight);
+				if (result == null) result = caseInstruction(moveStraight);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RobotProjectModelPackage.ROBOT: {
 				Robot robot = (Robot)theEObject;
 				T result = caseRobot(robot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.MOVEMENT: {
+				Movement movement = (Movement)theEObject;
+				T result = caseMovement(movement);
+				if (result == null) result = caseInstruction(movement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.TURN: {
+				Turn turn = (Turn)theEObject;
+				T result = caseTurn(turn);
+				if (result == null) result = caseMovement(turn);
+				if (result == null) result = caseInstruction(turn);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.AMOUNT: {
+				Amount amount = (Amount)theEObject;
+				T result = caseAmount(amount);
+				if (result == null) result = caseIntValue(amount);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.INT_VALUE: {
+				IntValue intValue = (IntValue)theEObject;
+				T result = caseIntValue(intValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.DURATION: {
+				Duration duration = (Duration)theEObject;
+				T result = caseDuration(duration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.INTEGER_VALUE: {
+				IntegerValue integerValue = (IntegerValue)theEObject;
+				T result = caseIntegerValue(integerValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.NAMED_BLOCK: {
+				NamedBlock namedBlock = (NamedBlock)theEObject;
+				T result = caseNamedBlock(namedBlock);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -105,17 +152,17 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Move</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Move Straight</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Move</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Move Straight</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMove(Move object) {
+	public T caseMoveStraight(MoveStraight object) {
 		return null;
 	}
 
@@ -131,6 +178,111 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRobot(Robot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Movement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Movement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMovement(Movement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Turn</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Turn</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTurn(Turn object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Amount</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Amount</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAmount(Amount object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Int Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Int Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntValue(IntValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Duration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Duration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDuration(Duration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integer Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integer Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntegerValue(IntegerValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedBlock(NamedBlock object) {
 		return null;
 	}
 

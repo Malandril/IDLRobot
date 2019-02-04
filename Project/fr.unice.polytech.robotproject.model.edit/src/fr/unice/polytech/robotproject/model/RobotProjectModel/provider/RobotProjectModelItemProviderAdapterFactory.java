@@ -72,26 +72,26 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Move} instances.
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MoveItemProvider moveItemProvider;
+	protected MoveStraightItemProvider moveStraightItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Move}.
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createMoveAdapter() {
-		if (moveItemProvider == null) {
-			moveItemProvider = new MoveItemProvider(this);
+	public Adapter createMoveStraightAdapter() {
+		if (moveStraightItemProvider == null) {
+			moveStraightItemProvider = new MoveStraightItemProvider(this);
 		}
 
-		return moveItemProvider;
+		return moveStraightItemProvider;
 	}
 
 	/**
@@ -115,6 +115,121 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 		}
 
 		return robotItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Turn} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TurnItemProvider turnItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Turn}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTurnAdapter() {
+		if (turnItemProvider == null) {
+			turnItemProvider = new TurnItemProvider(this);
+		}
+
+		return turnItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Amount} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AmountItemProvider amountItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Amount}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAmountAdapter() {
+		if (amountItemProvider == null) {
+			amountItemProvider = new AmountItemProvider(this);
+		}
+
+		return amountItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Duration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DurationItemProvider durationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Duration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDurationAdapter() {
+		if (durationItemProvider == null) {
+			durationItemProvider = new DurationItemProvider(this);
+		}
+
+		return durationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerValueItemProvider integerValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerValueAdapter() {
+		if (integerValueItemProvider == null) {
+			integerValueItemProvider = new IntegerValueItemProvider(this);
+		}
+
+		return integerValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamedBlockItemProvider namedBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamedBlockAdapter() {
+		if (namedBlockItemProvider == null) {
+			namedBlockItemProvider = new NamedBlockItemProvider(this);
+		}
+
+		return namedBlockItemProvider;
 	}
 
 	/**
@@ -216,8 +331,13 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	 * @generated
 	 */
 	public void dispose() {
-		if (moveItemProvider != null) moveItemProvider.dispose();
+		if (moveStraightItemProvider != null) moveStraightItemProvider.dispose();
 		if (robotItemProvider != null) robotItemProvider.dispose();
+		if (turnItemProvider != null) turnItemProvider.dispose();
+		if (amountItemProvider != null) amountItemProvider.dispose();
+		if (durationItemProvider != null) durationItemProvider.dispose();
+		if (integerValueItemProvider != null) integerValueItemProvider.dispose();
+		if (namedBlockItemProvider != null) namedBlockItemProvider.dispose();
 	}
 
 }

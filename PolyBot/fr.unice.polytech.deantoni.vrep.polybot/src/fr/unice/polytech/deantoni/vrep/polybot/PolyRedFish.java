@@ -37,7 +37,7 @@ public class PolyRedFish {
 
 	protected static void redFishBehaviour(PolyRob rob) {
 		rob.start();
-		rob.sleep(800);
+		rob.stepSimulation(800);
 		int i = 0;
 		while (i < 5) {
 			i++;
@@ -53,7 +53,7 @@ public class PolyRedFish {
 				int sl = (int) (Math.random() * 15);
 				int sr = (int) (Math.random() * 15);
 				rob.goCurved(sl, sr);
-				rob.sleep(100);
+				rob.stepSimulation(100);
 			}
 
 			rob.goStraight(0);
@@ -73,7 +73,7 @@ public class PolyRedFish {
 					System.out.println("turn right");
 				}
 				rob.log2vrep("dist " + dist);
-				rob.sleep(100);
+				rob.stepSimulation(100);
 				rob.hasDetectedAnObject();
 				dist = rob.detectedObjectPoint.getArray()[0] * rob.detectedObjectPoint.getArray()[0]
 						+ rob.detectedObjectPoint.getArray()[1] * rob.detectedObjectPoint.getArray()[1]
@@ -82,15 +82,15 @@ public class PolyRedFish {
 			rob.log2vrep("last dist " + dist);
 
 			rob.closeGrip();
-			rob.sleep(1500);
+			rob.stepSimulation(1500);
 			rob.goStraight(-4, 500);
 			rob.turnLeft(7, 2000);
 			rob.goStraight(15);
-			rob.sleep(4000);
+			rob.stepSimulation(4000);
 			rob.openGrip();
 			rob.goStraight(-5, 3000);
 			rob.turnLeft(6, 1000);
-			rob.sleep(1500);
+			rob.stepSimulation(1500);
 		};
 		rob.stopSimulation();
 	}
@@ -106,16 +106,16 @@ public class PolyRedFish {
 			}
 			rob.goStraight(5);
 			while (!rob.hasDetectedAnObject()) {
-				rob.sleep(100);
+				rob.stepSimulation(100);
 			}
 			rob.goStraight(-6);
-			rob.sleep(400);
+			rob.stepSimulation(400);
 			if (rob.detectedObjectPoint.getArray()[2] > rob.detectedObjectPoint.getArray()[0]) {
 				rob.turnRight(6);
-				rob.sleep(600);
+				rob.stepSimulation(600);
 			} else {
 				rob.turnRight(6);
-				rob.sleep(600);
+				rob.stepSimulation(600);
 			}
 		}
 		rob.stopSimulation();

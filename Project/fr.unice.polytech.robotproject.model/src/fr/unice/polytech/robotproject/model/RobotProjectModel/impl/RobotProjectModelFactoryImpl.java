@@ -56,8 +56,13 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case RobotProjectModelPackage.MOVE: return createMove();
+			case RobotProjectModelPackage.MOVE_STRAIGHT: return createMoveStraight();
 			case RobotProjectModelPackage.ROBOT: return createRobot();
+			case RobotProjectModelPackage.TURN: return createTurn();
+			case RobotProjectModelPackage.AMOUNT: return createAmount();
+			case RobotProjectModelPackage.DURATION: return createDuration();
+			case RobotProjectModelPackage.INTEGER_VALUE: return createIntegerValue();
+			case RobotProjectModelPackage.NAMED_BLOCK: return createNamedBlock();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -68,9 +73,9 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Move createMove() {
-		MoveImpl move = new MoveImpl();
-		return move;
+	public MoveStraight createMoveStraight() {
+		MoveStraightImpl moveStraight = new MoveStraightImpl();
+		return moveStraight;
 	}
 
 	/**
@@ -81,6 +86,56 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	public Robot createRobot() {
 		RobotImpl robot = new RobotImpl();
 		return robot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Turn createTurn() {
+		TurnImpl turn = new TurnImpl();
+		return turn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Amount createAmount() {
+		AmountImpl amount = new AmountImpl();
+		return amount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Duration createDuration() {
+		DurationImpl duration = new DurationImpl();
+		return duration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerValue createIntegerValue() {
+		IntegerValueImpl integerValue = new IntegerValueImpl();
+		return integerValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedBlock createNamedBlock() {
+		NamedBlockImpl namedBlock = new NamedBlockImpl();
+		return namedBlock;
 	}
 
 	/**

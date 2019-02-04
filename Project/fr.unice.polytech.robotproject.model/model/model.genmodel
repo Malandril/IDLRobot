@@ -8,11 +8,23 @@
   <genPackages prefix="RobotProjectModel" basePackage="fr.unice.polytech.robotproject.model"
       disposableProviderFactory="true" ecorePackage="model.ecore#/">
     <genClasses image="false" ecoreClass="model.ecore#//Instruction"/>
-    <genClasses ecoreClass="model.ecore#//Move">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Move/distance"/>
-    </genClasses>
+    <genClasses ecoreClass="model.ecore#//MoveStraight"/>
     <genClasses ecoreClass="model.ecore#//Robot">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Robot/instructions"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Movement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference model.ecore#//Movement/amount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Movement/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Turn"/>
+    <genClasses ecoreClass="model.ecore#//Amount"/>
+    <genClasses image="false" ecoreClass="model.ecore#//IntValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//IntValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Duration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Duration/value"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//IntegerValue"/>
+    <genClasses ecoreClass="model.ecore#//NamedBlock"/>
   </genPackages>
 </genmodel:GenModel>

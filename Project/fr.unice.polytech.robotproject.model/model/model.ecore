@@ -2,12 +2,29 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="RobotProjectModel" nsURI="http://www.example.org/RobotProjectModel"
     nsPrefix="RobotProjectModel">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Move" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MoveStraight" eSuperTypes="#//Movement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Robot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
         eType="#//Instruction" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Movement" abstract="true" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="amount" lowerBound="1"
+        eType="#//Amount" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//Duration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Turn" eSuperTypes="#//Movement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Amount" eSuperTypes="#//IntValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntValue" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Duration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedBlock"/>
 </ecore:EPackage>

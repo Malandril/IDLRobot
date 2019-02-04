@@ -2,11 +2,18 @@
  */
 package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Instruction;
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Move;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Turn;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -34,7 +41,7 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass moveEClass = null;
+	private EClass moveStraightEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -42,6 +49,55 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * @generated
 	 */
 	private EClass robotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass movementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass turnEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass amountEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass intValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass durationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integerValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedBlockEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -118,17 +174,8 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMove() {
-		return moveEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMove_Distance() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(0);
+	public EClass getMoveStraight() {
+		return moveStraightEClass;
 	}
 
 	/**
@@ -147,6 +194,105 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 */
 	public EReference getRobot_Instructions() {
 		return (EReference)robotEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMovement() {
+		return movementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMovement_Amount() {
+		return (EReference)movementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMovement_Duration() {
+		return (EReference)movementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTurn() {
+		return turnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAmount() {
+		return amountEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntValue() {
+		return intValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntValue_Value() {
+		return (EAttribute)intValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDuration() {
+		return durationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDuration_Value() {
+		return (EAttribute)durationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegerValue() {
+		return integerValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamedBlock() {
+		return namedBlockEClass;
 	}
 
 	/**
@@ -179,11 +325,28 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		// Create classes and their features
 		instructionEClass = createEClass(INSTRUCTION);
 
-		moveEClass = createEClass(MOVE);
-		createEAttribute(moveEClass, MOVE__DISTANCE);
+		moveStraightEClass = createEClass(MOVE_STRAIGHT);
 
 		robotEClass = createEClass(ROBOT);
 		createEReference(robotEClass, ROBOT__INSTRUCTIONS);
+
+		movementEClass = createEClass(MOVEMENT);
+		createEReference(movementEClass, MOVEMENT__AMOUNT);
+		createEReference(movementEClass, MOVEMENT__DURATION);
+
+		turnEClass = createEClass(TURN);
+
+		amountEClass = createEClass(AMOUNT);
+
+		intValueEClass = createEClass(INT_VALUE);
+		createEAttribute(intValueEClass, INT_VALUE__VALUE);
+
+		durationEClass = createEClass(DURATION);
+		createEAttribute(durationEClass, DURATION__VALUE);
+
+		integerValueEClass = createEClass(INTEGER_VALUE);
+
+		namedBlockEClass = createEClass(NAMED_BLOCK);
 	}
 
 	/**
@@ -214,19 +377,59 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		moveEClass.getESuperTypes().add(this.getInstruction());
+		moveStraightEClass.getESuperTypes().add(this.getMovement());
+		movementEClass.getESuperTypes().add(this.getInstruction());
+		turnEClass.getESuperTypes().add(this.getMovement());
+		amountEClass.getESuperTypes().add(this.getIntValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(instructionEClass, Instruction.class, "Instruction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(moveEClass, Move.class, "Move", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMove_Distance(), ecorePackage.getEInt(), "distance", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(moveStraightEClass, MoveStraight.class, "MoveStraight", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRobot_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(movementEClass, Movement.class, "Movement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMovement_Amount(), this.getAmount(), null, "amount", null, 1, 1, Movement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMovement_Duration(), this.getDuration(), null, "duration", null, 0, 1, Movement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(turnEClass, Turn.class, "Turn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(amountEClass, Amount.class, "Amount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(intValueEClass, IntValue.class, "IntValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntValue_Value(), ecorePackage.getEInt(), "value", null, 1, 1, IntValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(durationEClass, Duration.class, "Duration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDuration_Value(), ecorePackage.getEInt(), "value", null, 1, 1, Duration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(integerValueEClass, IntegerValue.class, "IntegerValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(namedBlockEClass, NamedBlock.class, "NamedBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/OCL/Import
+		createImportAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createImportAnnotations() {
+		String source = "http://www.eclipse.org/OCL/Import";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "ecore", "http://www.eclipse.org/emf/2002/Ecore"
+		   });
 	}
 
 } //RobotProjectModelPackageImpl

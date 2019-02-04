@@ -2,7 +2,7 @@
  */
 package fr.unice.polytech.robotproject.model.RobotProjectModel.tests;
 
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Move;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
 
@@ -60,7 +60,7 @@ public class RobotProjectModelExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.robotprojectmodel"));
-				Move root = RobotProjectModelFactory.eINSTANCE.createMove();
+				MoveStraight root = RobotProjectModelFactory.eINSTANCE.createMoveStraight();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

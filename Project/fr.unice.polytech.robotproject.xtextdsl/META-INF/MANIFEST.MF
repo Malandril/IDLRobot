@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: fr.unice.polytech.robotproject.xtextdsl
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.unice.polytech.robotproject.xtextdsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: fr.unice.polytech.robotproject.xtextdsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: fr.unice.polytech.robotproject.model,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: fr.unice.polytech.robotproject.xtextdsl.validation,
+ fr.unice.polytech.robotproject.xtextdsl.scoping,
+ fr.unice.polytech.robotproject.xtextdsl.parser.antlr,
+ fr.unice.polytech.robotproject.xtextdsl.formatting2,
+ fr.unice.polytech.robotproject.xtextdsl.services,
+ fr.unice.polytech.robotproject.xtextdsl.serializer,
+ fr.unice.polytech.robotproject.xtextdsl.parser.antlr.internal,
+ fr.unice.polytech.robotproject.xtextdsl,
+ fr.unice.polytech.robotproject.xtextdsl.generator
+Import-Package: org.apache.log4j

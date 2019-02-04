@@ -94,7 +94,7 @@ public class PolyBrain extends PolyRob{
 				this.goToSafePlace(robPos, robOrientation);
 			}else if (this.isInSafePlace){
 				this.openGrip();
-				this.sleep(600);
+				this.stepSimulation(600);
 				this.goStraight(-7,2500);
 				this.isInSafePlace = false;
 			}else {
@@ -180,7 +180,7 @@ public class PolyBrain extends PolyRob{
 			else{ //turn right
 				this.goCurved(4,3);
 			}
-			this.sleep(100);
+			this.stepSimulation(100);
 			this.hasDetectedAnObject();
 		}else {
 			this.goStraight(3, 300);
@@ -240,11 +240,11 @@ public class PolyBrain extends PolyRob{
 		System.out.println("angle to reach: "+angleToReach);
 		System.out.println("angle to do : "+angleToDo);
 		
-		if(angleToDo > 0) { this.turnRight(4); this.sleep((int)Math.abs(angleToDo*1300));} //black magic computation
-		else {this.turnLeft(4); this.sleep((int)Math.abs(angleToDo*1300));}
+		if(angleToDo > 0) { this.turnRight(4); this.stepSimulation((int)Math.abs(angleToDo*1300));} //black magic computation
+		else {this.turnLeft(4); this.stepSimulation((int)Math.abs(angleToDo*1300));}
 		
 		this.goStraight(8); //should depends on the destination distance...
-		this.sleep(300);
+		this.stepSimulation(300);
 	}
 	
 	protected void goToSafePlace(Position2D robPos, float robOrientation) {
@@ -266,11 +266,11 @@ public class PolyBrain extends PolyRob{
 		System.out.println("angle to reach: "+angleToReach);
 		System.out.println("angle to do : "+angleToDo);
 		
-		if(angleToDo > 0) { this.turnRight(4); this.sleep((int)Math.abs(angleToDo*1300));}
-		else {this.turnLeft(4); this.sleep((int)Math.abs(angleToDo*1300));}
+		if(angleToDo > 0) { this.turnRight(4); this.stepSimulation((int)Math.abs(angleToDo*1300));}
+		else {this.turnLeft(4); this.stepSimulation((int)Math.abs(angleToDo*1300));}
 		
 		this.goStraight(5); //should depends on the destination distance...
-		this.sleep(300);
+		this.stepSimulation(300);
 	}
 
 	protected double computeAngleToReach(Position2D robPos, Position2D destination) {
