@@ -533,9 +533,9 @@ rule__Robot__Group_3_3__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getRobotAccess().getLineFeedKeyword_3_3_0()); }
-	'\n'
-	{ after(grammarAccess.getRobotAccess().getLineFeedKeyword_3_3_0()); }
+	{ before(grammarAccess.getRobotAccess().getCommaKeyword_3_3_0()); }
+	','
+	{ after(grammarAccess.getRobotAccess().getCommaKeyword_3_3_0()); }
 )
 ;
 finally {

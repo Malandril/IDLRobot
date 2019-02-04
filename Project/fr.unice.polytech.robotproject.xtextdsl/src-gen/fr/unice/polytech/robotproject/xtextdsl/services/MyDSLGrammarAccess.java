@@ -35,7 +35,7 @@ public class MyDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInstructionsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cInstructionsInstructionParserRuleCall_3_2_0 = (RuleCall)cInstructionsAssignment_3_2.eContents().get(0);
 		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
-		private final Keyword cLineFeedKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
 		private final Assignment cInstructionsAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
 		private final RuleCall cInstructionsInstructionParserRuleCall_3_3_1_0 = (RuleCall)cInstructionsAssignment_3_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
@@ -44,11 +44,11 @@ public class MyDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//Robot:
 		//	{Robot}
 		//	'Robot'
-		//	'{' ('instructions' '{' instructions+=Instruction ("\n" instructions+=Instruction)* '}')?
+		//	'{' ('instructions' '{' instructions+=Instruction ("," instructions+=Instruction)* '}')?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Robot} 'Robot' '{' ('instructions' '{' instructions+=Instruction ("\n" instructions+=Instruction)* '}')? '}'
+		//{Robot} 'Robot' '{' ('instructions' '{' instructions+=Instruction ("," instructions+=Instruction)* '}')? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Robot}
@@ -60,7 +60,7 @@ public class MyDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('instructions' '{' instructions+=Instruction ("\n" instructions+=Instruction)* '}')?
+		//('instructions' '{' instructions+=Instruction ("," instructions+=Instruction)* '}')?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'instructions'
@@ -75,11 +75,11 @@ public class MyDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//Instruction
 		public RuleCall getInstructionsInstructionParserRuleCall_3_2_0() { return cInstructionsInstructionParserRuleCall_3_2_0; }
 		
-		//("\n" instructions+=Instruction)*
+		//("," instructions+=Instruction)*
 		public Group getGroup_3_3() { return cGroup_3_3; }
 		
-		//"\n"
-		public Keyword getLineFeedKeyword_3_3_0() { return cLineFeedKeyword_3_3_0; }
+		//","
+		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
 		
 		//instructions+=Instruction
 		public Assignment getInstructionsAssignment_3_3_1() { return cInstructionsAssignment_3_3_1; }
@@ -342,7 +342,7 @@ public class MyDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//Robot:
 	//	{Robot}
 	//	'Robot'
-	//	'{' ('instructions' '{' instructions+=Instruction ("\n" instructions+=Instruction)* '}')?
+	//	'{' ('instructions' '{' instructions+=Instruction ("," instructions+=Instruction)* '}')?
 	//	'}';
 	public RobotElements getRobotAccess() {
 		return pRobot;

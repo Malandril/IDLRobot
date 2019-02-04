@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalMyDSLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Robot'", "'{'", "'}'", "'instructions'", "'\\n'", "'MoveStraight:'", "'Turn:'", "'for'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Robot'", "'{'", "'}'", "'instructions'", "','", "'MoveStraight:'", "'Turn:'", "'for'", "'-'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -1533,21 +1533,21 @@ public class InternalMyDSLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__Group_3_3__0__Impl"
-    // InternalMyDSL.g:530:1: rule__Robot__Group_3_3__0__Impl : ( '\\n' ) ;
+    // InternalMyDSL.g:530:1: rule__Robot__Group_3_3__0__Impl : ( ',' ) ;
     public final void rule__Robot__Group_3_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyDSL.g:534:1: ( ( '\\n' ) )
-            // InternalMyDSL.g:535:1: ( '\\n' )
+            // InternalMyDSL.g:534:1: ( ( ',' ) )
+            // InternalMyDSL.g:535:1: ( ',' )
             {
-            // InternalMyDSL.g:535:1: ( '\\n' )
-            // InternalMyDSL.g:536:2: '\\n'
+            // InternalMyDSL.g:535:1: ( ',' )
+            // InternalMyDSL.g:536:2: ','
             {
-             before(grammarAccess.getRobotAccess().getLineFeedKeyword_3_3_0()); 
+             before(grammarAccess.getRobotAccess().getCommaKeyword_3_3_0()); 
             match(input,15,FOLLOW_2); 
-             after(grammarAccess.getRobotAccess().getLineFeedKeyword_3_3_0()); 
+             after(grammarAccess.getRobotAccess().getCommaKeyword_3_3_0()); 
 
             }
 

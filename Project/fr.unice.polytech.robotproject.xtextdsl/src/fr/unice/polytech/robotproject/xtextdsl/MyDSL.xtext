@@ -8,7 +8,7 @@ Robot returns Robot:
 	{Robot}
 	'Robot'
 	'{'
-		('instructions' '{' instructions+=Instruction ( "\n" instructions+=Instruction)* '}' )?
+		('instructions' '{' instructions+=Instruction ( "," instructions+=Instruction)* '}' )?
 	'}';
 
 Instruction returns Instruction:

@@ -120,9 +120,9 @@ ruleRobot returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_6='\n'
+				otherlv_6=','
 				{
-					newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getLineFeedKeyword_3_3_0());
+					newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getCommaKeyword_3_3_0());
 				}
 				(
 					(

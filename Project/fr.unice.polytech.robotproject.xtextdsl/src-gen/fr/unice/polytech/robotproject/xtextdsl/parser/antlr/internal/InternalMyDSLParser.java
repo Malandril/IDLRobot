@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalMyDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Robot'", "'{'", "'instructions'", "'\\n'", "'}'", "'MoveStraight:'", "'Turn:'", "'for'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Robot'", "'{'", "'instructions'", "','", "'}'", "'MoveStraight:'", "'Turn:'", "'for'", "'-'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -117,7 +117,7 @@ public class InternalMyDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRobot"
-    // InternalMyDSL.g:71:1: ruleRobot returns [EObject current=null] : ( () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}' ) ;
+    // InternalMyDSL.g:71:1: ruleRobot returns [EObject current=null] : ( () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}' ) ;
     public final EObject ruleRobot() throws RecognitionException {
         EObject current = null;
 
@@ -137,11 +137,11 @@ public class InternalMyDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyDSL.g:77:2: ( ( () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}' ) )
-            // InternalMyDSL.g:78:2: ( () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}' )
+            // InternalMyDSL.g:77:2: ( ( () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}' ) )
+            // InternalMyDSL.g:78:2: ( () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}' )
             {
-            // InternalMyDSL.g:78:2: ( () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}' )
-            // InternalMyDSL.g:79:3: () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}'
+            // InternalMyDSL.g:78:2: ( () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}' )
+            // InternalMyDSL.g:79:3: () otherlv_1= 'Robot' otherlv_2= '{' (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )? otherlv_9= '}'
             {
             // InternalMyDSL.g:79:3: ()
             // InternalMyDSL.g:80:4: 
@@ -162,7 +162,7 @@ public class InternalMyDSLParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getRobotAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalMyDSL.g:94:3: (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )?
+            // InternalMyDSL.g:94:3: (otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -171,7 +171,7 @@ public class InternalMyDSLParser extends AbstractInternalAntlrParser {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalMyDSL.g:95:4: otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}'
+                    // InternalMyDSL.g:95:4: otherlv_3= 'instructions' otherlv_4= '{' ( (lv_instructions_5_0= ruleInstruction ) ) (otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) ) )* otherlv_8= '}'
                     {
                     otherlv_3=(Token)match(input,13,FOLLOW_3); 
 
@@ -212,7 +212,7 @@ public class InternalMyDSLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyDSL.g:122:4: (otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) ) )*
+                    // InternalMyDSL.g:122:4: (otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) ) )*
                     loop1:
                     do {
                         int alt1=2;
@@ -225,11 +225,11 @@ public class InternalMyDSLParser extends AbstractInternalAntlrParser {
 
                         switch (alt1) {
                     	case 1 :
-                    	    // InternalMyDSL.g:123:5: otherlv_6= '\\n' ( (lv_instructions_7_0= ruleInstruction ) )
+                    	    // InternalMyDSL.g:123:5: otherlv_6= ',' ( (lv_instructions_7_0= ruleInstruction ) )
                     	    {
                     	    otherlv_6=(Token)match(input,14,FOLLOW_5); 
 
-                    	    					newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getLineFeedKeyword_3_3_0());
+                    	    					newLeafNode(otherlv_6, grammarAccess.getRobotAccess().getCommaKeyword_3_3_0());
                     	    				
                     	    // InternalMyDSL.g:127:5: ( (lv_instructions_7_0= ruleInstruction ) )
                     	    // InternalMyDSL.g:128:6: (lv_instructions_7_0= ruleInstruction )
