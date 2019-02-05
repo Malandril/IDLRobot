@@ -104,19 +104,13 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 			case RobotProjectModelPackage.AMOUNT: {
 				Amount amount = (Amount)theEObject;
 				T result = caseAmount(amount);
-				if (result == null) result = caseIntValue(amount);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RobotProjectModelPackage.INT_VALUE: {
-				IntValue intValue = (IntValue)theEObject;
-				T result = caseIntValue(intValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RobotProjectModelPackage.DURATION: {
 				Duration duration = (Duration)theEObject;
 				T result = caseDuration(duration);
+				if (result == null) result = caseAmount(duration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,6 +123,28 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 			case RobotProjectModelPackage.NAMED_BLOCK: {
 				NamedBlock namedBlock = (NamedBlock)theEObject;
 				T result = caseNamedBlock(namedBlock);
+				if (result == null) result = caseInstruction(namedBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.GO_TO: {
+				GoTo goTo = (GoTo)theEObject;
+				T result = caseGoTo(goTo);
+				if (result == null) result = caseInstruction(goTo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.DISTANCE: {
+				Distance distance = (Distance)theEObject;
+				T result = caseDistance(distance);
+				if (result == null) result = caseAmount(distance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.ANGLE: {
+				Angle angle = (Angle)theEObject;
+				T result = caseAngle(angle);
+				if (result == null) result = caseAmount(angle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -227,21 +243,6 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Int Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Int Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIntValue(IntValue object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Duration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -283,6 +284,51 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedBlock(NamedBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Go To</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Go To</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGoTo(GoTo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Distance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Distance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDistance(Distance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Angle</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Angle</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAngle(Angle object) {
 		return null;
 	}
 

@@ -10,6 +10,6 @@ package fr.unice.polytech.robotproject.xtextdsl.scoping
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class MyDSLScopeProvider extends AbstractMyDSLScopeProvider {
+class MyDslScopeProvider extends AbstractMyDslScopeProvider {
 
 }

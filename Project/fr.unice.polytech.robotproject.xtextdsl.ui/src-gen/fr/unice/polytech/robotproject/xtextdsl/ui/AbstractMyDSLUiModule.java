@@ -6,15 +6,15 @@ package fr.unice.polytech.robotproject.xtextdsl.ui;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
-import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.MyDSLParser;
-import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.PartialMyDSLContentAssistParser;
-import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.internal.InternalMyDSLLexer;
-import fr.unice.polytech.robotproject.xtextdsl.ui.contentassist.MyDSLProposalProvider;
-import fr.unice.polytech.robotproject.xtextdsl.ui.labeling.MyDSLDescriptionLabelProvider;
-import fr.unice.polytech.robotproject.xtextdsl.ui.labeling.MyDSLLabelProvider;
-import fr.unice.polytech.robotproject.xtextdsl.ui.outline.MyDSLOutlineTreeProvider;
-import fr.unice.polytech.robotproject.xtextdsl.ui.quickfix.MyDSLQuickfixProvider;
-import fr.unice.polytech.robotproject.xtextdsl.validation.MyDSLValidatorConfigurationBlock;
+import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.MyDslParser;
+import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.PartialMyDslContentAssistParser;
+import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.internal.InternalMyDslLexer;
+import fr.unice.polytech.robotproject.xtextdsl.ui.contentassist.MyDslProposalProvider;
+import fr.unice.polytech.robotproject.xtextdsl.ui.labeling.MyDslDescriptionLabelProvider;
+import fr.unice.polytech.robotproject.xtextdsl.ui.labeling.MyDslLabelProvider;
+import fr.unice.polytech.robotproject.xtextdsl.ui.outline.MyDslOutlineTreeProvider;
+import fr.unice.polytech.robotproject.xtextdsl.ui.quickfix.MyDslQuickfixProvider;
+import fr.unice.polytech.robotproject.xtextdsl.validation.MyDslValidatorConfigurationBlock;
 import org.eclipse.compare.IViewerCreator;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -82,12 +82,12 @@ import org.eclipse.xtext.ui.shared.Access;
 import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
 
 /**
- * Manual modifications go to {@link MyDSLUiModule}.
+ * Manual modifications go to {@link MyDslUiModule}.
  */
 @SuppressWarnings("all")
-public abstract class AbstractMyDSLUiModule extends DefaultUiModule {
+public abstract class AbstractMyDslUiModule extends DefaultUiModule {
 
-	public AbstractMyDSLUiModule(AbstractUIPlugin plugin) {
+	public AbstractMyDslUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
 	
@@ -105,14 +105,14 @@ public abstract class AbstractMyDSLUiModule extends DefaultUiModule {
 	public void configureContentAssistLexer(Binder binder) {
 		binder.bind(Lexer.class)
 			.annotatedWith(Names.named(LexerIdeBindings.CONTENT_ASSIST))
-			.to(InternalMyDSLLexer.class);
+			.to(InternalMyDslLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureHighlightingLexer(Binder binder) {
 		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class)
 			.annotatedWith(Names.named(LexerIdeBindings.HIGHLIGHTING))
-			.to(fr.unice.polytech.robotproject.xtextdsl.parser.antlr.internal.InternalMyDSLLexer.class);
+			.to(fr.unice.polytech.robotproject.xtextdsl.parser.antlr.internal.InternalMyDslLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
@@ -129,17 +129,17 @@ public abstract class AbstractMyDSLUiModule extends DefaultUiModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public Class<? extends IContentAssistParser> bindIContentAssistParser() {
-		return MyDSLParser.class;
+		return MyDslParser.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureContentAssistLexerProvider(Binder binder) {
-		binder.bind(InternalMyDSLLexer.class).toProvider(LexerProvider.create(InternalMyDSLLexer.class));
+		binder.bind(InternalMyDslLexer.class).toProvider(LexerProvider.create(InternalMyDslLexer.class));
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
 	public Class<? extends AbstractValidatorConfigurationBlock> bindAbstractValidatorConfigurationBlock() {
-		return MyDSLValidatorConfigurationBlock.class;
+		return MyDslValidatorConfigurationBlock.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.exporting.QualifiedNamesFragment2
@@ -201,32 +201,32 @@ public abstract class AbstractMyDSLUiModule extends DefaultUiModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
 	public Class<? extends ILabelProvider> bindILabelProvider() {
-		return MyDSLLabelProvider.class;
+		return MyDslLabelProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.labeling.LabelProviderFragment2
 	public void configureResourceUIServiceLabelProvider(Binder binder) {
-		binder.bind(ILabelProvider.class).annotatedWith(ResourceServiceDescriptionLabelProvider.class).to(MyDSLDescriptionLabelProvider.class);
+		binder.bind(ILabelProvider.class).annotatedWith(ResourceServiceDescriptionLabelProvider.class).to(MyDslDescriptionLabelProvider.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.outline.OutlineTreeProviderFragment2
 	public Class<? extends IOutlineTreeProvider> bindIOutlineTreeProvider() {
-		return MyDSLOutlineTreeProvider.class;
+		return MyDslOutlineTreeProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.outline.OutlineTreeProviderFragment2
 	public Class<? extends IOutlineTreeStructureProvider> bindIOutlineTreeStructureProvider() {
-		return MyDSLOutlineTreeProvider.class;
+		return MyDslOutlineTreeProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.quickfix.QuickfixProviderFragment2
 	public Class<? extends IssueResolutionProvider> bindIssueResolutionProvider() {
-		return MyDSLQuickfixProvider.class;
+		return MyDslQuickfixProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.contentAssist.ContentAssistFragment2
 	public Class<? extends IContentProposalProvider> bindIContentProposalProvider() {
-		return MyDSLProposalProvider.class;
+		return MyDslProposalProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.refactoring.RefactorElementNameFragment2
@@ -279,7 +279,7 @@ public abstract class AbstractMyDSLUiModule extends DefaultUiModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.templates.CodetemplatesGeneratorFragment2
 	public Class<? extends IPartialEditingContentAssistParser> bindIPartialEditingContentAssistParser() {
-		return PartialMyDSLContentAssistParser.class;
+		return PartialMyDslContentAssistParser.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.templates.CodetemplatesGeneratorFragment2
@@ -294,7 +294,7 @@ public abstract class AbstractMyDSLUiModule extends DefaultUiModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.compare.CompareFragment2
 	public void configureCompareViewerTitle(Binder binder) {
-		binder.bind(String.class).annotatedWith(Names.named(UIBindings.COMPARE_VIEWER_TITLE)).toInstance("MyDSL Compare");
+		binder.bind(String.class).annotatedWith(Names.named(UIBindings.COMPARE_VIEWER_TITLE)).toInstance("MyDsl Compare");
 	}
 	
 }

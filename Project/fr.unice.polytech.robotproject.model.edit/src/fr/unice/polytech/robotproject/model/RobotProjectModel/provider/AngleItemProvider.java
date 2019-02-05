@@ -3,7 +3,7 @@
 package fr.unice.polytech.robotproject.model.RobotProjectModel.provider;
 
 
-import fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
 
 import java.util.Collection;
@@ -12,40 +12,25 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue} object.
+ * This is the item provider adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Angle} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntValueItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class AngleItemProvider extends AmountItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntValueItemProvider(AdapterFactory adapterFactory) {
+	public AngleItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,31 +45,42 @@ public class IntValueItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
+			addAngleUnitPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Angle Unit feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addAngleUnitPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IntValue_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IntValue_value_feature", "_UI_IntValue_type"),
-				 RobotProjectModelPackage.Literals.INT_VALUE__VALUE,
+				 getString("_UI_Angle_angleUnit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Angle_angleUnit_feature", "_UI_Angle_type"),
+				 RobotProjectModelPackage.Literals.ANGLE__ANGLE_UNIT,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This returns Angle.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Angle"));
 	}
 
 	/**
@@ -95,8 +91,8 @@ public class IntValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		IntValue intValue = (IntValue)object;
-		return getString("_UI_IntValue_type") + " " + intValue.getValue();
+		Angle angle = (Angle)object;
+		return getString("_UI_Angle_type") + " " + angle.getValue();
 	}
 
 
@@ -111,8 +107,8 @@ public class IntValueItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(IntValue.class)) {
-			case RobotProjectModelPackage.INT_VALUE__VALUE:
+		switch (notification.getFeatureID(Angle.class)) {
+			case RobotProjectModelPackage.ANGLE__ANGLE_UNIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -129,17 +125,6 @@ public class IntValueItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ModelEditPlugin.INSTANCE;
 	}
 
 }

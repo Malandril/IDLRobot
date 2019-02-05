@@ -3,9 +3,13 @@
 package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Distance;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Instruction;
-import fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement;
@@ -13,10 +17,12 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Turn;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -76,13 +82,6 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass intValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass durationEClass = null;
 
 	/**
@@ -98,6 +97,48 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * @generated
 	 */
 	private EClass namedBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass goToEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass distanceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass angleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum distanceUnitEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum angleUnitEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum timeUnitEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -183,6 +224,15 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMoveStraight_Distance() {
+		return (EReference)moveStraightEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRobot() {
 		return robotEClass;
 	}
@@ -210,17 +260,8 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMovement_Amount() {
-		return (EReference)movementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getMovement_Duration() {
-		return (EReference)movementEClass.getEStructuralFeatures().get(1);
+		return (EReference)movementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -237,6 +278,15 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTurn_Angle() {
+		return (EReference)turnEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAmount() {
 		return amountEClass;
 	}
@@ -246,17 +296,8 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIntValue() {
-		return intValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIntValue_Value() {
-		return (EAttribute)intValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getAmount_Value() {
+		return (EAttribute)amountEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -273,7 +314,7 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDuration_Value() {
+	public EAttribute getDuration_TimeUnit() {
 		return (EAttribute)durationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -293,6 +334,105 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 */
 	public EClass getNamedBlock() {
 		return namedBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamedBlock_Instructions() {
+		return (EReference)namedBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedBlock_Name() {
+		return (EAttribute)namedBlockEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGoTo() {
+		return goToEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGoTo_Destination() {
+		return (EReference)goToEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDistance() {
+		return distanceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDistance_DistanceUnit() {
+		return (EAttribute)distanceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAngle() {
+		return angleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAngle_AngleUnit() {
+		return (EAttribute)angleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDistanceUnit() {
+		return distanceUnitEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAngleUnit() {
+		return angleUnitEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTimeUnit() {
+		return timeUnitEEnum;
 	}
 
 	/**
@@ -326,27 +466,42 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		instructionEClass = createEClass(INSTRUCTION);
 
 		moveStraightEClass = createEClass(MOVE_STRAIGHT);
+		createEReference(moveStraightEClass, MOVE_STRAIGHT__DISTANCE);
 
 		robotEClass = createEClass(ROBOT);
 		createEReference(robotEClass, ROBOT__INSTRUCTIONS);
 
 		movementEClass = createEClass(MOVEMENT);
-		createEReference(movementEClass, MOVEMENT__AMOUNT);
 		createEReference(movementEClass, MOVEMENT__DURATION);
 
 		turnEClass = createEClass(TURN);
+		createEReference(turnEClass, TURN__ANGLE);
 
 		amountEClass = createEClass(AMOUNT);
-
-		intValueEClass = createEClass(INT_VALUE);
-		createEAttribute(intValueEClass, INT_VALUE__VALUE);
+		createEAttribute(amountEClass, AMOUNT__VALUE);
 
 		durationEClass = createEClass(DURATION);
-		createEAttribute(durationEClass, DURATION__VALUE);
+		createEAttribute(durationEClass, DURATION__TIME_UNIT);
 
 		integerValueEClass = createEClass(INTEGER_VALUE);
 
 		namedBlockEClass = createEClass(NAMED_BLOCK);
+		createEReference(namedBlockEClass, NAMED_BLOCK__INSTRUCTIONS);
+		createEAttribute(namedBlockEClass, NAMED_BLOCK__NAME);
+
+		goToEClass = createEClass(GO_TO);
+		createEReference(goToEClass, GO_TO__DESTINATION);
+
+		distanceEClass = createEClass(DISTANCE);
+		createEAttribute(distanceEClass, DISTANCE__DISTANCE_UNIT);
+
+		angleEClass = createEClass(ANGLE);
+		createEAttribute(angleEClass, ANGLE__ANGLE_UNIT);
+
+		// Create enums
+		distanceUnitEEnum = createEEnum(DISTANCE_UNIT);
+		angleUnitEEnum = createEEnum(ANGLE_UNIT);
+		timeUnitEEnum = createEEnum(TIME_UNIT);
 	}
 
 	/**
@@ -380,33 +535,58 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		moveStraightEClass.getESuperTypes().add(this.getMovement());
 		movementEClass.getESuperTypes().add(this.getInstruction());
 		turnEClass.getESuperTypes().add(this.getMovement());
-		amountEClass.getESuperTypes().add(this.getIntValue());
+		durationEClass.getESuperTypes().add(this.getAmount());
+		namedBlockEClass.getESuperTypes().add(this.getInstruction());
+		goToEClass.getESuperTypes().add(this.getInstruction());
+		distanceEClass.getESuperTypes().add(this.getAmount());
+		angleEClass.getESuperTypes().add(this.getAmount());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(instructionEClass, Instruction.class, "Instruction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(moveStraightEClass, MoveStraight.class, "MoveStraight", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMoveStraight_Distance(), this.getDistance(), null, "distance", null, 0, 1, MoveStraight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRobot_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(movementEClass, Movement.class, "Movement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMovement_Amount(), this.getAmount(), null, "amount", null, 1, 1, Movement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMovement_Duration(), this.getDuration(), null, "duration", null, 0, 1, Movement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMovement_Duration(), this.getDuration(), null, "duration", null, 1, 1, Movement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(turnEClass, Turn.class, "Turn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTurn_Angle(), this.getAngle(), null, "angle", null, 1, 1, Turn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(amountEClass, Amount.class, "Amount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(intValueEClass, IntValue.class, "IntValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntValue_Value(), ecorePackage.getEInt(), "value", null, 1, 1, IntValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAmount_Value(), ecorePackage.getEInt(), "value", null, 1, 1, Amount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(durationEClass, Duration.class, "Duration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDuration_Value(), ecorePackage.getEInt(), "value", null, 1, 1, Duration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDuration_TimeUnit(), this.getTimeUnit(), "timeUnit", null, 1, 1, Duration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(integerValueEClass, IntegerValue.class, "IntegerValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(namedBlockEClass, NamedBlock.class, "NamedBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNamedBlock_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, NamedBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamedBlock_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(goToEClass, GoTo.class, "GoTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGoTo_Destination(), this.getNamedBlock(), null, "destination", null, 1, 1, GoTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(distanceEClass, Distance.class, "Distance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDistance_DistanceUnit(), this.getDistanceUnit(), "distanceUnit", null, 0, 1, Distance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(angleEClass, Angle.class, "Angle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAngle_AngleUnit(), this.getAngleUnit(), "angleUnit", null, 0, 1, Angle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(distanceUnitEEnum, DistanceUnit.class, "DistanceUnit");
+		addEEnumLiteral(distanceUnitEEnum, DistanceUnit.CENTIMETERS);
+
+		initEEnum(angleUnitEEnum, AngleUnit.class, "AngleUnit");
+		addEEnumLiteral(angleUnitEEnum, AngleUnit.DEGREES);
+
+		initEEnum(timeUnitEEnum, TimeUnit.class, "TimeUnit");
+		addEEnumLiteral(timeUnitEEnum, TimeUnit.SECONDS);
+		addEEnumLiteral(timeUnitEEnum, TimeUnit.MILLISECONDS);
 
 		// Create resource
 		createResource(eNS_URI);

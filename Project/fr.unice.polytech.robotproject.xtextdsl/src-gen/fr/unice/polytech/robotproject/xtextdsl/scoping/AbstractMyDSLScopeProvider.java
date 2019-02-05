@@ -5,5 +5,5 @@ package fr.unice.polytech.robotproject.xtextdsl.scoping;
 
 import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
 
-public abstract class AbstractMyDSLScopeProvider extends DelegatingScopeProvider {
+public abstract class AbstractMyDslScopeProvider extends DelegatingScopeProvider {
 }

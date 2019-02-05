@@ -7,24 +7,48 @@
   <foreignModel>model.ecore</foreignModel>
   <genPackages prefix="RobotProjectModel" basePackage="fr.unice.polytech.robotproject.model"
       disposableProviderFactory="true" ecorePackage="model.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//DistanceUnit">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DistanceUnit/CENTIMETERS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//AngleUnit">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//AngleUnit/DEGREES"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//TimeUnit">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//TimeUnit/SECONDS"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//TimeUnit/MILLISECONDS"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="model.ecore#//Instruction"/>
-    <genClasses ecoreClass="model.ecore#//MoveStraight"/>
+    <genClasses ecoreClass="model.ecore#//MoveStraight">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MoveStraight/distance"/>
+    </genClasses>
     <genClasses ecoreClass="model.ecore#//Robot">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Robot/instructions"/>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//Movement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference model.ecore#//Movement/amount"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Movement/duration"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//Turn"/>
-    <genClasses ecoreClass="model.ecore#//Amount"/>
-    <genClasses image="false" ecoreClass="model.ecore#//IntValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//IntValue/value"/>
+    <genClasses ecoreClass="model.ecore#//Turn">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Turn/angle"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Amount">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Amount/value"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Duration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Duration/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Duration/timeUnit"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//IntegerValue"/>
-    <genClasses ecoreClass="model.ecore#//NamedBlock"/>
+    <genClasses ecoreClass="model.ecore#//NamedBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//NamedBlock/instructions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//NamedBlock/name"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//GoTo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//GoTo/destination"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Distance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Distance/distanceUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Angle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Angle/angleUnit"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

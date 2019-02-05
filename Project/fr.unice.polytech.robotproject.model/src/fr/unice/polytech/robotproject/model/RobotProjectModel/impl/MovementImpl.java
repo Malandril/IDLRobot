@@ -2,7 +2,6 @@
  */
 package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
@@ -24,23 +23,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.MovementImpl#getAmount <em>Amount</em>}</li>
  *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.MovementImpl#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class MovementImpl extends MinimalEObjectImpl.Container implements Movement {
-	/**
-	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected Amount amount;
-
 	/**
 	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -68,49 +56,6 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	protected EClass eStaticClass() {
 		return RobotProjectModelPackage.Literals.MOVEMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Amount getAmount() {
-		return amount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAmount(Amount newAmount, NotificationChain msgs) {
-		Amount oldAmount = amount;
-		amount = newAmount;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.MOVEMENT__AMOUNT, oldAmount, newAmount);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAmount(Amount newAmount) {
-		if (newAmount != amount) {
-			NotificationChain msgs = null;
-			if (amount != null)
-				msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RobotProjectModelPackage.MOVEMENT__AMOUNT, null, msgs);
-			if (newAmount != null)
-				msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RobotProjectModelPackage.MOVEMENT__AMOUNT, null, msgs);
-			msgs = basicSetAmount(newAmount, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.MOVEMENT__AMOUNT, newAmount, newAmount));
 	}
 
 	/**
@@ -164,8 +109,6 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__AMOUNT:
-				return basicSetAmount(null, msgs);
 			case RobotProjectModelPackage.MOVEMENT__DURATION:
 				return basicSetDuration(null, msgs);
 		}
@@ -180,8 +123,6 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__AMOUNT:
-				return getAmount();
 			case RobotProjectModelPackage.MOVEMENT__DURATION:
 				return getDuration();
 		}
@@ -196,9 +137,6 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__AMOUNT:
-				setAmount((Amount)newValue);
-				return;
 			case RobotProjectModelPackage.MOVEMENT__DURATION:
 				setDuration((Duration)newValue);
 				return;
@@ -214,9 +152,6 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__AMOUNT:
-				setAmount((Amount)null);
-				return;
 			case RobotProjectModelPackage.MOVEMENT__DURATION:
 				setDuration((Duration)null);
 				return;
@@ -232,8 +167,6 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__AMOUNT:
-				return amount != null;
 			case RobotProjectModelPackage.MOVEMENT__DURATION:
 				return duration != null;
 		}

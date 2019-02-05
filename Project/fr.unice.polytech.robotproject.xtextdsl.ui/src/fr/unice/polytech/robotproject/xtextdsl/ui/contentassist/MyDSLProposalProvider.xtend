@@ -8,5 +8,5 @@ package fr.unice.polytech.robotproject.xtextdsl.ui.contentassist
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
-class MyDSLProposalProvider extends AbstractMyDSLProposalProvider {
+class MyDslProposalProvider extends AbstractMyDslProposalProvider {
 }

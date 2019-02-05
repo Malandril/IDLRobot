@@ -8,7 +8,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
 
-public abstract class AbstractMyDSLValidator extends AbstractDeclarativeValidator {
+public abstract class AbstractMyDslValidator extends AbstractDeclarativeValidator {
 	
 	@Override
 	protected List<EPackage> getEPackages() {

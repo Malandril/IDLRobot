@@ -6,17 +6,17 @@ package fr.unice.polytech.robotproject.xtextdsl;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
-import fr.unice.polytech.robotproject.xtextdsl.formatting2.MyDSLFormatter;
-import fr.unice.polytech.robotproject.xtextdsl.generator.MyDSLGenerator;
-import fr.unice.polytech.robotproject.xtextdsl.parser.antlr.MyDSLAntlrTokenFileProvider;
-import fr.unice.polytech.robotproject.xtextdsl.parser.antlr.MyDSLParser;
-import fr.unice.polytech.robotproject.xtextdsl.parser.antlr.internal.InternalMyDSLLexer;
-import fr.unice.polytech.robotproject.xtextdsl.scoping.MyDSLScopeProvider;
-import fr.unice.polytech.robotproject.xtextdsl.serializer.MyDSLSemanticSequencer;
-import fr.unice.polytech.robotproject.xtextdsl.serializer.MyDSLSyntacticSequencer;
-import fr.unice.polytech.robotproject.xtextdsl.services.MyDSLGrammarAccess;
-import fr.unice.polytech.robotproject.xtextdsl.validation.MyDSLConfigurableIssueCodesProvider;
-import fr.unice.polytech.robotproject.xtextdsl.validation.MyDSLValidator;
+import fr.unice.polytech.robotproject.xtextdsl.formatting2.MyDslFormatter;
+import fr.unice.polytech.robotproject.xtextdsl.generator.MyDslGenerator;
+import fr.unice.polytech.robotproject.xtextdsl.parser.antlr.MyDslAntlrTokenFileProvider;
+import fr.unice.polytech.robotproject.xtextdsl.parser.antlr.MyDslParser;
+import fr.unice.polytech.robotproject.xtextdsl.parser.antlr.internal.InternalMyDslLexer;
+import fr.unice.polytech.robotproject.xtextdsl.scoping.MyDslScopeProvider;
+import fr.unice.polytech.robotproject.xtextdsl.serializer.MyDslSemanticSequencer;
+import fr.unice.polytech.robotproject.xtextdsl.serializer.MyDslSyntacticSequencer;
+import fr.unice.polytech.robotproject.xtextdsl.services.MyDslGrammarAccess;
+import fr.unice.polytech.robotproject.xtextdsl.validation.MyDslConfigurableIssueCodesProvider;
+import fr.unice.polytech.robotproject.xtextdsl.validation.MyDslValidator;
 import java.util.Properties;
 import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
@@ -60,21 +60,21 @@ import org.eclipse.xtext.service.SingletonBinding;
 import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
 
 /**
- * Manual modifications go to {@link MyDSLRuntimeModule}.
+ * Manual modifications go to {@link MyDslRuntimeModule}.
  */
 @SuppressWarnings("all")
-public abstract class AbstractMyDSLRuntimeModule extends DefaultRuntimeModule {
+public abstract class AbstractMyDslRuntimeModule extends DefaultRuntimeModule {
 
 	protected Properties properties = null;
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "fr/unice/polytech/robotproject/xtextdsl/MyDSL.properties");
+		properties = tryBindProperties(binder, "fr/unice/polytech/robotproject/xtextdsl/MyDsl.properties");
 		super.configure(binder);
 	}
 	
 	public void configureLanguageName(Binder binder) {
-		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("fr.unice.polytech.robotproject.xtextdsl.MyDSL");
+		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("fr.unice.polytech.robotproject.xtextdsl.MyDsl");
 	}
 	
 	public void configureFileExtensions(Binder binder) {
@@ -89,17 +89,17 @@ public abstract class AbstractMyDSLRuntimeModule extends DefaultRuntimeModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
 	public Class<? extends IGrammarAccess> bindIGrammarAccess() {
-		return MyDSLGrammarAccess.class;
+		return MyDslGrammarAccess.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
 	public Class<? extends ISemanticSequencer> bindISemanticSequencer() {
-		return MyDSLSemanticSequencer.class;
+		return MyDslSemanticSequencer.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
 	public Class<? extends ISyntacticSequencer> bindISyntacticSequencer() {
-		return MyDSLSyntacticSequencer.class;
+		return MyDslSyntacticSequencer.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
@@ -109,7 +109,7 @@ public abstract class AbstractMyDSLRuntimeModule extends DefaultRuntimeModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public Class<? extends IParser> bindIParser() {
-		return MyDSLParser.class;
+		return MyDslParser.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
@@ -119,12 +119,12 @@ public abstract class AbstractMyDSLRuntimeModule extends DefaultRuntimeModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public Class<? extends IAntlrTokenFileProvider> bindIAntlrTokenFileProvider() {
-		return MyDSLAntlrTokenFileProvider.class;
+		return MyDslAntlrTokenFileProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public Class<? extends Lexer> bindLexer() {
-		return InternalMyDSLLexer.class;
+		return InternalMyDslLexer.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
@@ -133,31 +133,31 @@ public abstract class AbstractMyDSLRuntimeModule extends DefaultRuntimeModule {
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-	public Provider<? extends InternalMyDSLLexer> provideInternalMyDSLLexer() {
-		return LexerProvider.create(InternalMyDSLLexer.class);
+	public Provider<? extends InternalMyDslLexer> provideInternalMyDslLexer() {
+		return LexerProvider.create(InternalMyDslLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureRuntimeLexer(Binder binder) {
 		binder.bind(Lexer.class)
 			.annotatedWith(Names.named(LexerBindings.RUNTIME))
-			.to(InternalMyDSLLexer.class);
+			.to(InternalMyDslLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
 	@SingletonBinding(eager=true)
-	public Class<? extends MyDSLValidator> bindMyDSLValidator() {
-		return MyDSLValidator.class;
+	public Class<? extends MyDslValidator> bindMyDslValidator() {
+		return MyDslValidator.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
 	public Class<? extends ConfigurableIssueCodesProvider> bindConfigurableIssueCodesProvider() {
-		return MyDSLConfigurableIssueCodesProvider.class;
+		return MyDslConfigurableIssueCodesProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
 	public Class<? extends IScopeProvider> bindIScopeProvider() {
-		return MyDSLScopeProvider.class;
+		return MyDslScopeProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
@@ -202,12 +202,12 @@ public abstract class AbstractMyDSLRuntimeModule extends DefaultRuntimeModule {
 	
 	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
 	public Class<? extends IGenerator2> bindIGenerator2() {
-		return MyDSLGenerator.class;
+		return MyDslGenerator.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.formatting.Formatter2Fragment2
 	public Class<? extends IFormatter2> bindIFormatter2() {
-		return MyDSLFormatter.class;
+		return MyDslFormatter.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.formatting.Formatter2Fragment2

@@ -7,11 +7,11 @@ import com.google.inject.Injector;
 import fr.unice.polytech.robotproject.xtextdsl.ui.internal.XtextdslActivator;
 import org.eclipse.xtext.testing.IInjectorProvider;
 
-public class MyDSLUiInjectorProvider implements IInjectorProvider {
+public class MyDslUiInjectorProvider implements IInjectorProvider {
 
 	@Override
 	public Injector getInjector() {
-		return XtextdslActivator.getInstance().getInjector("fr.unice.polytech.robotproject.xtextdsl.MyDSL");
+		return XtextdslActivator.getInstance().getInjector("fr.unice.polytech.robotproject.xtextdsl.MyDsl");
 	}
 
 }

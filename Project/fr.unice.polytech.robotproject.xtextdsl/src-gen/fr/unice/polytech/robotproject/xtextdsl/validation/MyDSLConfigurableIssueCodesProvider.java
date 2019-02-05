@@ -9,7 +9,7 @@ import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
 import org.eclipse.xtext.validation.SeverityConverter;
 
 @SuppressWarnings("restriction")
-public class MyDSLConfigurableIssueCodesProvider extends ConfigurableIssueCodesProvider {
+public class MyDslConfigurableIssueCodesProvider extends ConfigurableIssueCodesProvider {
 	protected static final String ISSUE_CODE_PREFIX = "fr.unice.polytech.robotproject.xtextdsl.";
 
 	public static final String DEPRECATED_MODEL_PART = ISSUE_CODE_PREFIX + "deprecatedModelPart";

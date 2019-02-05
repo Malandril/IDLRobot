@@ -4,9 +4,6 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.tests;
 
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DurationTest extends TestCase {
-
-	/**
-	 * The fixture for this Duration test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Duration fixture = null;
+public class DurationTest extends AmountTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class DurationTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Duration test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Duration fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Duration test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Duration getFixture() {
-		return fixture;
+		return (Duration)fixture;
 	}
 
 	/**

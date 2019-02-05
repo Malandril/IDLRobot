@@ -1,10 +1,20 @@
-	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveAspect
-		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight){
-			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight)_self,rob);
-		} else
-		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveAspect
 	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.TurnAspect
 		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.Turn){
 			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.TurnAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.Turn)_self,rob);
 		} else
 		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.TurnAspect
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.NamedBlockAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock){
+			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.NamedBlockAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.NamedBlockAspect
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GoToAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo){
+			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GoToAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GoToAspect
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveStraightAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight){
+			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveStraightAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveStraightAspect

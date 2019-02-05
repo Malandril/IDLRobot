@@ -5,8 +5,8 @@ package fr.unice.polytech.robotproject.xtextdsl.ide;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
-import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.MyDSLParser;
-import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.internal.InternalMyDSLLexer;
+import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.MyDslParser;
+import fr.unice.polytech.robotproject.xtextdsl.ide.contentassist.antlr.internal.InternalMyDslLexer;
 import org.eclipse.xtext.ide.DefaultIdeModule;
 import org.eclipse.xtext.ide.LexerIdeBindings;
 import org.eclipse.xtext.ide.editor.contentassist.FQNPrefixMatcher;
@@ -20,21 +20,21 @@ import org.eclipse.xtext.ide.server.rename.IRenameService;
 import org.eclipse.xtext.ide.server.rename.RenameService;
 
 /**
- * Manual modifications go to {@link MyDSLIdeModule}.
+ * Manual modifications go to {@link MyDslIdeModule}.
  */
 @SuppressWarnings("all")
-public abstract class AbstractMyDSLIdeModule extends DefaultIdeModule {
+public abstract class AbstractMyDslIdeModule extends DefaultIdeModule {
 
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureContentAssistLexer(Binder binder) {
 		binder.bind(Lexer.class)
 			.annotatedWith(Names.named(LexerIdeBindings.CONTENT_ASSIST))
-			.to(InternalMyDSLLexer.class);
+			.to(InternalMyDslLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public Class<? extends IContentAssistParser> bindIContentAssistParser() {
-		return MyDSLParser.class;
+		return MyDslParser.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2

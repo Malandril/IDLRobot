@@ -13,8 +13,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(XtextRunner)
-@InjectWith(MyDSLInjectorProvider)
-class MyDSLParsingTest {
+@InjectWith(MyDslInjectorProvider)
+class MyDslParsingTest {
 	@Inject
 	ParseHelper<Robot> parseHelper
 	
@@ -25,6 +25,6 @@ class MyDSLParsingTest {
 		''')
 		Assert.assertNotNull(result)
 		val errors = result.eResource.errors
-		Assert.assertTrue('''Unexpected errors: Â«errors.join(", ")Â»''', errors.isEmpty)
+		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 	}
 }

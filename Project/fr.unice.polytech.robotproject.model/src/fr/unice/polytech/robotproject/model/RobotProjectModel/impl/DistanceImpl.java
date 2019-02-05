@@ -2,7 +2,8 @@
  */
 package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 
-import fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Distance;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -10,48 +11,47 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Int Value</b></em>'.
+ * An implementation of the model object '<em><b>Distance</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DistanceImpl#getDistanceUnit <em>Distance Unit</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class IntValueImpl extends MinimalEObjectImpl.Container implements IntValue {
+public class DistanceImpl extends AmountImpl implements Distance {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #getDistanceUnit() <em>Distance Unit</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getDistanceUnit()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int VALUE_EDEFAULT = 0;
+	protected static final DistanceUnit DISTANCE_UNIT_EDEFAULT = DistanceUnit.CENTIMETERS;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getDistanceUnit() <em>Distance Unit</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getDistanceUnit()
 	 * @generated
 	 * @ordered
 	 */
-	protected int value = VALUE_EDEFAULT;
+	protected DistanceUnit distanceUnit = DISTANCE_UNIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntValueImpl() {
+	protected DistanceImpl() {
 		super();
 	}
 
@@ -62,7 +62,7 @@ public abstract class IntValueImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RobotProjectModelPackage.Literals.INT_VALUE;
+		return RobotProjectModelPackage.Literals.DISTANCE;
 	}
 
 	/**
@@ -70,8 +70,8 @@ public abstract class IntValueImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getValue() {
-		return value;
+	public DistanceUnit getDistanceUnit() {
+		return distanceUnit;
 	}
 
 	/**
@@ -79,11 +79,11 @@ public abstract class IntValueImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(int newValue) {
-		int oldValue = value;
-		value = newValue;
+	public void setDistanceUnit(DistanceUnit newDistanceUnit) {
+		DistanceUnit oldDistanceUnit = distanceUnit;
+		distanceUnit = newDistanceUnit == null ? DISTANCE_UNIT_EDEFAULT : newDistanceUnit;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.INT_VALUE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.DISTANCE__DISTANCE_UNIT, oldDistanceUnit, distanceUnit));
 	}
 
 	/**
@@ -94,8 +94,8 @@ public abstract class IntValueImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RobotProjectModelPackage.INT_VALUE__VALUE:
-				return getValue();
+			case RobotProjectModelPackage.DISTANCE__DISTANCE_UNIT:
+				return getDistanceUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +108,8 @@ public abstract class IntValueImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RobotProjectModelPackage.INT_VALUE__VALUE:
-				setValue((Integer)newValue);
+			case RobotProjectModelPackage.DISTANCE__DISTANCE_UNIT:
+				setDistanceUnit((DistanceUnit)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +123,8 @@ public abstract class IntValueImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RobotProjectModelPackage.INT_VALUE__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case RobotProjectModelPackage.DISTANCE__DISTANCE_UNIT:
+				setDistanceUnit(DISTANCE_UNIT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +138,8 @@ public abstract class IntValueImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RobotProjectModelPackage.INT_VALUE__VALUE:
-				return value != VALUE_EDEFAULT;
+			case RobotProjectModelPackage.DISTANCE__DISTANCE_UNIT:
+				return distanceUnit != DISTANCE_UNIT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,10 +154,10 @@ public abstract class IntValueImpl extends MinimalEObjectImpl.Container implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
+		result.append(" (distanceUnit: ");
+		result.append(distanceUnit);
 		result.append(')');
 		return result.toString();
 	}
 
-} //IntValueImpl
+} //DistanceImpl

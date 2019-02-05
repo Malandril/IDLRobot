@@ -11,7 +11,7 @@ import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.AbstractInterna
 import org.eclipse.xtext.ide.editor.partialEditing.IPartialEditingContentAssistParser;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 
-public class PartialMyDSLContentAssistParser extends MyDSLParser implements IPartialEditingContentAssistParser {
+public class PartialMyDslContentAssistParser extends MyDslParser implements IPartialEditingContentAssistParser {
 
 	private AbstractRule rule;
 

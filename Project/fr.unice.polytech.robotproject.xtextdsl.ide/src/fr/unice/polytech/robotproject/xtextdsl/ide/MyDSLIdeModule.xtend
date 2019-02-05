@@ -7,5 +7,5 @@ package fr.unice.polytech.robotproject.xtextdsl.ide
 /**
  * Use this class to register ide components.
  */
-class MyDSLIdeModule extends AbstractMyDSLIdeModule {
+class MyDslIdeModule extends AbstractMyDslIdeModule {
 }

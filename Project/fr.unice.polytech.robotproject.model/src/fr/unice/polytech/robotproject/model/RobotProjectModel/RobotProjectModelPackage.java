@@ -4,6 +4,7 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -96,22 +97,13 @@ public interface RobotProjectModelPackage extends EPackage {
 	int MOVEMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Amount</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVEMENT__AMOUNT = INSTRUCTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Duration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVEMENT__DURATION = INSTRUCTION_FEATURE_COUNT + 1;
+	int MOVEMENT__DURATION = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Movement</em>' class.
@@ -120,7 +112,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVEMENT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+	int MOVEMENT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Movement</em>' class.
@@ -142,15 +134,6 @@ public interface RobotProjectModelPackage extends EPackage {
 	int MOVE_STRAIGHT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Amount</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE_STRAIGHT__AMOUNT = MOVEMENT__AMOUNT;
-
-	/**
 	 * The feature id for the '<em><b>Duration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,13 +143,22 @@ public interface RobotProjectModelPackage extends EPackage {
 	int MOVE_STRAIGHT__DURATION = MOVEMENT__DURATION;
 
 	/**
+	 * The feature id for the '<em><b>Distance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_STRAIGHT__DISTANCE = MOVEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Move Straight</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_STRAIGHT_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 0;
+	int MOVE_STRAIGHT_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Move Straight</em>' class.
@@ -225,15 +217,6 @@ public interface RobotProjectModelPackage extends EPackage {
 	int TURN = 4;
 
 	/**
-	 * The feature id for the '<em><b>Amount</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TURN__AMOUNT = MOVEMENT__AMOUNT;
-
-	/**
 	 * The feature id for the '<em><b>Duration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -243,13 +226,22 @@ public interface RobotProjectModelPackage extends EPackage {
 	int TURN__DURATION = MOVEMENT__DURATION;
 
 	/**
+	 * The feature id for the '<em><b>Angle</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TURN__ANGLE = MOVEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Turn</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TURN_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 0;
+	int TURN_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Turn</em>' class.
@@ -259,43 +251,6 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TURN_OPERATION_COUNT = MOVEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntValueImpl <em>Int Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntValueImpl
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getIntValue()
-	 * @generated
-	 */
-	int INT_VALUE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INT_VALUE__VALUE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Int Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INT_VALUE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Int Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INT_VALUE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.AmountImpl <em>Amount</em>}' class.
@@ -314,7 +269,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT__VALUE = INT_VALUE__VALUE;
+	int AMOUNT__VALUE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Amount</em>' class.
@@ -323,7 +278,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_FEATURE_COUNT = INT_VALUE_FEATURE_COUNT + 0;
+	int AMOUNT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Amount</em>' class.
@@ -332,7 +287,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_OPERATION_COUNT = INT_VALUE_OPERATION_COUNT + 0;
+	int AMOUNT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DurationImpl <em>Duration</em>}' class.
@@ -342,7 +297,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDuration()
 	 * @generated
 	 */
-	int DURATION = 7;
+	int DURATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -351,7 +306,16 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DURATION__VALUE = 0;
+	int DURATION__VALUE = AMOUNT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Time Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DURATION__TIME_UNIT = AMOUNT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Duration</em>' class.
@@ -360,7 +324,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DURATION_FEATURE_COUNT = 1;
+	int DURATION_FEATURE_COUNT = AMOUNT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Duration</em>' class.
@@ -369,7 +333,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DURATION_OPERATION_COUNT = 0;
+	int DURATION_OPERATION_COUNT = AMOUNT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntegerValueImpl <em>Integer Value</em>}' class.
@@ -379,7 +343,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getIntegerValue()
 	 * @generated
 	 */
-	int INTEGER_VALUE = 8;
+	int INTEGER_VALUE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Integer Value</em>' class.
@@ -407,7 +371,25 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getNamedBlock()
 	 * @generated
 	 */
-	int NAMED_BLOCK = 9;
+	int NAMED_BLOCK = 8;
+
+	/**
+	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_BLOCK__INSTRUCTIONS = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_BLOCK__NAME = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Named Block</em>' class.
@@ -416,7 +398,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_BLOCK_FEATURE_COUNT = 0;
+	int NAMED_BLOCK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Named Block</em>' class.
@@ -425,7 +407,166 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_BLOCK_OPERATION_COUNT = 0;
+	int NAMED_BLOCK_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.GoToImpl <em>Go To</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.GoToImpl
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getGoTo()
+	 * @generated
+	 */
+	int GO_TO = 9;
+
+	/**
+	 * The feature id for the '<em><b>Destination</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_TO__DESTINATION = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Go To</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_TO_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Go To</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_TO_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DistanceImpl <em>Distance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DistanceImpl
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDistance()
+	 * @generated
+	 */
+	int DISTANCE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE__VALUE = AMOUNT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Distance Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE__DISTANCE_UNIT = AMOUNT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Distance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE_FEATURE_COUNT = AMOUNT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Distance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE_OPERATION_COUNT = AMOUNT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.AngleImpl <em>Angle</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.AngleImpl
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getAngle()
+	 * @generated
+	 */
+	int ANGLE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE__VALUE = AMOUNT__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Angle Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE__ANGLE_UNIT = AMOUNT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Angle</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE_FEATURE_COUNT = AMOUNT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Angle</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE_OPERATION_COUNT = AMOUNT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDistanceUnit()
+	 * @generated
+	 */
+	int DISTANCE_UNIT = 12;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit <em>Angle Unit</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getAngleUnit()
+	 * @generated
+	 */
+	int ANGLE_UNIT = 13;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit <em>Time Unit</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getTimeUnit()
+	 * @generated
+	 */
+	int TIME_UNIT = 14;
 
 
 	/**
@@ -447,6 +588,17 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMoveStraight();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight#getDistance <em>Distance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Distance</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight#getDistance()
+	 * @see #getMoveStraight()
+	 * @generated
+	 */
+	EReference getMoveStraight_Distance();
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Robot <em>Robot</em>}'.
@@ -480,17 +632,6 @@ public interface RobotProjectModelPackage extends EPackage {
 	EClass getMovement();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Movement#getAmount <em>Amount</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Amount</em>'.
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Movement#getAmount()
-	 * @see #getMovement()
-	 * @generated
-	 */
-	EReference getMovement_Amount();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Movement#getDuration <em>Duration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -512,6 +653,17 @@ public interface RobotProjectModelPackage extends EPackage {
 	EClass getTurn();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Turn#getAngle <em>Angle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Angle</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Turn#getAngle()
+	 * @see #getTurn()
+	 * @generated
+	 */
+	EReference getTurn_Angle();
+
+	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Amount <em>Amount</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -522,25 +674,15 @@ public interface RobotProjectModelPackage extends EPackage {
 	EClass getAmount();
 
 	/**
-	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue <em>Int Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Int Value</em>'.
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue
-	 * @generated
-	 */
-	EClass getIntValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Amount#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue#getValue()
-	 * @see #getIntValue()
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Amount#getValue()
+	 * @see #getAmount()
 	 * @generated
 	 */
-	EAttribute getIntValue_Value();
+	EAttribute getAmount_Value();
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Duration <em>Duration</em>}'.
@@ -553,15 +695,15 @@ public interface RobotProjectModelPackage extends EPackage {
 	EClass getDuration();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Duration#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Duration#getTimeUnit <em>Time Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Duration#getValue()
+	 * @return the meta object for the attribute '<em>Time Unit</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Duration#getTimeUnit()
 	 * @see #getDuration()
 	 * @generated
 	 */
-	EAttribute getDuration_Value();
+	EAttribute getDuration_TimeUnit();
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue <em>Integer Value</em>}'.
@@ -582,6 +724,121 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNamedBlock();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock#getInstructions <em>Instructions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Instructions</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock#getInstructions()
+	 * @see #getNamedBlock()
+	 * @generated
+	 */
+	EReference getNamedBlock_Instructions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock#getName()
+	 * @see #getNamedBlock()
+	 * @generated
+	 */
+	EAttribute getNamedBlock_Name();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo <em>Go To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Go To</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo
+	 * @generated
+	 */
+	EClass getGoTo();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo#getDestination <em>Destination</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Destination</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo#getDestination()
+	 * @see #getGoTo()
+	 * @generated
+	 */
+	EReference getGoTo_Destination();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Distance <em>Distance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Distance</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Distance
+	 * @generated
+	 */
+	EClass getDistance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Distance#getDistanceUnit <em>Distance Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Distance Unit</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Distance#getDistanceUnit()
+	 * @see #getDistance()
+	 * @generated
+	 */
+	EAttribute getDistance_DistanceUnit();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Angle <em>Angle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Angle</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Angle
+	 * @generated
+	 */
+	EClass getAngle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Angle#getAngleUnit <em>Angle Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Angle Unit</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Angle#getAngleUnit()
+	 * @see #getAngle()
+	 * @generated
+	 */
+	EAttribute getAngle_AngleUnit();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Distance Unit</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit
+	 * @generated
+	 */
+	EEnum getDistanceUnit();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit <em>Angle Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Angle Unit</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit
+	 * @generated
+	 */
+	EEnum getAngleUnit();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit <em>Time Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Time Unit</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit
+	 * @generated
+	 */
+	EEnum getTimeUnit();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -627,6 +884,14 @@ public interface RobotProjectModelPackage extends EPackage {
 		EClass MOVE_STRAIGHT = eINSTANCE.getMoveStraight();
 
 		/**
+		 * The meta object literal for the '<em><b>Distance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MOVE_STRAIGHT__DISTANCE = eINSTANCE.getMoveStraight_Distance();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotImpl <em>Robot</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -655,14 +920,6 @@ public interface RobotProjectModelPackage extends EPackage {
 		EClass MOVEMENT = eINSTANCE.getMovement();
 
 		/**
-		 * The meta object literal for the '<em><b>Amount</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MOVEMENT__AMOUNT = eINSTANCE.getMovement_Amount();
-
-		/**
 		 * The meta object literal for the '<em><b>Duration</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -681,6 +938,14 @@ public interface RobotProjectModelPackage extends EPackage {
 		EClass TURN = eINSTANCE.getTurn();
 
 		/**
+		 * The meta object literal for the '<em><b>Angle</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TURN__ANGLE = eINSTANCE.getTurn_Angle();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.AmountImpl <em>Amount</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -691,22 +956,12 @@ public interface RobotProjectModelPackage extends EPackage {
 		EClass AMOUNT = eINSTANCE.getAmount();
 
 		/**
-		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntValueImpl <em>Int Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntValueImpl
-		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getIntValue()
-		 * @generated
-		 */
-		EClass INT_VALUE = eINSTANCE.getIntValue();
-
-		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INT_VALUE__VALUE = eINSTANCE.getIntValue_Value();
+		EAttribute AMOUNT__VALUE = eINSTANCE.getAmount_Value();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DurationImpl <em>Duration</em>}' class.
@@ -719,12 +974,12 @@ public interface RobotProjectModelPackage extends EPackage {
 		EClass DURATION = eINSTANCE.getDuration();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Time Unit</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DURATION__VALUE = eINSTANCE.getDuration_Value();
+		EAttribute DURATION__TIME_UNIT = eINSTANCE.getDuration_TimeUnit();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntegerValueImpl <em>Integer Value</em>}' class.
@@ -745,6 +1000,106 @@ public interface RobotProjectModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NAMED_BLOCK = eINSTANCE.getNamedBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAMED_BLOCK__INSTRUCTIONS = eINSTANCE.getNamedBlock_Instructions();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_BLOCK__NAME = eINSTANCE.getNamedBlock_Name();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.GoToImpl <em>Go To</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.GoToImpl
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getGoTo()
+		 * @generated
+		 */
+		EClass GO_TO = eINSTANCE.getGoTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Destination</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GO_TO__DESTINATION = eINSTANCE.getGoTo_Destination();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DistanceImpl <em>Distance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DistanceImpl
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDistance()
+		 * @generated
+		 */
+		EClass DISTANCE = eINSTANCE.getDistance();
+
+		/**
+		 * The meta object literal for the '<em><b>Distance Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISTANCE__DISTANCE_UNIT = eINSTANCE.getDistance_DistanceUnit();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.AngleImpl <em>Angle</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.AngleImpl
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getAngle()
+		 * @generated
+		 */
+		EClass ANGLE = eINSTANCE.getAngle();
+
+		/**
+		 * The meta object literal for the '<em><b>Angle Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANGLE__ANGLE_UNIT = eINSTANCE.getAngle_AngleUnit();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDistanceUnit()
+		 * @generated
+		 */
+		EEnum DISTANCE_UNIT = eINSTANCE.getDistanceUnit();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit <em>Angle Unit</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getAngleUnit()
+		 * @generated
+		 */
+		EEnum ANGLE_UNIT = eINSTANCE.getAngleUnit();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit <em>Time Unit</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getTimeUnit()
+		 * @generated
+		 */
+		EEnum TIME_UNIT = eINSTANCE.getTimeUnit();
 
 	}
 

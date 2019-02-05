@@ -4,13 +4,13 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,31 +20,31 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DurationImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DurationImpl#getTimeUnit <em>Time Unit</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DurationImpl extends MinimalEObjectImpl.Container implements Duration {
+public class DurationImpl extends AmountImpl implements Duration {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #getTimeUnit() <em>Time Unit</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getTimeUnit()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int VALUE_EDEFAULT = 0;
+	protected static final TimeUnit TIME_UNIT_EDEFAULT = TimeUnit.SECONDS;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getTimeUnit() <em>Time Unit</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getTimeUnit()
 	 * @generated
 	 * @ordered
 	 */
-	protected int value = VALUE_EDEFAULT;
+	protected TimeUnit timeUnit = TIME_UNIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,8 +70,8 @@ public class DurationImpl extends MinimalEObjectImpl.Container implements Durati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getValue() {
-		return value;
+	public TimeUnit getTimeUnit() {
+		return timeUnit;
 	}
 
 	/**
@@ -79,11 +79,11 @@ public class DurationImpl extends MinimalEObjectImpl.Container implements Durati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(int newValue) {
-		int oldValue = value;
-		value = newValue;
+	public void setTimeUnit(TimeUnit newTimeUnit) {
+		TimeUnit oldTimeUnit = timeUnit;
+		timeUnit = newTimeUnit == null ? TIME_UNIT_EDEFAULT : newTimeUnit;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.DURATION__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.DURATION__TIME_UNIT, oldTimeUnit, timeUnit));
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class DurationImpl extends MinimalEObjectImpl.Container implements Durati
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RobotProjectModelPackage.DURATION__VALUE:
-				return getValue();
+			case RobotProjectModelPackage.DURATION__TIME_UNIT:
+				return getTimeUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +108,8 @@ public class DurationImpl extends MinimalEObjectImpl.Container implements Durati
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RobotProjectModelPackage.DURATION__VALUE:
-				setValue((Integer)newValue);
+			case RobotProjectModelPackage.DURATION__TIME_UNIT:
+				setTimeUnit((TimeUnit)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +123,8 @@ public class DurationImpl extends MinimalEObjectImpl.Container implements Durati
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RobotProjectModelPackage.DURATION__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case RobotProjectModelPackage.DURATION__TIME_UNIT:
+				setTimeUnit(TIME_UNIT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +138,8 @@ public class DurationImpl extends MinimalEObjectImpl.Container implements Durati
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RobotProjectModelPackage.DURATION__VALUE:
-				return value != VALUE_EDEFAULT;
+			case RobotProjectModelPackage.DURATION__TIME_UNIT:
+				return timeUnit != TIME_UNIT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,8 +154,8 @@ public class DurationImpl extends MinimalEObjectImpl.Container implements Durati
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
+		result.append(" (timeUnit: ");
+		result.append(timeUnit);
 		result.append(')');
 		return result.toString();
 	}

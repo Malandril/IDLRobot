@@ -12,7 +12,7 @@ import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
 
 @SuppressWarnings("all")
-public class MyDSLStandaloneSetupGenerated implements ISetup {
+public class MyDslStandaloneSetupGenerated implements ISetup {
 
 	@Override
 	public Injector createInjectorAndDoEMFRegistration() {
@@ -24,7 +24,7 @@ public class MyDSLStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public Injector createInjector() {
-		return Guice.createInjector(new MyDSLRuntimeModule());
+		return Guice.createInjector(new MyDslRuntimeModule());
 	}
 	
 	public void register(Injector injector) {

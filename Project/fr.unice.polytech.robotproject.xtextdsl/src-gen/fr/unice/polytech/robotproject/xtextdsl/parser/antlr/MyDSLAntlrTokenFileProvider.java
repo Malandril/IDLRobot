@@ -6,11 +6,11 @@ package fr.unice.polytech.robotproject.xtextdsl.parser.antlr;
 import java.io.InputStream;
 import org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider;
 
-public class MyDSLAntlrTokenFileProvider implements IAntlrTokenFileProvider {
+public class MyDslAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-		return classLoader.getResourceAsStream("fr/unice/polytech/robotproject/xtextdsl/parser/antlr/internal/InternalMyDSL.tokens");
+		return classLoader.getResourceAsStream("fr/unice/polytech/robotproject/xtextdsl/parser/antlr/internal/InternalMyDsl.tokens");
 	}
 }

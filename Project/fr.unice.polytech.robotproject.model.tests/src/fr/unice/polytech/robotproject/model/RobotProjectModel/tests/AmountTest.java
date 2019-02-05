@@ -5,6 +5,8 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.tests;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,7 +15,15 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AmountTest extends IntValueTest {
+public class AmountTest extends TestCase {
+
+	/**
+	 * The fixture for this Amount test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Amount fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,14 +45,23 @@ public class AmountTest extends IntValueTest {
 	}
 
 	/**
+	 * Sets the fixture for this Amount test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Amount fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Amount test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Amount getFixture() {
-		return (Amount)fixture;
+		return fixture;
 	}
 
 	/**

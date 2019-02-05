@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="windows-1252"?>
 <?eclipse version="3.0"?>
 <plugin>
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
 			extensions="robot"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			name="MyDSL Editor">
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			name="MyDsl Editor">
 		</editor>
 	</extension>
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
 			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
 			<activeWhen>
 				<reference
-					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<handler
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-			commandId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.validate">
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.validate">
 		<activeWhen>
 			<reference
-					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 			</reference>
 		</activeWhen>
 		</handler>
 		<!-- copy qualified name -->
 		<handler
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
 			<activeWhen>
-				<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened" />
+				<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened" />
 			</activeWhen>
 		</handler>
 		<handler
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
 			<activeWhen>
 				<and>
-					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.XtextEditor.opened" />
+					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.XtextEditor.opened" />
 					<iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -54,22 +54,22 @@
 		</handler>
 	</extension>
 	<extension point="org.eclipse.core.expressions.definitions">
-		<definition id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+		<definition id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 			<and>
 				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
+						value="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
 		</definition>
-		<definition id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.XtextEditor.opened">
+		<definition id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.XtextEditor.opened">
 			<and>
 				<reference definitionId="isXtextEditorActive"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
+						value="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
@@ -78,33 +78,33 @@
 	<extension
 			point="org.eclipse.ui.preferencePages">
 		<page
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			name="MyDSL">
-			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"/>
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			name="MyDsl">
+			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"/>
 		</page>
 		<page
-			category="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.coloring"
+			category="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.coloring"
 			name="Syntax Coloring">
-			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"/>
+			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"/>
 		</page>
 		<page
-			category="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.templates"
+			category="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.templates"
 			name="Templates">
-			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"/>
+			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"/>
 		</page>
 	</extension>
 	<extension
 			point="org.eclipse.ui.propertyPages">
 		<page
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			name="MyDSL">
-			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"/>
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			name="MyDsl">
+			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -114,14 +114,14 @@
 	<extension
 		point="org.eclipse.ui.keywords">
 		<keyword
-			id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"
-			label="MyDSL"/>
+			id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"
+			label="MyDsl"/>
 	</extension>
 	<extension
 		point="org.eclipse.ui.commands">
 	<command
 			description="Trigger expensive validation"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.validate"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.validate"
 			name="Validate">
 	</command>
 	<!-- copy qualified name -->
@@ -142,12 +142,12 @@
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
 			 <command
-				 commandId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.validate"
+				 commandId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.validate"
 				 style="push"
 				 tooltip="Trigger expensive validation">
 			<visibleWhen checkEnabled="false">
 				<reference
-					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 				</reference>
 			</visibleWhen>
 		</command>
@@ -157,7 +157,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened" />
+					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -165,7 +165,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened" />
+					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -174,7 +174,7 @@
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<and>
-						<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.XtextEditor.opened" />
+						<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -187,7 +187,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -195,11 +195,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
 			commandId="org.eclipse.xtext.ui.editor.FindReferences">
 			<activeWhen>
 				<reference
-					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -208,8 +208,8 @@
 		<content-type
 			base-type="org.eclipse.core.runtime.text"
 			file-extensions="robot"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.contenttype"
-			name="MyDSL File"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.contenttype"
+			name="MyDsl File"
 			priority="normal">
 		</content-type>
 	</extension>
@@ -217,68 +217,68 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="robot">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 		<resourceServiceProvider
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
 			uriExtension="robot">
 		</resourceServiceProvider>
 	</extension>
-	<!-- marker definitions for fr.unice.polytech.robotproject.xtextdsl.MyDSL -->
+	<!-- marker definitions for fr.unice.polytech.robotproject.xtextdsl.MyDsl -->
 	<extension
 			id="mydsl.check.fast"
-			name="MyDSL Problem"
+			name="MyDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.fast"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
 			id="mydsl.check.normal"
-			name="MyDSL Problem"
+			name="MyDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.normal"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
 			id="mydsl.check.expensive"
-			name="MyDSL Problem"
+			name="MyDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.validator.preferencePage"
+			category="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.validator.preferencePage"
 			name="Errors/Warnings">
-			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"/>
+			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
 			fileExtensions="robot"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.compiler.preferencePage"
+			category="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.compiler.preferencePage"
 			name="Compiler">
-			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"/>
+			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.ui.propertyPages">
 		<page
-			category="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.compiler.propertyPage"
+			category="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.compiler.propertyPage"
 			name="Compiler">
-			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"/>
+			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -289,20 +289,20 @@
 		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
 			<command
 				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
-				id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.OpenGeneratedCode"
+				id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.OpenGeneratedCode"
 				style="push">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened" />
+					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
 			<activeWhen>
-				<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened" />
+				<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened" />
 			</activeWhen>
 		</handler>
 	</extension>
@@ -310,11 +310,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler 
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -334,16 +334,16 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened"/>
+					<reference definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-	<!-- quickfix marker resolution generator for fr.unice.polytech.robotproject.xtextdsl.MyDSL -->
+	<!-- quickfix marker resolution generator for fr.unice.polytech.robotproject.xtextdsl.MyDsl -->
 	<extension
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="fr.unice.polytech.robotproject.xtextdsl.ui.mydsl.check.fast">
 			<attribute
 				name="FIXABLE_KEY"
@@ -351,7 +351,7 @@
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="fr.unice.polytech.robotproject.xtextdsl.ui.mydsl.check.normal">
 			<attribute
 				name="FIXABLE_KEY"
@@ -359,7 +359,7 @@
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="fr.unice.polytech.robotproject.xtextdsl.ui.mydsl.check.expensive">
 			<attribute
 				name="FIXABLE_KEY"
@@ -370,11 +370,11 @@
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
-					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+					definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -386,7 +386,7 @@
 				style="push">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.Editor.opened">
+						definitionId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -394,34 +394,34 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="fr.unice.polytech.robotproject.xtextdsl.MyDSL"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-			id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.refactoring"
+			category="fr.unice.polytech.robotproject.xtextdsl.MyDsl"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.refactoring"
 			name="Refactoring">
-			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDSL"/>
+			<keywordReference id="fr.unice.polytech.robotproject.xtextdsl.ui.keyword_MyDsl"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.compare.contentViewers">
-		<viewer id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.compare.contentViewers"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+		<viewer id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.compare.contentViewers"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="robot">
 		</viewer>
 		<contentTypeBinding
-			contentTypeId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.contenttype"
-			contentViewerId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.compare.contentViewers" />
+			contentTypeId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.contenttype"
+			contentViewerId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.compare.contentViewers" />
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
-		<viewer id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.compare.contentMergeViewers"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="robot" label="MyDSL Compare">
+		<viewer id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.compare.contentMergeViewers"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="robot" label="MyDsl Compare">
 		</viewer>
 		<contentTypeBinding
-			contentTypeId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.contenttype"
-			contentMergeViewerId="fr.unice.polytech.robotproject.xtextdsl.MyDSL.compare.contentMergeViewers" />
+			contentTypeId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.contenttype"
+			contentMergeViewerId="fr.unice.polytech.robotproject.xtextdsl.MyDsl.compare.contentMergeViewers" />
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
-		<provider id="fr.unice.polytech.robotproject.xtextdsl.MyDSL.editors.documentProviders"
-			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+		<provider id="fr.unice.polytech.robotproject.xtextdsl.MyDsl.editors.documentProviders"
+			class="fr.unice.polytech.robotproject.xtextdsl.ui.MyDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
 			extensions="robot">
 		</provider>
 	</extension>

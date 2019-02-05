@@ -5,14 +5,14 @@ package fr.unice.polytech.robotproject.xtextdsl.tests;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import fr.unice.polytech.robotproject.xtextdsl.MyDSLRuntimeModule;
-import fr.unice.polytech.robotproject.xtextdsl.MyDSLStandaloneSetup;
+import fr.unice.polytech.robotproject.xtextdsl.MyDslRuntimeModule;
+import fr.unice.polytech.robotproject.xtextdsl.MyDslStandaloneSetup;
 import org.eclipse.xtext.testing.GlobalRegistries;
 import org.eclipse.xtext.testing.GlobalRegistries.GlobalStateMemento;
 import org.eclipse.xtext.testing.IInjectorProvider;
 import org.eclipse.xtext.testing.IRegistryConfigurator;
 
-public class MyDSLInjectorProvider implements IInjectorProvider, IRegistryConfigurator {
+public class MyDslInjectorProvider implements IInjectorProvider, IRegistryConfigurator {
 
 	protected GlobalStateMemento stateBeforeInjectorCreation;
 	protected GlobalStateMemento stateAfterInjectorCreation;
@@ -33,7 +33,7 @@ public class MyDSLInjectorProvider implements IInjectorProvider, IRegistryConfig
 	}
 
 	protected Injector internalCreateInjector() {
-		return new MyDSLStandaloneSetup() {
+		return new MyDslStandaloneSetup() {
 			@Override
 			public Injector createInjector() {
 				return Guice.createInjector(createRuntimeModule());
@@ -41,13 +41,13 @@ public class MyDSLInjectorProvider implements IInjectorProvider, IRegistryConfig
 		}.createInjectorAndDoEMFRegistration();
 	}
 
-	protected MyDSLRuntimeModule createRuntimeModule() {
+	protected MyDslRuntimeModule createRuntimeModule() {
 		// make it work also with Maven/Tycho and OSGI
 		// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=493672
-		return new MyDSLRuntimeModule() {
+		return new MyDslRuntimeModule() {
 			@Override
 			public ClassLoader bindClassLoaderToInstance() {
-				return MyDSLInjectorProvider.class
+				return MyDslInjectorProvider.class
 						.getClassLoader();
 			}
 		};

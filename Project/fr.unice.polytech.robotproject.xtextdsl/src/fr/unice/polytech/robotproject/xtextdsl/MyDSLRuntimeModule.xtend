@@ -7,5 +7,5 @@ package fr.unice.polytech.robotproject.xtextdsl
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
-class MyDSLRuntimeModule extends AbstractMyDSLRuntimeModule {
+class MyDslRuntimeModule extends AbstractMyDslRuntimeModule {
 }

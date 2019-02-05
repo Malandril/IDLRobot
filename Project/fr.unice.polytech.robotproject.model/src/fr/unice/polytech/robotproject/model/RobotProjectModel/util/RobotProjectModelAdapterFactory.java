@@ -92,10 +92,6 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 				return createAmountAdapter();
 			}
 			@Override
-			public Adapter caseIntValue(IntValue object) {
-				return createIntValueAdapter();
-			}
-			@Override
 			public Adapter caseDuration(Duration object) {
 				return createDurationAdapter();
 			}
@@ -106,6 +102,18 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNamedBlock(NamedBlock object) {
 				return createNamedBlockAdapter();
+			}
+			@Override
+			public Adapter caseGoTo(GoTo object) {
+				return createGoToAdapter();
+			}
+			@Override
+			public Adapter caseDistance(Distance object) {
+				return createDistanceAdapter();
+			}
+			@Override
+			public Adapter caseAngle(Angle object) {
+				return createAngleAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -212,20 +220,6 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue <em>Int Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.IntValue
-	 * @generated
-	 */
-	public Adapter createIntValueAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Duration <em>Duration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -264,6 +258,48 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo <em>Go To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo
+	 * @generated
+	 */
+	public Adapter createGoToAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Distance <em>Distance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Distance
+	 * @generated
+	 */
+	public Adapter createDistanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Angle <em>Angle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Angle
+	 * @generated
+	 */
+	public Adapter createAngleAdapter() {
 		return null;
 	}
 

@@ -157,6 +157,16 @@ public class RobotItemProvider
 			(createChildParameter
 				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
 				 RobotProjectModelFactory.eINSTANCE.createTurn()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createNamedBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createGoTo()));
 	}
 
 	/**

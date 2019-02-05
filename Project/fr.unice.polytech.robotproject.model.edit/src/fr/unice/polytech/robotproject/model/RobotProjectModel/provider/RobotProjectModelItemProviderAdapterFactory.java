@@ -233,6 +233,75 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GoToItemProvider goToItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGoToAdapter() {
+		if (goToItemProvider == null) {
+			goToItemProvider = new GoToItemProvider(this);
+		}
+
+		return goToItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Distance} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DistanceItemProvider distanceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Distance}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDistanceAdapter() {
+		if (distanceItemProvider == null) {
+			distanceItemProvider = new DistanceItemProvider(this);
+		}
+
+		return distanceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Angle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AngleItemProvider angleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Angle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAngleAdapter() {
+		if (angleItemProvider == null) {
+			angleItemProvider = new AngleItemProvider(this);
+		}
+
+		return angleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,6 +407,9 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 		if (durationItemProvider != null) durationItemProvider.dispose();
 		if (integerValueItemProvider != null) integerValueItemProvider.dispose();
 		if (namedBlockItemProvider != null) namedBlockItemProvider.dispose();
+		if (goToItemProvider != null) goToItemProvider.dispose();
+		if (distanceItemProvider != null) distanceItemProvider.dispose();
+		if (angleItemProvider != null) angleItemProvider.dispose();
 	}
 
 }

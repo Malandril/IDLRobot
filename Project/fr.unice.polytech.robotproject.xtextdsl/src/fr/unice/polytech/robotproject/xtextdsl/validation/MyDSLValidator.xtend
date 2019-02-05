@@ -9,7 +9,7 @@ package fr.unice.polytech.robotproject.xtextdsl.validation
  *
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
-class MyDSLValidator extends AbstractMyDSLValidator {
+class MyDslValidator extends AbstractMyDslValidator {
 	
 //	public static val INVALID_NAME = 'invalidName'
 //
@@ -17,7 +17,7 @@ class MyDSLValidator extends AbstractMyDSLValidator {
 //	def checkGreetingStartsWithCapital(Greeting greeting) {
 //		if (!Character.isUpperCase(greeting.name.charAt(0))) {
 //			warning('Name should start with a capital', 
-//					MyDSLPackage.Literals.GREETING__NAME,
+//					MyDslPackage.Literals.GREETING__NAME,
 //					INVALID_NAME)
 //		}
 //	}

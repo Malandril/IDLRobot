@@ -4,15 +4,15 @@
 package fr.unice.polytech.robotproject.xtextdsl.parser.antlr;
 
 import com.google.inject.Inject;
-import fr.unice.polytech.robotproject.xtextdsl.parser.antlr.internal.InternalMyDSLParser;
-import fr.unice.polytech.robotproject.xtextdsl.services.MyDSLGrammarAccess;
+import fr.unice.polytech.robotproject.xtextdsl.parser.antlr.internal.InternalMyDslParser;
+import fr.unice.polytech.robotproject.xtextdsl.services.MyDslGrammarAccess;
 import org.eclipse.xtext.parser.antlr.AbstractAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 
-public class MyDSLParser extends AbstractAntlrParser {
+public class MyDslParser extends AbstractAntlrParser {
 
 	@Inject
-	private MyDSLGrammarAccess grammarAccess;
+	private MyDslGrammarAccess grammarAccess;
 
 	@Override
 	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
@@ -21,8 +21,8 @@ public class MyDSLParser extends AbstractAntlrParser {
 	
 
 	@Override
-	protected InternalMyDSLParser createParser(XtextTokenStream stream) {
-		return new InternalMyDSLParser(stream, getGrammarAccess());
+	protected InternalMyDslParser createParser(XtextTokenStream stream) {
+		return new InternalMyDslParser(stream, getGrammarAccess());
 	}
 
 	@Override 
@@ -30,11 +30,11 @@ public class MyDSLParser extends AbstractAntlrParser {
 		return "Robot";
 	}
 
-	public MyDSLGrammarAccess getGrammarAccess() {
+	public MyDslGrammarAccess getGrammarAccess() {
 		return this.grammarAccess;
 	}
 
-	public void setGrammarAccess(MyDSLGrammarAccess grammarAccess) {
+	public void setGrammarAccess(MyDslGrammarAccess grammarAccess) {
 		this.grammarAccess = grammarAccess;
 	}
 }

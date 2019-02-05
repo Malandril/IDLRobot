@@ -4,7 +4,7 @@
 package fr.unice.polytech.robotproject.xtextdsl.serializer;
 
 import com.google.inject.Inject;
-import fr.unice.polytech.robotproject.xtextdsl.services.MyDSLGrammarAccess;
+import fr.unice.polytech.robotproject.xtextdsl.services.MyDslGrammarAccess;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.IGrammarAccess;
@@ -15,13 +15,13 @@ import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISyn
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
 @SuppressWarnings("all")
-public class MyDSLSyntacticSequencer extends AbstractSyntacticSequencer {
+public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
-	protected MyDSLGrammarAccess grammarAccess;
+	protected MyDslGrammarAccess grammarAccess;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
-		grammarAccess = (MyDSLGrammarAccess) access;
+		grammarAccess = (MyDslGrammarAccess) access;
 	}
 	
 	@Override

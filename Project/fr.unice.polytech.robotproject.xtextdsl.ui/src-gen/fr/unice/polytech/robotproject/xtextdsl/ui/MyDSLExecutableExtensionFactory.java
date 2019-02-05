@@ -13,7 +13,7 @@ import org.osgi.framework.Bundle;
  * This class was generated. Customizations should only happen in a newly
  * introduced subclass. 
  */
-public class MyDSLExecutableExtensionFactory extends AbstractGuiceAwareExecutableExtensionFactory {
+public class MyDslExecutableExtensionFactory extends AbstractGuiceAwareExecutableExtensionFactory {
 
 	@Override
 	protected Bundle getBundle() {

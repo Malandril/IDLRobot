@@ -14,11 +14,11 @@ import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
 import org.eclipse.xtext.validation.SeverityConverter;
 
 @SuppressWarnings("restriction")
-public class MyDSLValidatorConfigurationBlock extends AbstractValidatorConfigurationBlock {
+public class MyDslValidatorConfigurationBlock extends AbstractValidatorConfigurationBlock {
 
 	@Override
 	protected void fillSettingsPage(Composite composite, int nColumns, int defaultIndent) {
-		addComboBox(MyDSLConfigurableIssueCodesProvider.DEPRECATED_MODEL_PART, "Deprecated Model Part", composite, defaultIndent);
+		addComboBox(MyDslConfigurableIssueCodesProvider.DEPRECATED_MODEL_PART, "Deprecated Model Part", composite, defaultIndent);
 	}
 
 	@Override
@@ -56,9 +56,9 @@ public class MyDSLValidatorConfigurationBlock extends AbstractValidatorConfigura
 	@Override
 	protected IDialogSettings getDialogSettings() {
 		IDialogSettings dialogSettings = super.getDialogSettings();
-		IDialogSettings section = dialogSettings.getSection("MyDSL");
+		IDialogSettings section = dialogSettings.getSection("MyDsl");
 		if (section == null) {
-			return dialogSettings.addNewSection("MyDSL");
+			return dialogSettings.addNewSection("MyDsl");
 		}
 		return section;
 	}

@@ -10,40 +10,103 @@ import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.unice.polytech.deantoni.vrep.polybot.robot.PolyRob
 import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Turn
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Distance
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount
+import fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement
+import fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock
 
 @Aspect(className=Instruction)
 abstract class InstructionAspect {
-	@Step
-	def void execute(PolyRob rob);
+	def void execute(PolyRob rob)
+}
+
+
+
+@Aspect(className=Duration)
+class DurationAspect {
+	def int computeValue(){
+		return _self.value *_self.timeUnit.value
+	}
+}
+
+@Aspect(className=Angle)
+class AngleAspect {
+	def int computeValue(){
+		return _self.value *_self.angleUnit.value
+	}
+}
+
+
+@Aspect(className=Distance)
+class DistanceAspect {
+	
+	def int computeValue(){
+		return _self.value *_self.distanceUnit.value
+	}
+}
+
+
+@Aspect(className=GoTo)
+class GoToAspect extends InstructionAspect {
+	def void execute(PolyRob rob){
+		NamedBlockAspect.real_execute(_self.destination,rob);
+	}
+}
+
+@Aspect(className=Movement)
+class MovementAspect extends InstructionAspect {
+	
+	def int durationValue(){
+		if(null !== _self.duration) {
+			return DurationAspect.computeValue(_self.duration);
+		}else{
+			return 1000;
+		}
+	}
+	
 }
 
 @Aspect(className=MoveStraight)
-class MoveAspect extends InstructionAspect {
+class MoveStraightAspect extends MovementAspect {
 	@Step
 	def void execute(PolyRob rob){
-		var duration = 1000;
-		if(null !== _self.duration) {
-			duration = _self.duration.value*1000;
-		} 
 		var pos = rob.position;
-		println("Moving distance: " + _self.amount.value + " for " + duration + " ms");
-		rob.goStraight((_self.amount.value / duration) as int , duration);
-		var dist = Math.sqrt(pos.x * rob.position.x + rob.position.y * pos.y);
-		println("distance = "+dist);		
+		var distance = DistanceAspect.computeValue(_self.distance)
+		var duration = _self.durationValue()
+		println("Moving distance: " + distance + " for " + duration + " ms");
+		rob.goStraight((distance / duration) as int , duration);
+		var dist = Math.sqrt(Math.pow(pos.x - rob.position.x,2) + Math.pow(pos.y - rob.position.y,2));
+		println("distance2 = "+dist);		
 	}
 }
 
 @Aspect(className=Turn)
-class TurnAspect extends InstructionAspect {
+class TurnAspect extends MovementAspect {
 	def void execute(PolyRob rob){
-		var duration = 1000;
-		if(null !== _self.duration) {
-			duration = _self.duration.value;
-		}
-		println("Turning: " + _self.amount.value + " in " + duration + " ms");
-		rob.turnRight((_self.amount.value / duration) as int , duration);
+		var duration = _self.durationValue()
+		var angle = AngleAspect.computeValue(_self.angle)
+		println("Turning: " + _self.angle.value + " in " + duration + " ms");
+		rob.turnRight((angle / duration) as int , duration);
 	}
 }
+
+@Aspect(className=NamedBlock)
+class NamedBlockAspect extends InstructionAspect {
+    def void execute(PolyRob rob) {
+    	
+    }
+    
+    def void real_execute(PolyRob rob) {
+    	println("Executing block "+_self.name);
+    	for(i :_self.instructions){
+    		i.execute(rob);
+    	}
+    }
+}
+
 
 @Aspect(className=Robot)
 class RobotAspect {

@@ -7,9 +7,9 @@ package fr.unice.polytech.robotproject.xtextdsl
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
-class MyDSLStandaloneSetup extends MyDSLStandaloneSetupGenerated {
+class MyDslStandaloneSetup extends MyDslStandaloneSetupGenerated {
 
 	def static void doSetup() {
-		new MyDSLStandaloneSetup().createInjectorAndDoEMFRegistration()
+		new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
 }

@@ -85,6 +85,33 @@ public interface RobotProjectModelFactory extends EFactory {
 	NamedBlock createNamedBlock();
 
 	/**
+	 * Returns a new object of class '<em>Go To</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Go To</em>'.
+	 * @generated
+	 */
+	GoTo createGoTo();
+
+	/**
+	 * Returns a new object of class '<em>Distance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Distance</em>'.
+	 * @generated
+	 */
+	Distance createDistance();
+
+	/**
+	 * Returns a new object of class '<em>Angle</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Angle</em>'.
+	 * @generated
+	 */
+	Angle createAngle();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

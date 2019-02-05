@@ -4,17 +4,17 @@
 package fr.unice.polytech.robotproject.xtextdsl.ide
 
 import com.google.inject.Guice
-import fr.unice.polytech.robotproject.xtextdsl.MyDSLRuntimeModule
-import fr.unice.polytech.robotproject.xtextdsl.MyDSLStandaloneSetup
+import fr.unice.polytech.robotproject.xtextdsl.MyDslRuntimeModule
+import fr.unice.polytech.robotproject.xtextdsl.MyDslStandaloneSetup
 import org.eclipse.xtext.util.Modules2
 
 /**
  * Initialization support for running Xtext languages as language servers.
  */
-class MyDSLIdeSetup extends MyDSLStandaloneSetup {
+class MyDslIdeSetup extends MyDslStandaloneSetup {
 
 	override createInjector() {
-		Guice.createInjector(Modules2.mixin(new MyDSLRuntimeModule, new MyDSLIdeModule))
+		Guice.createInjector(Modules2.mixin(new MyDslRuntimeModule, new MyDslIdeModule))
 	}
 	
 }

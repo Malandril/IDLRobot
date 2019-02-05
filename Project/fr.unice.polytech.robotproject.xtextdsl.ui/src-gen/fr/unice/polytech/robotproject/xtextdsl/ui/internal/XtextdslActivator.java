@@ -6,8 +6,8 @@ package fr.unice.polytech.robotproject.xtextdsl.ui.internal;
 import com.google.common.collect.Maps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import fr.unice.polytech.robotproject.xtextdsl.MyDSLRuntimeModule;
-import fr.unice.polytech.robotproject.xtextdsl.ui.MyDSLUiModule;
+import fr.unice.polytech.robotproject.xtextdsl.MyDslRuntimeModule;
+import fr.unice.polytech.robotproject.xtextdsl.ui.MyDslUiModule;
 import java.util.Collections;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -23,7 +23,7 @@ import org.osgi.framework.BundleContext;
 public class XtextdslActivator extends AbstractUIPlugin {
 
 	public static final String PLUGIN_ID = "fr.unice.polytech.robotproject.xtextdsl.ui";
-	public static final String FR_UNICE_POLYTECH_ROBOTPROJECT_XTEXTDSL_MYDSL = "fr.unice.polytech.robotproject.xtextdsl.MyDSL";
+	public static final String FR_UNICE_POLYTECH_ROBOTPROJECT_XTEXTDSL_MYDSL = "fr.unice.polytech.robotproject.xtextdsl.MyDsl";
 	
 	private static final Logger logger = Logger.getLogger(XtextdslActivator.class);
 	
@@ -74,14 +74,14 @@ public class XtextdslActivator extends AbstractUIPlugin {
 	
 	protected com.google.inject.Module getRuntimeModule(String grammar) {
 		if (FR_UNICE_POLYTECH_ROBOTPROJECT_XTEXTDSL_MYDSL.equals(grammar)) {
-			return new MyDSLRuntimeModule();
+			return new MyDslRuntimeModule();
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
 	protected com.google.inject.Module getUiModule(String grammar) {
 		if (FR_UNICE_POLYTECH_ROBOTPROJECT_XTEXTDSL_MYDSL.equals(grammar)) {
-			return new MyDSLUiModule(this);
+			return new MyDslUiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);
 	}

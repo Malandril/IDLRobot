@@ -5,6 +5,7 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -63,8 +64,49 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 			case RobotProjectModelPackage.DURATION: return createDuration();
 			case RobotProjectModelPackage.INTEGER_VALUE: return createIntegerValue();
 			case RobotProjectModelPackage.NAMED_BLOCK: return createNamedBlock();
+			case RobotProjectModelPackage.GO_TO: return createGoTo();
+			case RobotProjectModelPackage.DISTANCE: return createDistance();
+			case RobotProjectModelPackage.ANGLE: return createAngle();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case RobotProjectModelPackage.DISTANCE_UNIT:
+				return createDistanceUnitFromString(eDataType, initialValue);
+			case RobotProjectModelPackage.ANGLE_UNIT:
+				return createAngleUnitFromString(eDataType, initialValue);
+			case RobotProjectModelPackage.TIME_UNIT:
+				return createTimeUnitFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case RobotProjectModelPackage.DISTANCE_UNIT:
+				return convertDistanceUnitToString(eDataType, instanceValue);
+			case RobotProjectModelPackage.ANGLE_UNIT:
+				return convertAngleUnitToString(eDataType, instanceValue);
+			case RobotProjectModelPackage.TIME_UNIT:
+				return convertTimeUnitToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -136,6 +178,96 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	public NamedBlock createNamedBlock() {
 		NamedBlockImpl namedBlock = new NamedBlockImpl();
 		return namedBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GoTo createGoTo() {
+		GoToImpl goTo = new GoToImpl();
+		return goTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Distance createDistance() {
+		DistanceImpl distance = new DistanceImpl();
+		return distance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Angle createAngle() {
+		AngleImpl angle = new AngleImpl();
+		return angle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DistanceUnit createDistanceUnitFromString(EDataType eDataType, String initialValue) {
+		DistanceUnit result = DistanceUnit.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDistanceUnitToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AngleUnit createAngleUnitFromString(EDataType eDataType, String initialValue) {
+		AngleUnit result = AngleUnit.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAngleUnitToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimeUnit createTimeUnitFromString(EDataType eDataType, String initialValue) {
+		TimeUnit result = TimeUnit.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTimeUnitToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
