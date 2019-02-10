@@ -20,12 +20,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Block} object.
+ * This is the item provider adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Condition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BlockItemProvider 
+public class ConditionItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -39,7 +39,7 @@ public class BlockItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BlockItemProvider(AdapterFactory adapterFactory) {
+	public ConditionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,14 +59,14 @@ public class BlockItemProvider
 	}
 
 	/**
-	 * This returns Block.gif.
+	 * This returns Condition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Block"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Condition"));
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class BlockItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Block_type");
+		return getString("_UI_Condition_type");
 	}
 
 

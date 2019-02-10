@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MoveStraightTest extends MovementTest {
+public class MoveStraightTest extends TimedInstructionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

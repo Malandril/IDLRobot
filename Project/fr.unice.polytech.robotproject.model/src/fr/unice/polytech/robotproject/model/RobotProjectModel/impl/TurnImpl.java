@@ -7,8 +7,8 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelP
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Turn;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TurnImpl extends MovementImpl implements Turn {
+public class TurnImpl extends TimedInstructionImpl implements Turn {
 	/**
 	 * The cached value of the '{@link #getAngle() <em>Angle</em>}' containment reference.
 	 * <!-- begin-user-doc -->

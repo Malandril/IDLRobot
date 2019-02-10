@@ -4,7 +4,7 @@
 package fr.unice.polytech.robotproject.xtextdsl.formatting2
 
 import com.google.inject.Inject
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement
+import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot
 import fr.unice.polytech.robotproject.xtextdsl.services.MyDslGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
@@ -21,10 +21,11 @@ class MyDslFormatter extends AbstractFormatter2 {
 		}
 	}
 
-	def dispatch void format(Movement movement, extension IFormattableDocument document) {
+	def dispatch void format(MoveStraight moveStraight, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		movement.duration.format
+		moveStraight.distance.format
+		moveStraight.duration.format
 	}
 	
-	// TODO: implement for MoveStraight, Turn, NamedBlock
+	// TODO: implement for Wait, Turn, NamedBlock, GoTo
 }

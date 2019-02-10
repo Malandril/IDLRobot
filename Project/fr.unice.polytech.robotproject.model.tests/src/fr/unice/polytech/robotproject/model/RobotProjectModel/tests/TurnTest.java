@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TurnTest extends MovementTest {
+public class TurnTest extends TimedInstructionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

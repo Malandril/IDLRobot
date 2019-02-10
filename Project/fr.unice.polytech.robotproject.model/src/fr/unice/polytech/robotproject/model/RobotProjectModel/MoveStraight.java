@@ -19,12 +19,12 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel;
  * @model
  * @generated
  */
-public interface MoveStraight extends Movement {
+public interface MoveStraight extends TimedInstruction {
 	/**
 	 * Returns the value of the '<em><b>Distance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Distance</em>' reference isn't clear,
+	 * If the meaning of the '<em>Distance</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

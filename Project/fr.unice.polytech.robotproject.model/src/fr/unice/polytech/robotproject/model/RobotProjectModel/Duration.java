@@ -2,6 +2,7 @@
  */
 package fr.unice.polytech.robotproject.model.RobotProjectModel;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Duration</b></em>'.

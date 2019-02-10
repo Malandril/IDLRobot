@@ -4,6 +4,7 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.tests;
 
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
+
 import junit.textui.TestRunner;
 
 /**

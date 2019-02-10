@@ -4,6 +4,7 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.provider;
 
 
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MoveStraightItemProvider extends MovementItemProvider {
+public class MoveStraightItemProvider extends TimedInstructionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -302,6 +302,121 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Condition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConditionItemProvider conditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Condition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConditionAdapter() {
+		if (conditionItemProvider == null) {
+			conditionItemProvider = new ConditionItemProvider(this);
+		}
+
+		return conditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SensorActivationItemProvider sensorActivationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSensorActivationAdapter() {
+		if (sensorActivationItemProvider == null) {
+			sensorActivationItemProvider = new SensorActivationItemProvider(this);
+		}
+
+		return sensorActivationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Grab} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GrabItemProvider grabItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Grab}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGrabAdapter() {
+		if (grabItemProvider == null) {
+			grabItemProvider = new GrabItemProvider(this);
+		}
+
+		return grabItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Release} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReleaseItemProvider releaseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Release}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReleaseAdapter() {
+		if (releaseItemProvider == null) {
+			releaseItemProvider = new ReleaseItemProvider(this);
+		}
+
+		return releaseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Wait} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WaitItemProvider waitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Wait}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWaitAdapter() {
+		if (waitItemProvider == null) {
+			waitItemProvider = new WaitItemProvider(this);
+		}
+
+		return waitItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -410,6 +525,11 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 		if (goToItemProvider != null) goToItemProvider.dispose();
 		if (distanceItemProvider != null) distanceItemProvider.dispose();
 		if (angleItemProvider != null) angleItemProvider.dispose();
+		if (conditionItemProvider != null) conditionItemProvider.dispose();
+		if (sensorActivationItemProvider != null) sensorActivationItemProvider.dispose();
+		if (grabItemProvider != null) grabItemProvider.dispose();
+		if (releaseItemProvider != null) releaseItemProvider.dispose();
+		if (waitItemProvider != null) waitItemProvider.dispose();
 	}
 
 }

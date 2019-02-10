@@ -32,37 +32,43 @@ public class MyDslParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, MyDslGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getInstructionAccess().getAlternatives(), "rule__Instruction__Alternatives");
-			builder.put(grammarAccess.getMovementAccess().getAlternatives_0(), "rule__Movement__Alternatives_0");
+			builder.put(grammarAccess.getTimedInstructionAccess().getAlternatives(), "rule__TimedInstruction__Alternatives");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getTimeUnitAccess().getAlternatives(), "rule__TimeUnit__Alternatives");
 			builder.put(grammarAccess.getRobotAccess().getGroup(), "rule__Robot__Group__0");
 			builder.put(grammarAccess.getRobotAccess().getGroup_3(), "rule__Robot__Group_3__0");
-			builder.put(grammarAccess.getMovementAccess().getGroup(), "rule__Movement__Group__0");
+			builder.put(grammarAccess.getReleaseAccess().getGroup(), "rule__Release__Group__0");
+			builder.put(grammarAccess.getGrabAccess().getGroup(), "rule__Grab__Group__0");
 			builder.put(grammarAccess.getMoveStraightAccess().getGroup(), "rule__MoveStraight__Group__0");
+			builder.put(grammarAccess.getWaitAccess().getGroup(), "rule__Wait__Group__0");
 			builder.put(grammarAccess.getTurnAccess().getGroup(), "rule__Turn__Group__0");
 			builder.put(grammarAccess.getDistanceAccess().getGroup(), "rule__Distance__Group__0");
 			builder.put(grammarAccess.getAngleAccess().getGroup(), "rule__Angle__Group__0");
 			builder.put(grammarAccess.getDurationAccess().getGroup(), "rule__Duration__Group__0");
-			builder.put(grammarAccess.getDurationAccess().getGroup_1(), "rule__Duration__Group_1__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getNamedBlockAccess().getGroup(), "rule__NamedBlock__Group__0");
-			builder.put(grammarAccess.getNamedBlockAccess().getGroup_4(), "rule__NamedBlock__Group_4__0");
+			builder.put(grammarAccess.getNamedBlockAccess().getGroup_3(), "rule__NamedBlock__Group_3__0");
 			builder.put(grammarAccess.getGoToAccess().getGroup(), "rule__GoTo__Group__0");
+			builder.put(grammarAccess.getGoToAccess().getGroup_2(), "rule__GoTo__Group_2__0");
+			builder.put(grammarAccess.getSensorActivationAccess().getGroup(), "rule__SensorActivation__Group__0");
 			builder.put(grammarAccess.getRobotAccess().getInstructionsAssignment_3_0(), "rule__Robot__InstructionsAssignment_3_0");
 			builder.put(grammarAccess.getRobotAccess().getInstructionsAssignment_3_1(), "rule__Robot__InstructionsAssignment_3_1");
-			builder.put(grammarAccess.getMovementAccess().getDurationAssignment_2(), "rule__Movement__DurationAssignment_2");
 			builder.put(grammarAccess.getMoveStraightAccess().getDistanceAssignment_1(), "rule__MoveStraight__DistanceAssignment_1");
+			builder.put(grammarAccess.getMoveStraightAccess().getDurationAssignment_3(), "rule__MoveStraight__DurationAssignment_3");
+			builder.put(grammarAccess.getWaitAccess().getDurationAssignment_3(), "rule__Wait__DurationAssignment_3");
 			builder.put(grammarAccess.getTurnAccess().getAngleAssignment_1(), "rule__Turn__AngleAssignment_1");
+			builder.put(grammarAccess.getTurnAccess().getDurationAssignment_3(), "rule__Turn__DurationAssignment_3");
 			builder.put(grammarAccess.getDistanceAccess().getValueAssignment_0(), "rule__Distance__ValueAssignment_0");
 			builder.put(grammarAccess.getDistanceAccess().getDistanceUnitAssignment_1(), "rule__Distance__DistanceUnitAssignment_1");
 			builder.put(grammarAccess.getAngleAccess().getValueAssignment_0(), "rule__Angle__ValueAssignment_0");
 			builder.put(grammarAccess.getAngleAccess().getAngleUnitAssignment_1(), "rule__Angle__AngleUnitAssignment_1");
-			builder.put(grammarAccess.getDurationAccess().getValueAssignment_1_0(), "rule__Duration__ValueAssignment_1_0");
-			builder.put(grammarAccess.getDurationAccess().getTimeUnitAssignment_1_1(), "rule__Duration__TimeUnitAssignment_1_1");
-			builder.put(grammarAccess.getNamedBlockAccess().getNameAssignment_2(), "rule__NamedBlock__NameAssignment_2");
-			builder.put(grammarAccess.getNamedBlockAccess().getInstructionsAssignment_4_0(), "rule__NamedBlock__InstructionsAssignment_4_0");
-			builder.put(grammarAccess.getNamedBlockAccess().getInstructionsAssignment_4_1(), "rule__NamedBlock__InstructionsAssignment_4_1");
+			builder.put(grammarAccess.getDurationAccess().getValueAssignment_0(), "rule__Duration__ValueAssignment_0");
+			builder.put(grammarAccess.getDurationAccess().getTimeUnitAssignment_1(), "rule__Duration__TimeUnitAssignment_1");
+			builder.put(grammarAccess.getNamedBlockAccess().getNameAssignment_1(), "rule__NamedBlock__NameAssignment_1");
+			builder.put(grammarAccess.getNamedBlockAccess().getInstructionsAssignment_3_0(), "rule__NamedBlock__InstructionsAssignment_3_0");
+			builder.put(grammarAccess.getNamedBlockAccess().getInstructionsAssignment_3_1(), "rule__NamedBlock__InstructionsAssignment_3_1");
 			builder.put(grammarAccess.getGoToAccess().getDestinationAssignment_1(), "rule__GoTo__DestinationAssignment_1");
+			builder.put(grammarAccess.getGoToAccess().getConditionAssignment_2_1(), "rule__GoTo__ConditionAssignment_2_1");
 		}
 	}
 	

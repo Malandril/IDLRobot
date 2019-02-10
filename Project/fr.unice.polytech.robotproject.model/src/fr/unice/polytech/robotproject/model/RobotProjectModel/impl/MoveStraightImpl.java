@@ -7,8 +7,8 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MoveStraightImpl extends MovementImpl implements MoveStraight {
+public class MoveStraightImpl extends TimedInstructionImpl implements MoveStraight {
 	/**
 	 * The cached value of the '{@link #getDistance() <em>Distance</em>}' containment reference.
 	 * <!-- begin-user-doc -->

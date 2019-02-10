@@ -80,60 +80,96 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Instruction");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cMovementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cNamedBlockParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cGoToParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cTimedInstructionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cGrabParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cReleaseParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cNamedBlockParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cGoToParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Instruction:
-		//	Movement | NamedBlock | GoTo;
+		//	TimedInstruction | Grab | Release | NamedBlock | GoTo;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Movement | NamedBlock | GoTo
+		//TimedInstruction | Grab | Release | NamedBlock | GoTo
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Movement
-		public RuleCall getMovementParserRuleCall_0() { return cMovementParserRuleCall_0; }
+		//TimedInstruction
+		public RuleCall getTimedInstructionParserRuleCall_0() { return cTimedInstructionParserRuleCall_0; }
+		
+		//Grab
+		public RuleCall getGrabParserRuleCall_1() { return cGrabParserRuleCall_1; }
+		
+		//Release
+		public RuleCall getReleaseParserRuleCall_2() { return cReleaseParserRuleCall_2; }
 		
 		//NamedBlock
-		public RuleCall getNamedBlockParserRuleCall_1() { return cNamedBlockParserRuleCall_1; }
+		public RuleCall getNamedBlockParserRuleCall_3() { return cNamedBlockParserRuleCall_3; }
 		
 		//GoTo
-		public RuleCall getGoToParserRuleCall_2() { return cGoToParserRuleCall_2; }
+		public RuleCall getGoToParserRuleCall_4() { return cGoToParserRuleCall_4; }
 	}
-	public class MovementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Movement");
+	public class ReleaseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Release");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cMoveStraightParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cTurnParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final Keyword cForKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDurationAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDurationDurationParserRuleCall_2_0 = (RuleCall)cDurationAssignment_2.eContents().get(0);
+		private final Action cReleaseAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cReleaseKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
-		//Movement:
-		//	(MoveStraight | Turn) 'for' duration=Duration?;
+		//Release:
+		//	{Release}
+		//	'Release';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(MoveStraight | Turn) 'for' duration=Duration?
+		//{Release} 'Release'
 		public Group getGroup() { return cGroup; }
 		
-		//MoveStraight | Turn
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//{Release}
+		public Action getReleaseAction_0() { return cReleaseAction_0; }
+		
+		//'Release'
+		public Keyword getReleaseKeyword_1() { return cReleaseKeyword_1; }
+	}
+	public class GrabElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Grab");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cGrabAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cGrabKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Grab:
+		//	{Grab}
+		//	'Grab';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Grab} 'Grab'
+		public Group getGroup() { return cGroup; }
+		
+		//{Grab}
+		public Action getGrabAction_0() { return cGrabAction_0; }
+		
+		//'Grab'
+		public Keyword getGrabKeyword_1() { return cGrabKeyword_1; }
+	}
+	public class TimedInstructionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.TimedInstruction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMoveStraightParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTurnParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cWaitParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//TimedInstruction:
+		//	MoveStraight | Turn | Wait;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//MoveStraight | Turn | Wait
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MoveStraight
-		public RuleCall getMoveStraightParserRuleCall_0_0() { return cMoveStraightParserRuleCall_0_0; }
+		public RuleCall getMoveStraightParserRuleCall_0() { return cMoveStraightParserRuleCall_0; }
 		
 		//Turn
-		public RuleCall getTurnParserRuleCall_0_1() { return cTurnParserRuleCall_0_1; }
+		public RuleCall getTurnParserRuleCall_1() { return cTurnParserRuleCall_1; }
 		
-		//'for'
-		public Keyword getForKeyword_1() { return cForKeyword_1; }
-		
-		//duration=Duration?
-		public Assignment getDurationAssignment_2() { return cDurationAssignment_2; }
-		
-		//Duration
-		public RuleCall getDurationDurationParserRuleCall_2_0() { return cDurationDurationParserRuleCall_2_0; }
+		//Wait
+		public RuleCall getWaitParserRuleCall_2() { return cWaitParserRuleCall_2; }
 	}
 	public class MoveStraightElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.MoveStraight");
@@ -141,12 +177,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMoveStraightKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cDistanceAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cDistanceDistanceParserRuleCall_1_0 = (RuleCall)cDistanceAssignment_1.eContents().get(0);
+		private final Keyword cInKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDurationAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDurationDurationParserRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
 		
 		//MoveStraight:
-		//	'MoveStraight' distance=Distance;
+		//	'MoveStraight' distance=Distance 'in' duration=Duration?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'MoveStraight' distance=Distance
+		//'MoveStraight' distance=Distance 'in' duration=Duration?
 		public Group getGroup() { return cGroup; }
 		
 		//'MoveStraight'
@@ -157,6 +196,47 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Distance
 		public RuleCall getDistanceDistanceParserRuleCall_1_0() { return cDistanceDistanceParserRuleCall_1_0; }
+		
+		//'in'
+		public Keyword getInKeyword_2() { return cInKeyword_2; }
+		
+		//duration=Duration?
+		public Assignment getDurationAssignment_3() { return cDurationAssignment_3; }
+		
+		//Duration
+		public RuleCall getDurationDurationParserRuleCall_3_0() { return cDurationDurationParserRuleCall_3_0; }
+	}
+	public class WaitElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Wait");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cWaitAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cWaitKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cForKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDurationAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDurationDurationParserRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
+		
+		//Wait:
+		//	{Wait}
+		//	'Wait' 'for' duration=Duration?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Wait} 'Wait' 'for' duration=Duration?
+		public Group getGroup() { return cGroup; }
+		
+		//{Wait}
+		public Action getWaitAction_0() { return cWaitAction_0; }
+		
+		//'Wait'
+		public Keyword getWaitKeyword_1() { return cWaitKeyword_1; }
+		
+		//'for'
+		public Keyword getForKeyword_2() { return cForKeyword_2; }
+		
+		//duration=Duration?
+		public Assignment getDurationAssignment_3() { return cDurationAssignment_3; }
+		
+		//Duration
+		public RuleCall getDurationDurationParserRuleCall_3_0() { return cDurationDurationParserRuleCall_3_0; }
 	}
 	public class TurnElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Turn");
@@ -164,12 +244,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTurnKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cAngleAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cAngleAngleParserRuleCall_1_0 = (RuleCall)cAngleAssignment_1.eContents().get(0);
+		private final Keyword cInKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDurationAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDurationDurationParserRuleCall_3_0 = (RuleCall)cDurationAssignment_3.eContents().get(0);
 		
 		//Turn:
-		//	'Turn' angle=Angle;
+		//	'Turn' angle=Angle 'in' duration=Duration?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Turn' angle=Angle
+		//'Turn' angle=Angle 'in' duration=Duration?
 		public Group getGroup() { return cGroup; }
 		
 		//'Turn'
@@ -180,6 +263,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Angle
 		public RuleCall getAngleAngleParserRuleCall_1_0() { return cAngleAngleParserRuleCall_1_0; }
+		
+		//'in'
+		public Keyword getInKeyword_2() { return cInKeyword_2; }
+		
+		//duration=Duration?
+		public Assignment getDurationAssignment_3() { return cDurationAssignment_3; }
+		
+		//Duration
+		public RuleCall getDurationDurationParserRuleCall_3_0() { return cDurationDurationParserRuleCall_3_0; }
 	}
 	public class DistanceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Distance");
@@ -238,37 +330,29 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class DurationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Duration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDurationAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cValueAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cValueEIntParserRuleCall_1_0_0 = (RuleCall)cValueAssignment_1_0.eContents().get(0);
-		private final Assignment cTimeUnitAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cTimeUnitTimeUnitEnumRuleCall_1_1_0 = (RuleCall)cTimeUnitAssignment_1_1.eContents().get(0);
+		private final Assignment cValueAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cValueEIntParserRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
+		private final Assignment cTimeUnitAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTimeUnitTimeUnitEnumRuleCall_1_0 = (RuleCall)cTimeUnitAssignment_1.eContents().get(0);
 		
 		//Duration:
-		//	{Duration} (value=EInt timeUnit=TimeUnit);
+		//	value=EInt timeUnit=TimeUnit;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Duration} (value=EInt timeUnit=TimeUnit)
+		//value=EInt timeUnit=TimeUnit
 		public Group getGroup() { return cGroup; }
 		
-		//{Duration}
-		public Action getDurationAction_0() { return cDurationAction_0; }
-		
-		//value=EInt timeUnit=TimeUnit
-		public Group getGroup_1() { return cGroup_1; }
-		
 		//value=EInt
-		public Assignment getValueAssignment_1_0() { return cValueAssignment_1_0; }
+		public Assignment getValueAssignment_0() { return cValueAssignment_0; }
 		
 		//EInt
-		public RuleCall getValueEIntParserRuleCall_1_0_0() { return cValueEIntParserRuleCall_1_0_0; }
+		public RuleCall getValueEIntParserRuleCall_0_0() { return cValueEIntParserRuleCall_0_0; }
 		
 		//timeUnit=TimeUnit
-		public Assignment getTimeUnitAssignment_1_1() { return cTimeUnitAssignment_1_1; }
+		public Assignment getTimeUnitAssignment_1() { return cTimeUnitAssignment_1; }
 		
 		//TimeUnit
-		public RuleCall getTimeUnitTimeUnitEnumRuleCall_1_1_0() { return cTimeUnitTimeUnitEnumRuleCall_1_1_0; }
+		public RuleCall getTimeUnitTimeUnitEnumRuleCall_1_0() { return cTimeUnitTimeUnitEnumRuleCall_1_0; }
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.EInt");
@@ -292,61 +376,56 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class NamedBlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.NamedBlock");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cNamedBlockAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cNamedBlockKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cInstructionsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cInstructionsInstructionParserRuleCall_4_0_0 = (RuleCall)cInstructionsAssignment_4_0.eContents().get(0);
-		private final Assignment cInstructionsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cInstructionsInstructionParserRuleCall_4_1_0 = (RuleCall)cInstructionsAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cNamedBlockKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cInstructionsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cInstructionsInstructionParserRuleCall_3_0_0 = (RuleCall)cInstructionsAssignment_3_0.eContents().get(0);
+		private final Assignment cInstructionsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cInstructionsInstructionParserRuleCall_3_1_0 = (RuleCall)cInstructionsAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//NamedBlock:
-		//	{NamedBlock}
 		//	'NamedBlock'
 		//	name=EString
 		//	'{' (instructions+=Instruction instructions+=Instruction*)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{NamedBlock} 'NamedBlock' name=EString '{' (instructions+=Instruction instructions+=Instruction*)? '}'
+		//'NamedBlock' name=EString '{' (instructions+=Instruction instructions+=Instruction*)? '}'
 		public Group getGroup() { return cGroup; }
 		
-		//{NamedBlock}
-		public Action getNamedBlockAction_0() { return cNamedBlockAction_0; }
-		
 		//'NamedBlock'
-		public Keyword getNamedBlockKeyword_1() { return cNamedBlockKeyword_1; }
+		public Keyword getNamedBlockKeyword_0() { return cNamedBlockKeyword_0; }
 		
 		//name=EString
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
 		//(instructions+=Instruction instructions+=Instruction*)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//instructions+=Instruction
-		public Assignment getInstructionsAssignment_4_0() { return cInstructionsAssignment_4_0; }
+		public Assignment getInstructionsAssignment_3_0() { return cInstructionsAssignment_3_0; }
 		
 		//Instruction
-		public RuleCall getInstructionsInstructionParserRuleCall_4_0_0() { return cInstructionsInstructionParserRuleCall_4_0_0; }
+		public RuleCall getInstructionsInstructionParserRuleCall_3_0_0() { return cInstructionsInstructionParserRuleCall_3_0_0; }
 		
 		//instructions+=Instruction*
-		public Assignment getInstructionsAssignment_4_1() { return cInstructionsAssignment_4_1; }
+		public Assignment getInstructionsAssignment_3_1() { return cInstructionsAssignment_3_1; }
 		
 		//Instruction
-		public RuleCall getInstructionsInstructionParserRuleCall_4_1_0() { return cInstructionsInstructionParserRuleCall_4_1_0; }
+		public RuleCall getInstructionsInstructionParserRuleCall_3_1_0() { return cInstructionsInstructionParserRuleCall_3_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class GoToElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.GoTo");
@@ -355,12 +434,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDestinationAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cDestinationNamedBlockCrossReference_1_0 = (CrossReference)cDestinationAssignment_1.eContents().get(0);
 		private final RuleCall cDestinationNamedBlockEStringParserRuleCall_1_0_1 = (RuleCall)cDestinationNamedBlockCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cIfKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cConditionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cConditionConditionParserRuleCall_2_1_0 = (RuleCall)cConditionAssignment_2_1.eContents().get(0);
 		
 		//GoTo:
-		//	'GoTo' destination=[NamedBlock|EString];
+		//	'GoTo' destination=[NamedBlock|EString] ('if' condition=Condition)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'GoTo' destination=[NamedBlock|EString]
+		//'GoTo' destination=[NamedBlock|EString] ('if' condition=Condition)?
 		public Group getGroup() { return cGroup; }
 		
 		//'GoTo'
@@ -374,6 +457,49 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EString
 		public RuleCall getDestinationNamedBlockEStringParserRuleCall_1_0_1() { return cDestinationNamedBlockEStringParserRuleCall_1_0_1; }
+		
+		//('if' condition=Condition)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'if'
+		public Keyword getIfKeyword_2_0() { return cIfKeyword_2_0; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_2_1() { return cConditionAssignment_2_1; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_2_1_0() { return cConditionConditionParserRuleCall_2_1_0; }
+	}
+	public class ConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Condition");
+		private final RuleCall cSensorActivationParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//Condition:
+		//	SensorActivation;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SensorActivation
+		public RuleCall getSensorActivationParserRuleCall() { return cSensorActivationParserRuleCall; }
+	}
+	public class SensorActivationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.SensorActivation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSensorActivationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSensorActivatedKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//SensorActivation:
+		//	{SensorActivation}
+		//	'SensorActivated';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{SensorActivation} 'SensorActivated'
+		public Group getGroup() { return cGroup; }
+		
+		//{SensorActivation}
+		public Action getSensorActivationAction_0() { return cSensorActivationAction_0; }
+		
+		//'SensorActivated'
+		public Keyword getSensorActivatedKeyword_1() { return cSensorActivatedKeyword_1; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.EString");
@@ -455,8 +581,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final RobotElements pRobot;
 	private final InstructionElements pInstruction;
-	private final MovementElements pMovement;
+	private final ReleaseElements pRelease;
+	private final GrabElements pGrab;
+	private final TimedInstructionElements pTimedInstruction;
 	private final MoveStraightElements pMoveStraight;
+	private final WaitElements pWait;
 	private final TurnElements pTurn;
 	private final DistanceElements pDistance;
 	private final AngleElements pAngle;
@@ -467,6 +596,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final EIntElements pEInt;
 	private final NamedBlockElements pNamedBlock;
 	private final GoToElements pGoTo;
+	private final ConditionElements pCondition;
+	private final SensorActivationElements pSensorActivation;
 	private final EStringElements pEString;
 	
 	private final Grammar grammar;
@@ -480,8 +611,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pRobot = new RobotElements();
 		this.pInstruction = new InstructionElements();
-		this.pMovement = new MovementElements();
+		this.pRelease = new ReleaseElements();
+		this.pGrab = new GrabElements();
+		this.pTimedInstruction = new TimedInstructionElements();
 		this.pMoveStraight = new MoveStraightElements();
+		this.pWait = new WaitElements();
 		this.pTurn = new TurnElements();
 		this.pDistance = new DistanceElements();
 		this.pAngle = new AngleElements();
@@ -492,6 +626,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEInt = new EIntElements();
 		this.pNamedBlock = new NamedBlockElements();
 		this.pGoTo = new GoToElements();
+		this.pCondition = new ConditionElements();
+		this.pSensorActivation = new SensorActivationElements();
 		this.pEString = new EStringElements();
 	}
 	
@@ -536,7 +672,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Instruction:
-	//	Movement | NamedBlock | GoTo;
+	//	TimedInstruction | Grab | Release | NamedBlock | GoTo;
 	public InstructionElements getInstructionAccess() {
 		return pInstruction;
 	}
@@ -545,18 +681,40 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getInstructionAccess().getRule();
 	}
 	
-	//Movement:
-	//	(MoveStraight | Turn) 'for' duration=Duration?;
-	public MovementElements getMovementAccess() {
-		return pMovement;
+	//Release:
+	//	{Release}
+	//	'Release';
+	public ReleaseElements getReleaseAccess() {
+		return pRelease;
 	}
 	
-	public ParserRule getMovementRule() {
-		return getMovementAccess().getRule();
+	public ParserRule getReleaseRule() {
+		return getReleaseAccess().getRule();
+	}
+	
+	//Grab:
+	//	{Grab}
+	//	'Grab';
+	public GrabElements getGrabAccess() {
+		return pGrab;
+	}
+	
+	public ParserRule getGrabRule() {
+		return getGrabAccess().getRule();
+	}
+	
+	//TimedInstruction:
+	//	MoveStraight | Turn | Wait;
+	public TimedInstructionElements getTimedInstructionAccess() {
+		return pTimedInstruction;
+	}
+	
+	public ParserRule getTimedInstructionRule() {
+		return getTimedInstructionAccess().getRule();
 	}
 	
 	//MoveStraight:
-	//	'MoveStraight' distance=Distance;
+	//	'MoveStraight' distance=Distance 'in' duration=Duration?;
 	public MoveStraightElements getMoveStraightAccess() {
 		return pMoveStraight;
 	}
@@ -565,8 +723,19 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getMoveStraightAccess().getRule();
 	}
 	
+	//Wait:
+	//	{Wait}
+	//	'Wait' 'for' duration=Duration?;
+	public WaitElements getWaitAccess() {
+		return pWait;
+	}
+	
+	public ParserRule getWaitRule() {
+		return getWaitAccess().getRule();
+	}
+	
 	//Turn:
-	//	'Turn' angle=Angle;
+	//	'Turn' angle=Angle 'in' duration=Duration?;
 	public TurnElements getTurnAccess() {
 		return pTurn;
 	}
@@ -596,7 +765,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Duration:
-	//	{Duration} (value=EInt timeUnit=TimeUnit);
+	//	value=EInt timeUnit=TimeUnit;
 	public DurationElements getDurationAccess() {
 		return pDuration;
 	}
@@ -646,7 +815,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NamedBlock:
-	//	{NamedBlock}
 	//	'NamedBlock'
 	//	name=EString
 	//	'{' (instructions+=Instruction instructions+=Instruction*)?
@@ -660,13 +828,34 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GoTo:
-	//	'GoTo' destination=[NamedBlock|EString];
+	//	'GoTo' destination=[NamedBlock|EString] ('if' condition=Condition)?;
 	public GoToElements getGoToAccess() {
 		return pGoTo;
 	}
 	
 	public ParserRule getGoToRule() {
 		return getGoToAccess().getRule();
+	}
+	
+	//Condition:
+	//	SensorActivation;
+	public ConditionElements getConditionAccess() {
+		return pCondition;
+	}
+	
+	public ParserRule getConditionRule() {
+		return getConditionAccess().getRule();
+	}
+	
+	//SensorActivation:
+	//	{SensorActivation}
+	//	'SensorActivated';
+	public SensorActivationElements getSensorActivationAccess() {
+		return pSensorActivation;
+	}
+	
+	public ParserRule getSensorActivationRule() {
+		return getSensorActivationAccess().getRule();
 	}
 	
 	//EString:

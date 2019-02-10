@@ -12,21 +12,33 @@ Robot returns Robot:
 	'}';
 
 Instruction returns Instruction:
-	Movement | NamedBlock | GoTo;
+	TimedInstruction | Grab | Release | NamedBlock | GoTo;
 
 
+Release returns Release:
+	{Release}
+	'Release'
+;
 
-
-Movement returns Movement:
-	(MoveStraight | Turn) 'for' duration=Duration?
+Grab returns Grab:
+	{Grab}
+	'Grab'
 ;
 
 
+TimedInstruction returns TimedInstruction:
+	(MoveStraight | Turn | Wait) 
+;
+
 MoveStraight returns MoveStraight:
-	'MoveStraight' distance=Distance;
+	'MoveStraight' distance=Distance 'in' duration=Duration?;
+
+Wait returns Wait:
+	{Wait}
+	'Wait' 'for' duration=Duration?;
 
 Turn returns Turn:
-	'Turn' angle=Angle;
+	'Turn' angle=Angle 'in' duration=Duration?;
 
 Distance returns Distance:
 	value=EInt distanceUnit=DistanceUnit;
@@ -35,26 +47,21 @@ Angle returns Angle:
 	value=EInt (angleUnit=AngleUnit)?;
 
 Duration returns Duration:
-	 {Duration}
 	(value=EInt timeUnit=TimeUnit);
 
 enum TimeUnit:
-	MILLISECONDS = "ms" | SECONDS = "s"
-;
+	MILLISECONDS = "ms" | SECONDS = "s";
 
 enum DistanceUnit:
-	CENTIMETERS = "cm"
-;
+	CENTIMETERS = "cm";
 
 enum AngleUnit:
-	DEGREES = "deg"
-;
+	DEGREES = "deg";
+
 EInt returns ecore::EInt:
 	'-'? INT;
 
-
 NamedBlock returns NamedBlock:
-	{NamedBlock}
 	'NamedBlock'
 	name=EString
 	'{'
@@ -62,7 +69,14 @@ NamedBlock returns NamedBlock:
 	'}';
 
 GoTo returns GoTo:
-	'GoTo' destination=[NamedBlock|EString];
+	'GoTo' destination=[NamedBlock|EString] ('if' condition=Condition)?;
+
+Condition returns Condition:
+	SensorActivation;
+
+SensorActivation returns SensorActivation:
+	{SensorActivation}
+	'SensorActivated';
 
 
 EString returns ecore::EString:

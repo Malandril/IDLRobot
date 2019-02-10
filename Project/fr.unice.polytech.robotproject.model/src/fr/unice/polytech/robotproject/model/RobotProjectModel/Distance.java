@@ -49,6 +49,4 @@ public interface Distance extends Amount {
 	 */
 	void setDistanceUnit(DistanceUnit value);
 
-
-
 } // Distance

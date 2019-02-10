@@ -24,8 +24,8 @@
     <genClasses ecoreClass="model.ecore#//Robot">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Robot/instructions"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="model.ecore#//Movement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Movement/duration"/>
+    <genClasses image="false" ecoreClass="model.ecore#//TimedInstruction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//TimedInstruction/duration"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Turn">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Turn/angle"/>
@@ -43,6 +43,7 @@
     </genClasses>
     <genClasses ecoreClass="model.ecore#//GoTo">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//GoTo/destination"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//GoTo/condition"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Distance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Distance/distanceUnit"/>
@@ -50,5 +51,10 @@
     <genClasses ecoreClass="model.ecore#//Angle">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Angle/angleUnit"/>
     </genClasses>
+    <genClasses ecoreClass="model.ecore#//Condition"/>
+    <genClasses ecoreClass="model.ecore#//SensorActivation"/>
+    <genClasses ecoreClass="model.ecore#//Grab"/>
+    <genClasses ecoreClass="model.ecore#//Release"/>
+    <genClasses ecoreClass="model.ecore#//Wait"/>
   </genPackages>
 </genmodel:GenModel>

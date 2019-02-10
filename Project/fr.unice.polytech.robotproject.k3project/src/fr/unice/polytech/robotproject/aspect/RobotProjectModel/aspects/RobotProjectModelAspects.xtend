@@ -15,14 +15,18 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount
 import fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement
+import fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction
 import fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Wait
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Grab
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Release
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Condition
+import fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation
 
 @Aspect(className=Instruction)
 abstract class InstructionAspect {
 	def void execute(PolyRob rob)
 }
-
 
 
 @Aspect(className=Duration)
@@ -31,6 +35,7 @@ class DurationAspect {
 		return _self.value *_self.timeUnit.value
 	}
 }
+
 
 @Aspect(className=Angle)
 class AngleAspect {
@@ -52,12 +57,34 @@ class DistanceAspect {
 @Aspect(className=GoTo)
 class GoToAspect extends InstructionAspect {
 	def void execute(PolyRob rob){
-		NamedBlockAspect.real_execute(_self.destination,rob);
+		if(_self.condition === null || ConditionAspect.compute(_self.condition,rob)){
+			println("Condition is true executing block")
+			NamedBlockAspect.execute_block(_self.destination,rob);
+		}else{
+			println("Condition is false not executing block")	
+		}
 	}
 }
 
-@Aspect(className=Movement)
-class MovementAspect extends InstructionAspect {
+
+@Aspect(className=Grab)
+class GrabAspect extends InstructionAspect {
+	def void execute(PolyRob rob){
+		rob.closeGrip();
+	}
+}
+
+
+@Aspect(className=Release)
+class ReleaseAspect extends InstructionAspect {
+	def void execute(PolyRob rob){
+		rob.closeGrip();
+	}
+}
+
+
+@Aspect(className=TimedInstruction)
+class TimedInstructionAspect extends InstructionAspect {
 	
 	def int durationValue(){
 		if(null !== _self.duration) {
@@ -69,8 +96,9 @@ class MovementAspect extends InstructionAspect {
 	
 }
 
+
 @Aspect(className=MoveStraight)
-class MoveStraightAspect extends MovementAspect {
+class MoveStraightAspect extends TimedInstructionAspect {
 	@Step
 	def void execute(PolyRob rob){
 		var pos = rob.position;
@@ -83,8 +111,21 @@ class MoveStraightAspect extends MovementAspect {
 	}
 }
 
+
+@Aspect(className=Wait)
+class WaitAspect extends TimedInstructionAspect {
+	@Step
+	def void execute(PolyRob rob){
+		var duration = _self.durationValue();
+		println("Waiting for: " + duration + " ms");
+		rob.stepSimulation(duration);
+		println("Finished waiting ");		
+	}
+}
+
+
 @Aspect(className=Turn)
-class TurnAspect extends MovementAspect {
+class TurnAspect extends TimedInstructionAspect {
 	def void execute(PolyRob rob){
 		var duration = _self.durationValue()
 		var angle = AngleAspect.computeValue(_self.angle)
@@ -93,13 +134,14 @@ class TurnAspect extends MovementAspect {
 	}
 }
 
+
 @Aspect(className=NamedBlock)
 class NamedBlockAspect extends InstructionAspect {
     def void execute(PolyRob rob) {
     	
     }
     
-    def void real_execute(PolyRob rob) {
+    def void execute_block(PolyRob rob){
     	println("Executing block "+_self.name);
     	for(i :_self.instructions){
     		i.execute(rob);
@@ -122,5 +164,17 @@ class RobotAspect {
     }
 }
 
+@Aspect(className=Condition)
+abstract class ConditionAspect  {
+	def boolean compute(PolyRob rob);
+}
 
 
+@Aspect(className=SensorActivation)
+class SensorActivationAspect extends ConditionAspect {
+	def boolean compute(PolyRob rob){
+		println("looool")
+		rob.hasDetectedAnObject();
+		// rob.stepSimulationOnce();
+	}
+}

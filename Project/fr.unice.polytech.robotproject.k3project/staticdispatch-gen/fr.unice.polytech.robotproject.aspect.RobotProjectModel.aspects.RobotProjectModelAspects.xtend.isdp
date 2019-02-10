@@ -8,13 +8,33 @@
 			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.NamedBlockAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock)_self,rob);
 		} else
 		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.NamedBlockAspect
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.ConditionAspect#boolean compute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.SensorActivationAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation){
+			result = fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.SensorActivationAspect.compute((fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.ConditionAspect#boolean compute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.SensorActivationAspect
 	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GoToAspect
 		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo){
 			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GoToAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo)_self,rob);
 		} else
 		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GoToAspect
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GrabAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.Grab){
+			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GrabAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.Grab)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.GrabAspect
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.WaitAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.Wait){
+			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.WaitAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.Wait)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.WaitAspect
 	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveStraightAspect
 		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight){
 			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveStraightAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight)_self,rob);
 		} else
 		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.MoveStraightAspect
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.ReleaseAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.Release){
+			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.ReleaseAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.Release)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.ReleaseAspect

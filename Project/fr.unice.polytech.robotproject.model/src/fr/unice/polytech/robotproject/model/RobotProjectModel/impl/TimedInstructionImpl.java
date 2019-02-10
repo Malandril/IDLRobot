@@ -3,8 +3,8 @@
 package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,18 +17,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Movement</b></em>'.
+ * An implementation of the model object '<em><b>Timed Instruction</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.MovementImpl#getDuration <em>Duration</em>}</li>
+ *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.TimedInstructionImpl#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class MovementImpl extends MinimalEObjectImpl.Container implements Movement {
+public abstract class TimedInstructionImpl extends MinimalEObjectImpl.Container implements TimedInstruction {
 	/**
 	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MovementImpl() {
+	protected TimedInstructionImpl() {
 		super();
 	}
 
@@ -55,7 +55,7 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RobotProjectModelPackage.Literals.MOVEMENT;
+		return RobotProjectModelPackage.Literals.TIMED_INSTRUCTION;
 	}
 
 	/**
@@ -76,7 +76,7 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 		Duration oldDuration = duration;
 		duration = newDuration;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.MOVEMENT__DURATION, oldDuration, newDuration);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION, oldDuration, newDuration);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -91,14 +91,14 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 		if (newDuration != duration) {
 			NotificationChain msgs = null;
 			if (duration != null)
-				msgs = ((InternalEObject)duration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RobotProjectModelPackage.MOVEMENT__DURATION, null, msgs);
+				msgs = ((InternalEObject)duration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION, null, msgs);
 			if (newDuration != null)
-				msgs = ((InternalEObject)newDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RobotProjectModelPackage.MOVEMENT__DURATION, null, msgs);
+				msgs = ((InternalEObject)newDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION, null, msgs);
 			msgs = basicSetDuration(newDuration, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.MOVEMENT__DURATION, newDuration, newDuration));
+			eNotify(new ENotificationImpl(this, Notification.SET, RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION, newDuration, newDuration));
 	}
 
 	/**
@@ -109,7 +109,7 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__DURATION:
+			case RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION:
 				return basicSetDuration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -123,7 +123,7 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__DURATION:
+			case RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION:
 				return getDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -137,7 +137,7 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__DURATION:
+			case RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION:
 				setDuration((Duration)newValue);
 				return;
 		}
@@ -152,7 +152,7 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__DURATION:
+			case RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION:
 				setDuration((Duration)null);
 				return;
 		}
@@ -167,10 +167,10 @@ public abstract class MovementImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RobotProjectModelPackage.MOVEMENT__DURATION:
+			case RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION:
 				return duration != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //MovementImpl
+} //TimedInstructionImpl

@@ -80,8 +80,8 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 				return createRobotAdapter();
 			}
 			@Override
-			public Adapter caseMovement(Movement object) {
-				return createMovementAdapter();
+			public Adapter caseTimedInstruction(TimedInstruction object) {
+				return createTimedInstructionAdapter();
 			}
 			@Override
 			public Adapter caseTurn(Turn object) {
@@ -114,6 +114,26 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAngle(Angle object) {
 				return createAngleAdapter();
+			}
+			@Override
+			public Adapter caseCondition(Condition object) {
+				return createConditionAdapter();
+			}
+			@Override
+			public Adapter caseSensorActivation(SensorActivation object) {
+				return createSensorActivationAdapter();
+			}
+			@Override
+			public Adapter caseGrab(Grab object) {
+				return createGrabAdapter();
+			}
+			@Override
+			public Adapter caseRelease(Release object) {
+				return createReleaseAdapter();
+			}
+			@Override
+			public Adapter caseWait(Wait object) {
+				return createWaitAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -178,16 +198,16 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Movement <em>Movement</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction <em>Timed Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Movement
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction
 	 * @generated
 	 */
-	public Adapter createMovementAdapter() {
+	public Adapter createTimedInstructionAdapter() {
 		return null;
 	}
 
@@ -300,6 +320,76 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAngleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Condition
+	 * @generated
+	 */
+	public Adapter createConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation <em>Sensor Activation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation
+	 * @generated
+	 */
+	public Adapter createSensorActivationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Grab <em>Grab</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Grab
+	 * @generated
+	 */
+	public Adapter createGrabAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Release <em>Release</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Release
+	 * @generated
+	 */
+	public Adapter createReleaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Wait <em>Wait</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Wait
+	 * @generated
+	 */
+	public Adapter createWaitAdapter() {
 		return null;
 	}
 

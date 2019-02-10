@@ -13,6 +13,7 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel;
  * </p>
  * <ul>
  *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo#getDestination <em>Destination</em>}</li>
+ *   <li>{@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @see fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage#getGoTo()
@@ -45,5 +46,31 @@ public interface GoTo extends Instruction {
 	 * @generated
 	 */
 	void setDestination(NamedBlock value);
+
+	/**
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Condition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Condition</em>' containment reference.
+	 * @see #setCondition(Condition)
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage#getGoTo_Condition()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Condition getCondition();
+
+	/**
+	 * Sets the value of the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo#getCondition <em>Condition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition</em>' containment reference.
+	 * @see #getCondition()
+	 * @generated
+	 */
+	void setCondition(Condition value);
 
 } // GoTo

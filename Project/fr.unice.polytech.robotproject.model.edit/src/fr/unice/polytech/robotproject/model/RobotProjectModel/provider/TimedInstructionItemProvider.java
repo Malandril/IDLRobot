@@ -3,9 +3,9 @@
 package fr.unice.polytech.robotproject.model.RobotProjectModel.provider;
 
 
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -26,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Movement} object.
+ * This is the item provider adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MovementItemProvider 
+public class TimedInstructionItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +46,7 @@ public class MovementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MovementItemProvider(AdapterFactory adapterFactory) {
+	public TimedInstructionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -76,7 +77,7 @@ public class MovementItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RobotProjectModelPackage.Literals.MOVEMENT__DURATION);
+			childrenFeatures.add(RobotProjectModelPackage.Literals.TIMED_INSTRUCTION__DURATION);
 		}
 		return childrenFeatures;
 	}
@@ -102,7 +103,7 @@ public class MovementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Movement_type");
+		return getString("_UI_TimedInstruction_type");
 	}
 
 
@@ -117,8 +118,8 @@ public class MovementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Movement.class)) {
-			case RobotProjectModelPackage.MOVEMENT__DURATION:
+		switch (notification.getFeatureID(TimedInstruction.class)) {
+			case RobotProjectModelPackage.TIMED_INSTRUCTION__DURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,7 +139,7 @@ public class MovementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RobotProjectModelPackage.Literals.MOVEMENT__DURATION,
+				(RobotProjectModelPackage.Literals.TIMED_INSTRUCTION__DURATION,
 				 RobotProjectModelFactory.eINSTANCE.createDuration()));
 	}
 

@@ -5,20 +5,25 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Condition;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Distance;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Grab;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Instruction;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Movement;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Release;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Turn;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Wait;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -61,7 +66,7 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass movementEClass = null;
+	private EClass timedInstructionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,6 +123,41 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * @generated
 	 */
 	private EClass angleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensorActivationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass grabEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass releaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass waitEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -251,8 +291,8 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMovement() {
-		return movementEClass;
+	public EClass getTimedInstruction() {
+		return timedInstructionEClass;
 	}
 
 	/**
@@ -260,8 +300,8 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMovement_Duration() {
-		return (EReference)movementEClass.getEStructuralFeatures().get(0);
+	public EReference getTimedInstruction_Duration() {
+		return (EReference)timedInstructionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -377,6 +417,15 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGoTo_Condition() {
+		return (EReference)goToEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDistance() {
 		return distanceEClass;
 	}
@@ -406,6 +455,51 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 */
 	public EAttribute getAngle_AngleUnit() {
 		return (EAttribute)angleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCondition() {
+		return conditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSensorActivation() {
+		return sensorActivationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGrab() {
+		return grabEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRelease() {
+		return releaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getWait() {
+		return waitEClass;
 	}
 
 	/**
@@ -471,8 +565,8 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		robotEClass = createEClass(ROBOT);
 		createEReference(robotEClass, ROBOT__INSTRUCTIONS);
 
-		movementEClass = createEClass(MOVEMENT);
-		createEReference(movementEClass, MOVEMENT__DURATION);
+		timedInstructionEClass = createEClass(TIMED_INSTRUCTION);
+		createEReference(timedInstructionEClass, TIMED_INSTRUCTION__DURATION);
 
 		turnEClass = createEClass(TURN);
 		createEReference(turnEClass, TURN__ANGLE);
@@ -491,12 +585,23 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 
 		goToEClass = createEClass(GO_TO);
 		createEReference(goToEClass, GO_TO__DESTINATION);
+		createEReference(goToEClass, GO_TO__CONDITION);
 
 		distanceEClass = createEClass(DISTANCE);
 		createEAttribute(distanceEClass, DISTANCE__DISTANCE_UNIT);
 
 		angleEClass = createEClass(ANGLE);
 		createEAttribute(angleEClass, ANGLE__ANGLE_UNIT);
+
+		conditionEClass = createEClass(CONDITION);
+
+		sensorActivationEClass = createEClass(SENSOR_ACTIVATION);
+
+		grabEClass = createEClass(GRAB);
+
+		releaseEClass = createEClass(RELEASE);
+
+		waitEClass = createEClass(WAIT);
 
 		// Create enums
 		distanceUnitEEnum = createEEnum(DISTANCE_UNIT);
@@ -532,14 +637,18 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		moveStraightEClass.getESuperTypes().add(this.getMovement());
-		movementEClass.getESuperTypes().add(this.getInstruction());
-		turnEClass.getESuperTypes().add(this.getMovement());
+		moveStraightEClass.getESuperTypes().add(this.getTimedInstruction());
+		timedInstructionEClass.getESuperTypes().add(this.getInstruction());
+		turnEClass.getESuperTypes().add(this.getTimedInstruction());
 		durationEClass.getESuperTypes().add(this.getAmount());
 		namedBlockEClass.getESuperTypes().add(this.getInstruction());
 		goToEClass.getESuperTypes().add(this.getInstruction());
 		distanceEClass.getESuperTypes().add(this.getAmount());
 		angleEClass.getESuperTypes().add(this.getAmount());
+		sensorActivationEClass.getESuperTypes().add(this.getCondition());
+		grabEClass.getESuperTypes().add(this.getInstruction());
+		releaseEClass.getESuperTypes().add(this.getInstruction());
+		waitEClass.getESuperTypes().add(this.getTimedInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(instructionEClass, Instruction.class, "Instruction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -550,8 +659,8 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRobot_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(movementEClass, Movement.class, "Movement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMovement_Duration(), this.getDuration(), null, "duration", null, 1, 1, Movement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(timedInstructionEClass, TimedInstruction.class, "TimedInstruction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTimedInstruction_Duration(), this.getDuration(), null, "duration", null, 1, 1, TimedInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(turnEClass, Turn.class, "Turn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTurn_Angle(), this.getAngle(), null, "angle", null, 1, 1, Turn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -570,12 +679,23 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 
 		initEClass(goToEClass, GoTo.class, "GoTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGoTo_Destination(), this.getNamedBlock(), null, "destination", null, 1, 1, GoTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGoTo_Condition(), this.getCondition(), null, "condition", null, 0, 1, GoTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(distanceEClass, Distance.class, "Distance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDistance_DistanceUnit(), this.getDistanceUnit(), "distanceUnit", null, 0, 1, Distance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(angleEClass, Angle.class, "Angle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAngle_AngleUnit(), this.getAngleUnit(), "angleUnit", null, 0, 1, Angle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sensorActivationEClass, SensorActivation.class, "SensorActivation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(grabEClass, Grab.class, "Grab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(releaseEClass, Release.class, "Release", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(waitEClass, Wait.class, "Wait", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(distanceUnitEEnum, DistanceUnit.class, "DistanceUnit");

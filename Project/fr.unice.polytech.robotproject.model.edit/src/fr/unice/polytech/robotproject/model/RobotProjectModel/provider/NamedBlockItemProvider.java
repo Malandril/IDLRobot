@@ -6,6 +6,7 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.provider;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -196,6 +198,21 @@ public class NamedBlockItemProvider
 			(createChildParameter
 				(RobotProjectModelPackage.Literals.NAMED_BLOCK__INSTRUCTIONS,
 				 RobotProjectModelFactory.eINSTANCE.createGoTo()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.NAMED_BLOCK__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createGrab()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.NAMED_BLOCK__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createRelease()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.NAMED_BLOCK__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createWait()));
 	}
 
 	/**

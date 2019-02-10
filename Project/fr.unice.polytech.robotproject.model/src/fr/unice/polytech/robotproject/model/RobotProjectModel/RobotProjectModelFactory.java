@@ -112,6 +112,51 @@ public interface RobotProjectModelFactory extends EFactory {
 	Angle createAngle();
 
 	/**
+	 * Returns a new object of class '<em>Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Condition</em>'.
+	 * @generated
+	 */
+	Condition createCondition();
+
+	/**
+	 * Returns a new object of class '<em>Sensor Activation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sensor Activation</em>'.
+	 * @generated
+	 */
+	SensorActivation createSensorActivation();
+
+	/**
+	 * Returns a new object of class '<em>Grab</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Grab</em>'.
+	 * @generated
+	 */
+	Grab createGrab();
+
+	/**
+	 * Returns a new object of class '<em>Release</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Release</em>'.
+	 * @generated
+	 */
+	Release createRelease();
+
+	/**
+	 * Returns a new object of class '<em>Wait</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Wait</em>'.
+	 * @generated
+	 */
+	Wait createWait();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

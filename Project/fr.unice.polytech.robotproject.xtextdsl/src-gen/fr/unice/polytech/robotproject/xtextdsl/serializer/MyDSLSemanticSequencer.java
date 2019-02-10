@@ -8,11 +8,15 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Distance;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Grab;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Release;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Turn;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Wait;
 import fr.unice.polytech.robotproject.xtextdsl.services.MyDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -51,34 +55,30 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RobotProjectModelPackage.GO_TO:
 				sequence_GoTo(context, (GoTo) semanticObject); 
 				return; 
+			case RobotProjectModelPackage.GRAB:
+				sequence_Grab(context, (Grab) semanticObject); 
+				return; 
 			case RobotProjectModelPackage.MOVE_STRAIGHT:
-				if (rule == grammarAccess.getMoveStraightRule()) {
-					sequence_MoveStraight(context, (MoveStraight) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getInstructionRule()
-						|| rule == grammarAccess.getMovementRule()) {
-					sequence_MoveStraight_Movement(context, (MoveStraight) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_MoveStraight(context, (MoveStraight) semanticObject); 
+				return; 
 			case RobotProjectModelPackage.NAMED_BLOCK:
 				sequence_NamedBlock(context, (NamedBlock) semanticObject); 
+				return; 
+			case RobotProjectModelPackage.RELEASE:
+				sequence_Release(context, (Release) semanticObject); 
 				return; 
 			case RobotProjectModelPackage.ROBOT:
 				sequence_Robot(context, (Robot) semanticObject); 
 				return; 
+			case RobotProjectModelPackage.SENSOR_ACTIVATION:
+				sequence_SensorActivation(context, (SensorActivation) semanticObject); 
+				return; 
 			case RobotProjectModelPackage.TURN:
-				if (rule == grammarAccess.getInstructionRule()
-						|| rule == grammarAccess.getMovementRule()) {
-					sequence_Movement_Turn(context, (Turn) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getTurnRule()) {
-					sequence_Turn(context, (Turn) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Turn(context, (Turn) semanticObject); 
+				return; 
+			case RobotProjectModelPackage.WAIT:
+				sequence_Wait(context, (Wait) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -132,8 +132,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RobotProjectModelPackage.Literals.DURATION__TIME_UNIT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDurationAccess().getValueEIntParserRuleCall_1_0_0(), semanticObject.getValue());
-		feeder.accept(grammarAccess.getDurationAccess().getTimeUnitTimeUnitEnumRuleCall_1_1_0(), semanticObject.getTimeUnit());
+		feeder.accept(grammarAccess.getDurationAccess().getValueEIntParserRuleCall_0_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDurationAccess().getTimeUnitTimeUnitEnumRuleCall_1_0(), semanticObject.getTimeUnit());
 		feeder.finish();
 	}
 	
@@ -144,59 +144,36 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     GoTo returns GoTo
 	 *
 	 * Constraint:
-	 *     destination=[NamedBlock|EString]
+	 *     (destination=[NamedBlock|EString] condition=Condition?)
 	 */
 	protected void sequence_GoTo(ISerializationContext context, GoTo semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RobotProjectModelPackage.Literals.GO_TO__DESTINATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RobotProjectModelPackage.Literals.GO_TO__DESTINATION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGoToAccess().getDestinationNamedBlockEStringParserRuleCall_1_0_1(), semanticObject.eGet(RobotProjectModelPackage.Literals.GO_TO__DESTINATION, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     MoveStraight returns MoveStraight
-	 *
-	 * Constraint:
-	 *     distance=Distance
-	 */
-	protected void sequence_MoveStraight(ISerializationContext context, MoveStraight semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RobotProjectModelPackage.Literals.MOVE_STRAIGHT__DISTANCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RobotProjectModelPackage.Literals.MOVE_STRAIGHT__DISTANCE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMoveStraightAccess().getDistanceDistanceParserRuleCall_1_0(), semanticObject.getDistance());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Instruction returns MoveStraight
-	 *     Movement returns MoveStraight
-	 *
-	 * Constraint:
-	 *     (distance=Distance duration=Duration?)
-	 */
-	protected void sequence_MoveStraight_Movement(ISerializationContext context, MoveStraight semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Instruction returns Turn
-	 *     Movement returns Turn
+	 *     Instruction returns Grab
+	 *     Grab returns Grab
 	 *
 	 * Constraint:
-	 *     (angle=Angle duration=Duration?)
+	 *     {Grab}
 	 */
-	protected void sequence_Movement_Turn(ISerializationContext context, Turn semanticObject) {
+	protected void sequence_Grab(ISerializationContext context, Grab semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns MoveStraight
+	 *     TimedInstruction returns MoveStraight
+	 *     MoveStraight returns MoveStraight
+	 *
+	 * Constraint:
+	 *     (distance=Distance duration=Duration?)
+	 */
+	protected void sequence_MoveStraight(ISerializationContext context, MoveStraight semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -216,6 +193,19 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Instruction returns Release
+	 *     Release returns Release
+	 *
+	 * Constraint:
+	 *     {Release}
+	 */
+	protected void sequence_Release(ISerializationContext context, Release semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Robot returns Robot
 	 *
 	 * Constraint:
@@ -228,19 +218,42 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Condition returns SensorActivation
+	 *     SensorActivation returns SensorActivation
+	 *
+	 * Constraint:
+	 *     {SensorActivation}
+	 */
+	protected void sequence_SensorActivation(ISerializationContext context, SensorActivation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Turn
+	 *     TimedInstruction returns Turn
 	 *     Turn returns Turn
 	 *
 	 * Constraint:
-	 *     angle=Angle
+	 *     (angle=Angle duration=Duration?)
 	 */
 	protected void sequence_Turn(ISerializationContext context, Turn semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RobotProjectModelPackage.Literals.TURN__ANGLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RobotProjectModelPackage.Literals.TURN__ANGLE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTurnAccess().getAngleAngleParserRuleCall_1_0(), semanticObject.getAngle());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Wait
+	 *     TimedInstruction returns Wait
+	 *     Wait returns Wait
+	 *
+	 * Constraint:
+	 *     duration=Duration?
+	 */
+	protected void sequence_Wait(ISerializationContext context, Wait semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

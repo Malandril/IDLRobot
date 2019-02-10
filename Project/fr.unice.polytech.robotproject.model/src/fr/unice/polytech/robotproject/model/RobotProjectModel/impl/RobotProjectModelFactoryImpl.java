@@ -67,6 +67,11 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 			case RobotProjectModelPackage.GO_TO: return createGoTo();
 			case RobotProjectModelPackage.DISTANCE: return createDistance();
 			case RobotProjectModelPackage.ANGLE: return createAngle();
+			case RobotProjectModelPackage.CONDITION: return createCondition();
+			case RobotProjectModelPackage.SENSOR_ACTIVATION: return createSensorActivation();
+			case RobotProjectModelPackage.GRAB: return createGrab();
+			case RobotProjectModelPackage.RELEASE: return createRelease();
+			case RobotProjectModelPackage.WAIT: return createWait();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -208,6 +213,56 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	public Angle createAngle() {
 		AngleImpl angle = new AngleImpl();
 		return angle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Condition createCondition() {
+		ConditionImpl condition = new ConditionImpl();
+		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SensorActivation createSensorActivation() {
+		SensorActivationImpl sensorActivation = new SensorActivationImpl();
+		return sensorActivation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Grab createGrab() {
+		GrabImpl grab = new GrabImpl();
+		return grab;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Release createRelease() {
+		ReleaseImpl release = new ReleaseImpl();
+		return release;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Wait createWait() {
+		WaitImpl wait = new WaitImpl();
+		return wait;
 	}
 
 	/**
