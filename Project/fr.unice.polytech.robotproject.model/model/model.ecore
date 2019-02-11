@@ -30,9 +30,7 @@
         eType="#//TimeUnit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerValue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedBlock" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
-        eType="#//Instruction" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//InstructionBlock">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DistanceUnit">
@@ -45,11 +43,9 @@
     <eLiterals name="SECONDS" value="1000" literal="s"/>
     <eLiterals name="MILLISECONDS" value="1" literal="ms"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GoTo" eSuperTypes="#//Instruction">
+  <eClassifiers xsi:type="ecore:EClass" name="Call" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
-        eType="#//NamedBlock"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
-        containment="true"/>
+        eType="#//Function"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Distance" eSuperTypes="#//Amount">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distanceUnit" eType="#//DistanceUnit"/>
@@ -62,4 +58,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Grab" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Release" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Wait" eSuperTypes="#//TimedInstruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//InstructionBlock">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InstructionBlock" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" lowerBound="1"
+        upperBound="-1" eType="#//Instruction" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

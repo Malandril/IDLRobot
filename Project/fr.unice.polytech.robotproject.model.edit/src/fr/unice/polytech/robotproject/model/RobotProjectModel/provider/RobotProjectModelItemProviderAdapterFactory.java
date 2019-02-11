@@ -210,49 +210,49 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock} instances.
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Function} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NamedBlockItemProvider namedBlockItemProvider;
+	protected FunctionItemProvider functionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.NamedBlock}.
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Function}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNamedBlockAdapter() {
-		if (namedBlockItemProvider == null) {
-			namedBlockItemProvider = new NamedBlockItemProvider(this);
+	public Adapter createFunctionAdapter() {
+		if (functionItemProvider == null) {
+			functionItemProvider = new FunctionItemProvider(this);
 		}
 
-		return namedBlockItemProvider;
+		return functionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo} instances.
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Call} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GoToItemProvider goToItemProvider;
+	protected CallItemProvider callItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.GoTo}.
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Call}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGoToAdapter() {
-		if (goToItemProvider == null) {
-			goToItemProvider = new GoToItemProvider(this);
+	public Adapter createCallAdapter() {
+		if (callItemProvider == null) {
+			callItemProvider = new CallItemProvider(this);
 		}
 
-		return goToItemProvider;
+		return callItemProvider;
 	}
 
 	/**
@@ -417,6 +417,52 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.If} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IfItemProvider ifItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.If}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIfAdapter() {
+		if (ifItemProvider == null) {
+			ifItemProvider = new IfItemProvider(this);
+		}
+
+		return ifItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.InstructionBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InstructionBlockItemProvider instructionBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.InstructionBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInstructionBlockAdapter() {
+		if (instructionBlockItemProvider == null) {
+			instructionBlockItemProvider = new InstructionBlockItemProvider(this);
+		}
+
+		return instructionBlockItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -521,8 +567,8 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 		if (amountItemProvider != null) amountItemProvider.dispose();
 		if (durationItemProvider != null) durationItemProvider.dispose();
 		if (integerValueItemProvider != null) integerValueItemProvider.dispose();
-		if (namedBlockItemProvider != null) namedBlockItemProvider.dispose();
-		if (goToItemProvider != null) goToItemProvider.dispose();
+		if (functionItemProvider != null) functionItemProvider.dispose();
+		if (callItemProvider != null) callItemProvider.dispose();
 		if (distanceItemProvider != null) distanceItemProvider.dispose();
 		if (angleItemProvider != null) angleItemProvider.dispose();
 		if (conditionItemProvider != null) conditionItemProvider.dispose();
@@ -530,6 +576,8 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 		if (grabItemProvider != null) grabItemProvider.dispose();
 		if (releaseItemProvider != null) releaseItemProvider.dispose();
 		if (waitItemProvider != null) waitItemProvider.dispose();
+		if (ifItemProvider != null) ifItemProvider.dispose();
+		if (instructionBlockItemProvider != null) instructionBlockItemProvider.dispose();
 	}
 
 }

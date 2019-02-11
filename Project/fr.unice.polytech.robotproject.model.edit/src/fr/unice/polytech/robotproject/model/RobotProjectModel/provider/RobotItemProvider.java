@@ -161,12 +161,17 @@ public class RobotItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
-				 RobotProjectModelFactory.eINSTANCE.createNamedBlock()));
+				 RobotProjectModelFactory.eINSTANCE.createInstructionBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
-				 RobotProjectModelFactory.eINSTANCE.createGoTo()));
+				 RobotProjectModelFactory.eINSTANCE.createFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -182,6 +187,11 @@ public class RobotItemProvider
 			(createChildParameter
 				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
 				 RobotProjectModelFactory.eINSTANCE.createWait()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createIf()));
 	}
 
 	/**

@@ -120,17 +120,18 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RobotProjectModelPackage.NAMED_BLOCK: {
-				NamedBlock namedBlock = (NamedBlock)theEObject;
-				T result = caseNamedBlock(namedBlock);
-				if (result == null) result = caseInstruction(namedBlock);
+			case RobotProjectModelPackage.FUNCTION: {
+				Function function = (Function)theEObject;
+				T result = caseFunction(function);
+				if (result == null) result = caseInstructionBlock(function);
+				if (result == null) result = caseInstruction(function);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RobotProjectModelPackage.GO_TO: {
-				GoTo goTo = (GoTo)theEObject;
-				T result = caseGoTo(goTo);
-				if (result == null) result = caseInstruction(goTo);
+			case RobotProjectModelPackage.CALL: {
+				Call call = (Call)theEObject;
+				T result = caseCall(call);
+				if (result == null) result = caseInstruction(call);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -180,6 +181,21 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 				T result = caseWait(wait);
 				if (result == null) result = caseTimedInstruction(wait);
 				if (result == null) result = caseInstruction(wait);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.IF: {
+				If if_ = (If)theEObject;
+				T result = caseIf(if_);
+				if (result == null) result = caseInstructionBlock(if_);
+				if (result == null) result = caseInstruction(if_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.INSTRUCTION_BLOCK: {
+				InstructionBlock instructionBlock = (InstructionBlock)theEObject;
+				T result = caseInstructionBlock(instructionBlock);
+				if (result == null) result = caseInstruction(instructionBlock);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -308,32 +324,32 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Block</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Block</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Function</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNamedBlock(NamedBlock object) {
+	public T caseFunction(Function object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Go To</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Go To</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Call</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGoTo(GoTo object) {
+	public T caseCall(Call object) {
 		return null;
 	}
 
@@ -439,6 +455,36 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseWait(Wait object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>If</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>If</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIf(If object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Instruction Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Instruction Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInstructionBlock(InstructionBlock object) {
 		return null;
 	}
 

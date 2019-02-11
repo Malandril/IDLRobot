@@ -76,22 +76,22 @@ public interface RobotProjectModelFactory extends EFactory {
 	IntegerValue createIntegerValue();
 
 	/**
-	 * Returns a new object of class '<em>Named Block</em>'.
+	 * Returns a new object of class '<em>Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Named Block</em>'.
+	 * @return a new object of class '<em>Function</em>'.
 	 * @generated
 	 */
-	NamedBlock createNamedBlock();
+	Function createFunction();
 
 	/**
-	 * Returns a new object of class '<em>Go To</em>'.
+	 * Returns a new object of class '<em>Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Go To</em>'.
+	 * @return a new object of class '<em>Call</em>'.
 	 * @generated
 	 */
-	GoTo createGoTo();
+	Call createCall();
 
 	/**
 	 * Returns a new object of class '<em>Distance</em>'.
@@ -155,6 +155,24 @@ public interface RobotProjectModelFactory extends EFactory {
 	 * @generated
 	 */
 	Wait createWait();
+
+	/**
+	 * Returns a new object of class '<em>If</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>If</em>'.
+	 * @generated
+	 */
+	If createIf();
+
+	/**
+	 * Returns a new object of class '<em>Instruction Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Instruction Block</em>'.
+	 * @generated
+	 */
+	InstructionBlock createInstructionBlock();
 
 	/**
 	 * Returns the package supported by this factory.

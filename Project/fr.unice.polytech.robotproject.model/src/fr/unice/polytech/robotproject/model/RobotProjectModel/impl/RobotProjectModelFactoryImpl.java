@@ -63,8 +63,8 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 			case RobotProjectModelPackage.AMOUNT: return createAmount();
 			case RobotProjectModelPackage.DURATION: return createDuration();
 			case RobotProjectModelPackage.INTEGER_VALUE: return createIntegerValue();
-			case RobotProjectModelPackage.NAMED_BLOCK: return createNamedBlock();
-			case RobotProjectModelPackage.GO_TO: return createGoTo();
+			case RobotProjectModelPackage.FUNCTION: return createFunction();
+			case RobotProjectModelPackage.CALL: return createCall();
 			case RobotProjectModelPackage.DISTANCE: return createDistance();
 			case RobotProjectModelPackage.ANGLE: return createAngle();
 			case RobotProjectModelPackage.CONDITION: return createCondition();
@@ -72,6 +72,8 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 			case RobotProjectModelPackage.GRAB: return createGrab();
 			case RobotProjectModelPackage.RELEASE: return createRelease();
 			case RobotProjectModelPackage.WAIT: return createWait();
+			case RobotProjectModelPackage.IF: return createIf();
+			case RobotProjectModelPackage.INSTRUCTION_BLOCK: return createInstructionBlock();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -180,9 +182,9 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamedBlock createNamedBlock() {
-		NamedBlockImpl namedBlock = new NamedBlockImpl();
-		return namedBlock;
+	public Function createFunction() {
+		FunctionImpl function = new FunctionImpl();
+		return function;
 	}
 
 	/**
@@ -190,9 +192,9 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GoTo createGoTo() {
-		GoToImpl goTo = new GoToImpl();
-		return goTo;
+	public Call createCall() {
+		CallImpl call = new CallImpl();
+		return call;
 	}
 
 	/**
@@ -263,6 +265,26 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	public Wait createWait() {
 		WaitImpl wait = new WaitImpl();
 		return wait;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public If createIf() {
+		IfImpl if_ = new IfImpl();
+		return if_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InstructionBlock createInstructionBlock() {
+		InstructionBlockImpl instructionBlock = new InstructionBlockImpl();
+		return instructionBlock;
 	}
 
 	/**

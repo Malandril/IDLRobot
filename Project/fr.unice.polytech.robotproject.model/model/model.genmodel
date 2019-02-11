@@ -37,13 +37,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Duration/timeUnit"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//IntegerValue"/>
-    <genClasses ecoreClass="model.ecore#//NamedBlock">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//NamedBlock/instructions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//NamedBlock/name"/>
+    <genClasses ecoreClass="model.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Function/name"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//GoTo">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//GoTo/destination"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//GoTo/condition"/>
+    <genClasses ecoreClass="model.ecore#//Call">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Call/destination"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Distance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Distance/distanceUnit"/>
@@ -56,5 +54,11 @@
     <genClasses ecoreClass="model.ecore#//Grab"/>
     <genClasses ecoreClass="model.ecore#//Release"/>
     <genClasses ecoreClass="model.ecore#//Wait"/>
+    <genClasses ecoreClass="model.ecore#//If">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//If/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//InstructionBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//InstructionBlock/instructions"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
