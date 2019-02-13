@@ -29,15 +29,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeUnit" lowerBound="1"
         eType="#//TimeUnit"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerValue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//InstructionBlock">
+  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instructionBlock" eType="#//InstructionBlock"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DistanceUnit">
     <eLiterals name="CENTIMETERS" value="2266" literal="cm"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AngleUnit">
-    <eLiterals name="DEGREES" value="100" literal="deg"/>
+    <eLiterals name="DEGREES" value="95" literal="deg"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TimeUnit">
     <eLiterals name="SECONDS" value="1000" literal="s"/>
@@ -53,17 +54,31 @@
   <eClassifiers xsi:type="ecore:EClass" name="Angle" eSuperTypes="#//Amount">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angleUnit" eType="#//AngleUnit"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SensorActivation" eSuperTypes="#//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Grab" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Release" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Wait" eSuperTypes="#//TimedInstruction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//InstructionBlock">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+  <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        eType="#//Condition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="falseBlock" eType="#//InstructionBlock"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trueBlock" lowerBound="1"
+        eType="#//InstructionBlock" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InstructionBlock" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" lowerBound="1"
         upperBound="-1" eType="#//Instruction" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DetectedType">
+    <eLiterals name="NULL"/>
+    <eLiterals name="BALL" value="1"/>
+    <eLiterals name="WALL" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DetectedObjectIs" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rightOperand" lowerBound="1"
+        eType="#//DetectedType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HomeDirection" eSuperTypes="#//Angle"/>
 </ecore:EPackage>

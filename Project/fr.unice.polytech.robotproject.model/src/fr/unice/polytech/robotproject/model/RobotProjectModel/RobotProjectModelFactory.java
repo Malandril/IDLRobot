@@ -67,15 +67,6 @@ public interface RobotProjectModelFactory extends EFactory {
 	Duration createDuration();
 
 	/**
-	 * Returns a new object of class '<em>Integer Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer Value</em>'.
-	 * @generated
-	 */
-	IntegerValue createIntegerValue();
-
-	/**
 	 * Returns a new object of class '<em>Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,15 +101,6 @@ public interface RobotProjectModelFactory extends EFactory {
 	 * @generated
 	 */
 	Angle createAngle();
-
-	/**
-	 * Returns a new object of class '<em>Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
-	 * @generated
-	 */
-	Condition createCondition();
 
 	/**
 	 * Returns a new object of class '<em>Sensor Activation</em>'.
@@ -173,6 +155,24 @@ public interface RobotProjectModelFactory extends EFactory {
 	 * @generated
 	 */
 	InstructionBlock createInstructionBlock();
+
+	/**
+	 * Returns a new object of class '<em>Detected Object Is</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Detected Object Is</em>'.
+	 * @generated
+	 */
+	DetectedObjectIs createDetectedObjectIs();
+
+	/**
+	 * Returns a new object of class '<em>Home Direction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Home Direction</em>'.
+	 * @generated
+	 */
+	HomeDirection createHomeDirection();
 
 	/**
 	 * Returns the package supported by this factory.

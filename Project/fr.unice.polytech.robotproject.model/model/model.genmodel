@@ -17,6 +17,11 @@
       <genEnumLiterals ecoreEnumLiteral="model.ecore#//TimeUnit/SECONDS"/>
       <genEnumLiterals ecoreEnumLiteral="model.ecore#//TimeUnit/MILLISECONDS"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//DetectedType">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DetectedType/NULL"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DetectedType/BALL"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DetectedType/WALL"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="model.ecore#//Instruction"/>
     <genClasses ecoreClass="model.ecore#//MoveStraight">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//MoveStraight/distance"/>
@@ -36,9 +41,9 @@
     <genClasses ecoreClass="model.ecore#//Duration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Duration/timeUnit"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//IntegerValue"/>
     <genClasses ecoreClass="model.ecore#//Function">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Function/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Function/instructionBlock"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Call">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Call/destination"/>
@@ -56,9 +61,15 @@
     <genClasses ecoreClass="model.ecore#//Wait"/>
     <genClasses ecoreClass="model.ecore#//If">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//If/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//If/falseBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//If/trueBlock"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//InstructionBlock">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//InstructionBlock/instructions"/>
     </genClasses>
+    <genClasses ecoreClass="model.ecore#//DetectedObjectIs">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//DetectedObjectIs/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//HomeDirection"/>
   </genPackages>
 </genmodel:GenModel>

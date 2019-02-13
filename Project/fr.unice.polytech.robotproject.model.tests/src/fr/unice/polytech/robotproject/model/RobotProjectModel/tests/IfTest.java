@@ -5,6 +5,7 @@ package fr.unice.polytech.robotproject.model.RobotProjectModel.tests;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.If;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 /**
@@ -13,7 +14,15 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IfTest extends InstructionBlockTest {
+public class IfTest extends TestCase {
+
+	/**
+	 * The fixture for this If test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected If fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,6 +44,16 @@ public class IfTest extends InstructionBlockTest {
 	}
 
 	/**
+	 * Sets the fixture for this If test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(If fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this If test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,7 +61,7 @@ public class IfTest extends InstructionBlockTest {
 	 */
 	@Override
 	protected If getFixture() {
-		return (If)fixture;
+		return fixture;
 	}
 
 	/**

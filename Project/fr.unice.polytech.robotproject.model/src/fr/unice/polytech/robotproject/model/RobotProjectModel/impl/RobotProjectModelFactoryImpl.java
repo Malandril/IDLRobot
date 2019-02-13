@@ -62,18 +62,18 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 			case RobotProjectModelPackage.TURN: return createTurn();
 			case RobotProjectModelPackage.AMOUNT: return createAmount();
 			case RobotProjectModelPackage.DURATION: return createDuration();
-			case RobotProjectModelPackage.INTEGER_VALUE: return createIntegerValue();
 			case RobotProjectModelPackage.FUNCTION: return createFunction();
 			case RobotProjectModelPackage.CALL: return createCall();
 			case RobotProjectModelPackage.DISTANCE: return createDistance();
 			case RobotProjectModelPackage.ANGLE: return createAngle();
-			case RobotProjectModelPackage.CONDITION: return createCondition();
 			case RobotProjectModelPackage.SENSOR_ACTIVATION: return createSensorActivation();
 			case RobotProjectModelPackage.GRAB: return createGrab();
 			case RobotProjectModelPackage.RELEASE: return createRelease();
 			case RobotProjectModelPackage.WAIT: return createWait();
 			case RobotProjectModelPackage.IF: return createIf();
 			case RobotProjectModelPackage.INSTRUCTION_BLOCK: return createInstructionBlock();
+			case RobotProjectModelPackage.DETECTED_OBJECT_IS: return createDetectedObjectIs();
+			case RobotProjectModelPackage.HOME_DIRECTION: return createHomeDirection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,6 +93,8 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 				return createAngleUnitFromString(eDataType, initialValue);
 			case RobotProjectModelPackage.TIME_UNIT:
 				return createTimeUnitFromString(eDataType, initialValue);
+			case RobotProjectModelPackage.DETECTED_TYPE:
+				return createDetectedTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -112,6 +114,8 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 				return convertAngleUnitToString(eDataType, instanceValue);
 			case RobotProjectModelPackage.TIME_UNIT:
 				return convertTimeUnitToString(eDataType, instanceValue);
+			case RobotProjectModelPackage.DETECTED_TYPE:
+				return convertDetectedTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -172,16 +176,6 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntegerValue createIntegerValue() {
-		IntegerValueImpl integerValue = new IntegerValueImpl();
-		return integerValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Function createFunction() {
 		FunctionImpl function = new FunctionImpl();
 		return function;
@@ -215,16 +209,6 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	public Angle createAngle() {
 		AngleImpl angle = new AngleImpl();
 		return angle;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
 	}
 
 	/**
@@ -292,6 +276,26 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DetectedObjectIs createDetectedObjectIs() {
+		DetectedObjectIsImpl detectedObjectIs = new DetectedObjectIsImpl();
+		return detectedObjectIs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HomeDirection createHomeDirection() {
+		HomeDirectionImpl homeDirection = new HomeDirectionImpl();
+		return homeDirection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DistanceUnit createDistanceUnitFromString(EDataType eDataType, String initialValue) {
 		DistanceUnit result = DistanceUnit.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -344,6 +348,26 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	 * @generated
 	 */
 	public String convertTimeUnitToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DetectedType createDetectedTypeFromString(EDataType eDataType, String initialValue) {
+		DetectedType result = DetectedType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDetectedTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

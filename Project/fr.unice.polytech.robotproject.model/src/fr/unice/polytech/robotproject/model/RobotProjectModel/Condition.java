@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage#getCondition()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Condition extends EObject {

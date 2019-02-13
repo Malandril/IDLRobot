@@ -6,11 +6,14 @@ package fr.unice.polytech.robotproject.xtextdsl.serializer;
 import com.google.inject.Inject;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Call;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedObjectIs;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Distance;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Function;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Grab;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.HomeDirection;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.If;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.InstructionBlock;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Release;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot;
@@ -50,6 +53,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RobotProjectModelPackage.CALL:
 				sequence_Call(context, (Call) semanticObject); 
 				return; 
+			case RobotProjectModelPackage.DETECTED_OBJECT_IS:
+				sequence_DetectedObjectIs(context, (DetectedObjectIs) semanticObject); 
+				return; 
 			case RobotProjectModelPackage.DISTANCE:
 				sequence_Distance(context, (Distance) semanticObject); 
 				return; 
@@ -57,30 +63,20 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				sequence_Duration(context, (Duration) semanticObject); 
 				return; 
 			case RobotProjectModelPackage.FUNCTION:
-				if (rule == grammarAccess.getFunctionRule()) {
-					sequence_Function(context, (Function) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getInstructionRule()
-						|| rule == grammarAccess.getInstructionBlockRule()) {
-					sequence_Function_InstructionBlock(context, (Function) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Function(context, (Function) semanticObject); 
+				return; 
 			case RobotProjectModelPackage.GRAB:
 				sequence_Grab(context, (Grab) semanticObject); 
 				return; 
+			case RobotProjectModelPackage.HOME_DIRECTION:
+				sequence_HomeDirection(context, (HomeDirection) semanticObject); 
+				return; 
 			case RobotProjectModelPackage.IF:
-				if (rule == grammarAccess.getIfRule()) {
-					sequence_If(context, (If) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getInstructionRule()
-						|| rule == grammarAccess.getInstructionBlockRule()) {
-					sequence_If_InstructionBlock(context, (If) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_If(context, (If) semanticObject); 
+				return; 
+			case RobotProjectModelPackage.INSTRUCTION_BLOCK:
+				sequence_InstructionBlock(context, (InstructionBlock) semanticObject); 
+				return; 
 			case RobotProjectModelPackage.MOVE_STRAIGHT:
 				sequence_MoveStraight(context, (MoveStraight) semanticObject); 
 				return; 
@@ -137,6 +133,25 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Condition returns DetectedObjectIs
+	 *     DetectedObjectIs returns DetectedObjectIs
+	 *
+	 * Constraint:
+	 *     rightOperand=DetectedType
+	 */
+	protected void sequence_DetectedObjectIs(ISerializationContext context, DetectedObjectIs semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RobotProjectModelPackage.Literals.DETECTED_OBJECT_IS__RIGHT_OPERAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RobotProjectModelPackage.Literals.DETECTED_OBJECT_IS__RIGHT_OPERAND));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDetectedObjectIsAccess().getRightOperandDetectedTypeEnumRuleCall_2_0(), semanticObject.getRightOperand());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Distance returns Distance
 	 *
 	 * Constraint:
@@ -179,32 +194,23 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Instruction returns Function
 	 *     Function returns Function
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (name=EString instructionBlock=InstructionBlock)
 	 */
 	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, RobotProjectModelPackage.Literals.FUNCTION__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RobotProjectModelPackage.Literals.FUNCTION__NAME));
+			if (transientValues.isValueTransient(semanticObject, RobotProjectModelPackage.Literals.FUNCTION__INSTRUCTION_BLOCK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RobotProjectModelPackage.Literals.FUNCTION__INSTRUCTION_BLOCK));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFunctionAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFunctionAccess().getInstructionBlockInstructionBlockParserRuleCall_2_0(), semanticObject.getInstructionBlock());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Instruction returns Function
-	 *     InstructionBlock returns Function
-	 *
-	 * Constraint:
-	 *     (name=EString (instructions+=Instruction instructions+=Instruction*)?)
-	 */
-	protected void sequence_Function_InstructionBlock(ISerializationContext context, Function semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -223,10 +229,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Angle returns HomeDirection
+	 *     HomeDirection returns HomeDirection
+	 *
+	 * Constraint:
+	 *     {HomeDirection}
+	 */
+	protected void sequence_HomeDirection(ISerializationContext context, HomeDirection semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns If
 	 *     If returns If
 	 *
 	 * Constraint:
-	 *     condition=Condition?
+	 *     (condition=Condition? trueBlock=InstructionBlock falseBlock=InstructionBlock?)
 	 */
 	protected void sequence_If(ISerializationContext context, If semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -235,13 +255,12 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Instruction returns If
-	 *     InstructionBlock returns If
+	 *     InstructionBlock returns InstructionBlock
 	 *
 	 * Constraint:
-	 *     (condition=Condition? (instructions+=Instruction instructions+=Instruction*)?)
+	 *     (instructions+=Instruction instructions+=Instruction*)?
 	 */
-	protected void sequence_If_InstructionBlock(ISerializationContext context, If semanticObject) {
+	protected void sequence_InstructionBlock(ISerializationContext context, InstructionBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

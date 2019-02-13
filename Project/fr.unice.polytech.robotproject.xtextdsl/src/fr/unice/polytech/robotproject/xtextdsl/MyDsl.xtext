@@ -12,20 +12,22 @@ Robot returns Robot:
 	'}';
 
 Instruction returns Instruction:
-	TimedInstruction | Grab | Release | InstructionBlock | Call;
+	TimedInstruction | Grab | Release | Function | Call | If;
 
 	
 InstructionBlock returns InstructionBlock:
-	(If | Function)
-	'{'
+	{InstructionBlock} '{'
 		(instructions+=Instruction ( instructions+=Instruction)*)?
 	'}';
 	
 Function returns Function:
-	'function' name=EString;
-	
+	'function' name=EString
+	instructionBlock=InstructionBlock
+;	
 If returns If:
-	{If} 'if' condition=Condition?;
+	{If} 'if' condition=Condition? 
+	trueBlock=InstructionBlock
+	('else' falseBlock=InstructionBlock)?;
 	
 Release returns Release:
 	{Release}
@@ -55,7 +57,11 @@ Distance returns Distance:
 	value=EInt distanceUnit=DistanceUnit;
 
 Angle returns Angle:
-	value=EInt (angleUnit=AngleUnit)?;
+	(value=EInt (angleUnit=AngleUnit)?) | HomeDirection;
+	
+HomeDirection returns HomeDirection:
+	{HomeDirection} "home"
+;
 
 Duration returns Duration:
 	(value=EInt timeUnit=TimeUnit);
@@ -76,7 +82,15 @@ Call returns Call:
 	'call' destination=[Function|EString];
 
 Condition returns Condition:
-	SensorActivation;
+	SensorActivation|DetectedObjectIs;
+
+DetectedObjectIs returns DetectedObjectIs:
+	"detected" "is" rightOperand=DetectedType;
+
+
+enum DetectedType:
+	BALL="ball" | NULL="nothing" | WALL="wall";
+
 
 SensorActivation returns SensorActivation:
 	{SensorActivation}

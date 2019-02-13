@@ -187,29 +187,6 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IntegerValueItemProvider integerValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIntegerValueAdapter() {
-		if (integerValueItemProvider == null) {
-			integerValueItemProvider = new IntegerValueItemProvider(this);
-		}
-
-		return integerValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Function} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -299,29 +276,6 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 		}
 
 		return angleItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Condition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ConditionItemProvider conditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Condition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createConditionAdapter() {
-		if (conditionItemProvider == null) {
-			conditionItemProvider = new ConditionItemProvider(this);
-		}
-
-		return conditionItemProvider;
 	}
 
 	/**
@@ -463,6 +417,52 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedObjectIs} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DetectedObjectIsItemProvider detectedObjectIsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedObjectIs}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDetectedObjectIsAdapter() {
+		if (detectedObjectIsItemProvider == null) {
+			detectedObjectIsItemProvider = new DetectedObjectIsItemProvider(this);
+		}
+
+		return detectedObjectIsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.HomeDirection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HomeDirectionItemProvider homeDirectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.HomeDirection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHomeDirectionAdapter() {
+		if (homeDirectionItemProvider == null) {
+			homeDirectionItemProvider = new HomeDirectionItemProvider(this);
+		}
+
+		return homeDirectionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -566,18 +566,18 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 		if (turnItemProvider != null) turnItemProvider.dispose();
 		if (amountItemProvider != null) amountItemProvider.dispose();
 		if (durationItemProvider != null) durationItemProvider.dispose();
-		if (integerValueItemProvider != null) integerValueItemProvider.dispose();
 		if (functionItemProvider != null) functionItemProvider.dispose();
 		if (callItemProvider != null) callItemProvider.dispose();
 		if (distanceItemProvider != null) distanceItemProvider.dispose();
 		if (angleItemProvider != null) angleItemProvider.dispose();
-		if (conditionItemProvider != null) conditionItemProvider.dispose();
 		if (sensorActivationItemProvider != null) sensorActivationItemProvider.dispose();
 		if (grabItemProvider != null) grabItemProvider.dispose();
 		if (releaseItemProvider != null) releaseItemProvider.dispose();
 		if (waitItemProvider != null) waitItemProvider.dispose();
 		if (ifItemProvider != null) ifItemProvider.dispose();
 		if (instructionBlockItemProvider != null) instructionBlockItemProvider.dispose();
+		if (detectedObjectIsItemProvider != null) detectedObjectIsItemProvider.dispose();
+		if (homeDirectionItemProvider != null) homeDirectionItemProvider.dispose();
 	}
 
 }

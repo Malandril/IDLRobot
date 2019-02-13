@@ -336,71 +336,6 @@ public interface RobotProjectModelPackage extends EPackage {
 	int DURATION_OPERATION_COUNT = AMOUNT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntegerValueImpl <em>Integer Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntegerValueImpl
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getIntegerValue()
-	 * @generated
-	 */
-	int INTEGER_VALUE = 7;
-
-	/**
-	 * The number of structural features of the '<em>Integer Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Integer Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.InstructionBlockImpl <em>Instruction Block</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.InstructionBlockImpl
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getInstructionBlock()
-	 * @generated
-	 */
-	int INSTRUCTION_BLOCK = 18;
-
-	/**
-	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTRUCTION_BLOCK__INSTRUCTIONS = INSTRUCTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Instruction Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTRUCTION_BLOCK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Instruction Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTRUCTION_BLOCK_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.FunctionImpl <em>Function</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -408,16 +343,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getFunction()
 	 * @generated
 	 */
-	int FUNCTION = 8;
-
-	/**
-	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION__INSTRUCTIONS = INSTRUCTION_BLOCK__INSTRUCTIONS;
+	int FUNCTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -426,7 +352,16 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION__NAME = INSTRUCTION_BLOCK_FEATURE_COUNT + 0;
+	int FUNCTION__NAME = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Instruction Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__INSTRUCTION_BLOCK = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Function</em>' class.
@@ -435,7 +370,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_FEATURE_COUNT = INSTRUCTION_BLOCK_FEATURE_COUNT + 1;
+	int FUNCTION_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Function</em>' class.
@@ -444,7 +379,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_OPERATION_COUNT = INSTRUCTION_BLOCK_OPERATION_COUNT + 0;
+	int FUNCTION_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.CallImpl <em>Call</em>}' class.
@@ -454,7 +389,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getCall()
 	 * @generated
 	 */
-	int CALL = 9;
+	int CALL = 8;
 
 	/**
 	 * The feature id for the '<em><b>Destination</b></em>' reference.
@@ -491,7 +426,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDistance()
 	 * @generated
 	 */
-	int DISTANCE = 10;
+	int DISTANCE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -537,7 +472,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getAngle()
 	 * @generated
 	 */
-	int ANGLE = 11;
+	int ANGLE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -583,7 +518,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getCondition()
 	 * @generated
 	 */
-	int CONDITION = 12;
+	int CONDITION = 11;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -611,7 +546,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getSensorActivation()
 	 * @generated
 	 */
-	int SENSOR_ACTIVATION = 13;
+	int SENSOR_ACTIVATION = 12;
 
 	/**
 	 * The number of structural features of the '<em>Sensor Activation</em>' class.
@@ -639,7 +574,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getGrab()
 	 * @generated
 	 */
-	int GRAB = 14;
+	int GRAB = 13;
 
 	/**
 	 * The number of structural features of the '<em>Grab</em>' class.
@@ -667,7 +602,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getRelease()
 	 * @generated
 	 */
-	int RELEASE = 15;
+	int RELEASE = 14;
 
 	/**
 	 * The number of structural features of the '<em>Release</em>' class.
@@ -695,7 +630,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getWait()
 	 * @generated
 	 */
-	int WAIT = 16;
+	int WAIT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' containment reference.
@@ -732,16 +667,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getIf()
 	 * @generated
 	 */
-	int IF = 17;
-
-	/**
-	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF__INSTRUCTIONS = INSTRUCTION_BLOCK__INSTRUCTIONS;
+	int IF = 16;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -750,7 +676,25 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IF__CONDITION = INSTRUCTION_BLOCK_FEATURE_COUNT + 0;
+	int IF__CONDITION = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>False Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__FALSE_BLOCK = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>True Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__TRUE_BLOCK = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>If</em>' class.
@@ -759,7 +703,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IF_FEATURE_COUNT = INSTRUCTION_BLOCK_FEATURE_COUNT + 1;
+	int IF_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>If</em>' class.
@@ -768,7 +712,127 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IF_OPERATION_COUNT = INSTRUCTION_BLOCK_OPERATION_COUNT + 0;
+	int IF_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.InstructionBlockImpl <em>Instruction Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.InstructionBlockImpl
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getInstructionBlock()
+	 * @generated
+	 */
+	int INSTRUCTION_BLOCK = 17;
+
+	/**
+	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION_BLOCK__INSTRUCTIONS = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Instruction Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION_BLOCK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Instruction Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION_BLOCK_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DetectedObjectIsImpl <em>Detected Object Is</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DetectedObjectIsImpl
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDetectedObjectIs()
+	 * @generated
+	 */
+	int DETECTED_OBJECT_IS = 18;
+
+	/**
+	 * The feature id for the '<em><b>Right Operand</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETECTED_OBJECT_IS__RIGHT_OPERAND = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Detected Object Is</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETECTED_OBJECT_IS_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Detected Object Is</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETECTED_OBJECT_IS_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.HomeDirectionImpl <em>Home Direction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.HomeDirectionImpl
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getHomeDirection()
+	 * @generated
+	 */
+	int HOME_DIRECTION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_DIRECTION__VALUE = ANGLE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Angle Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_DIRECTION__ANGLE_UNIT = ANGLE__ANGLE_UNIT;
+
+	/**
+	 * The number of structural features of the '<em>Home Direction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_DIRECTION_FEATURE_COUNT = ANGLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Home Direction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOME_DIRECTION_OPERATION_COUNT = ANGLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}' enum.
@@ -778,7 +842,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDistanceUnit()
 	 * @generated
 	 */
-	int DISTANCE_UNIT = 19;
+	int DISTANCE_UNIT = 20;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit <em>Angle Unit</em>}' enum.
@@ -788,7 +852,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getAngleUnit()
 	 * @generated
 	 */
-	int ANGLE_UNIT = 20;
+	int ANGLE_UNIT = 21;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit <em>Time Unit</em>}' enum.
@@ -798,7 +862,17 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 21;
+	int TIME_UNIT = 22;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedType <em>Detected Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedType
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDetectedType()
+	 * @generated
+	 */
+	int DETECTED_TYPE = 23;
 
 
 	/**
@@ -938,16 +1012,6 @@ public interface RobotProjectModelPackage extends EPackage {
 	EAttribute getDuration_TimeUnit();
 
 	/**
-	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue <em>Integer Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Integer Value</em>'.
-	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue
-	 * @generated
-	 */
-	EClass getIntegerValue();
-
-	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Function <em>Function</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -967,6 +1031,17 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFunction_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Function#getInstructionBlock <em>Instruction Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Instruction Block</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Function#getInstructionBlock()
+	 * @see #getFunction()
+	 * @generated
+	 */
+	EReference getFunction_InstructionBlock();
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Call <em>Call</em>}'.
@@ -1103,6 +1178,28 @@ public interface RobotProjectModelPackage extends EPackage {
 	EReference getIf_Condition();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.If#getFalseBlock <em>False Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>False Block</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.If#getFalseBlock()
+	 * @see #getIf()
+	 * @generated
+	 */
+	EReference getIf_FalseBlock();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.If#getTrueBlock <em>True Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>True Block</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.If#getTrueBlock()
+	 * @see #getIf()
+	 * @generated
+	 */
+	EReference getIf_TrueBlock();
+
+	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.InstructionBlock <em>Instruction Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1122,6 +1219,37 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInstructionBlock_Instructions();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedObjectIs <em>Detected Object Is</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Detected Object Is</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedObjectIs
+	 * @generated
+	 */
+	EClass getDetectedObjectIs();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedObjectIs#getRightOperand <em>Right Operand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Right Operand</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedObjectIs#getRightOperand()
+	 * @see #getDetectedObjectIs()
+	 * @generated
+	 */
+	EAttribute getDetectedObjectIs_RightOperand();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.HomeDirection <em>Home Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Home Direction</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.HomeDirection
+	 * @generated
+	 */
+	EClass getHomeDirection();
 
 	/**
 	 * Returns the meta object for enum '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}'.
@@ -1152,6 +1280,16 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getTimeUnit();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedType <em>Detected Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Detected Type</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedType
+	 * @generated
+	 */
+	EEnum getDetectedType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1295,16 +1433,6 @@ public interface RobotProjectModelPackage extends EPackage {
 		EAttribute DURATION__TIME_UNIT = eINSTANCE.getDuration_TimeUnit();
 
 		/**
-		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntegerValueImpl <em>Integer Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.IntegerValueImpl
-		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getIntegerValue()
-		 * @generated
-		 */
-		EClass INTEGER_VALUE = eINSTANCE.getIntegerValue();
-
-		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.FunctionImpl <em>Function</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1321,6 +1449,14 @@ public interface RobotProjectModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Instruction Block</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION__INSTRUCTION_BLOCK = eINSTANCE.getFunction_InstructionBlock();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.CallImpl <em>Call</em>}' class.
@@ -1445,6 +1581,22 @@ public interface RobotProjectModelPackage extends EPackage {
 		EReference IF__CONDITION = eINSTANCE.getIf_Condition();
 
 		/**
+		 * The meta object literal for the '<em><b>False Block</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF__FALSE_BLOCK = eINSTANCE.getIf_FalseBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>True Block</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF__TRUE_BLOCK = eINSTANCE.getIf_TrueBlock();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.InstructionBlockImpl <em>Instruction Block</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1461,6 +1613,34 @@ public interface RobotProjectModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INSTRUCTION_BLOCK__INSTRUCTIONS = eINSTANCE.getInstructionBlock_Instructions();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DetectedObjectIsImpl <em>Detected Object Is</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.DetectedObjectIsImpl
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDetectedObjectIs()
+		 * @generated
+		 */
+		EClass DETECTED_OBJECT_IS = eINSTANCE.getDetectedObjectIs();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Operand</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DETECTED_OBJECT_IS__RIGHT_OPERAND = eINSTANCE.getDetectedObjectIs_RightOperand();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.HomeDirectionImpl <em>Home Direction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.HomeDirectionImpl
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getHomeDirection()
+		 * @generated
+		 */
+		EClass HOME_DIRECTION = eINSTANCE.getHomeDirection();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}' enum.
@@ -1491,6 +1671,16 @@ public interface RobotProjectModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TIME_UNIT = eINSTANCE.getTimeUnit();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedType <em>Detected Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedType
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDetectedType()
+		 * @generated
+		 */
+		EEnum DETECTED_TYPE = eINSTANCE.getDetectedType();
 
 	}
 

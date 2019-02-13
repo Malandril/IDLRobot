@@ -24,7 +24,7 @@ public class PolyRob {
 
 	protected int clientID = -1;
 	protected remoteApi vrep = new remoteApi();
-
+	
 	// handler of robot equipments
 	protected IntW rightGrip = new IntW(0);
 	protected IntW rightGripBis = new IntW(0);
@@ -46,7 +46,7 @@ public class PolyRob {
 
 	// robot parameters
 	protected float gripForce = (float) 0.08;
-	protected int mapFactor = 1000;
+	public int mapFactor = 1000;
 
 	public PolyRob(String IP, int portNumber) {
 		clientID = vrep.simxStart(IP, portNumber, true, true, 5000, 5);
@@ -273,13 +273,11 @@ public class PolyRob {
 	}
 
 	public void stepSimulation(int ms) {
-			System.out.println("getting in step simulation");
 			long startTime = vrep.simxGetLastCmdTime(clientID);
 			long time;
 			do {
 				stepSimulationOnce();
 				time = vrep.simxGetLastCmdTime(clientID);
-				System.out.println("stepping " + time);
 			}while(time - startTime < ms);
 			
 		}

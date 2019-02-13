@@ -1,33 +1,38 @@
 package fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Instruction
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot
-
-import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect.*
-import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.FunctionAspect.*
-import fr.inria.diverse.k3.al.annotationprocessor.Step
 import fr.inria.diverse.k3.al.annotationprocessor.Main
+import fr.inria.diverse.k3.al.annotationprocessor.Step
 import fr.unice.polytech.deantoni.vrep.polybot.robot.PolyRob
-import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Turn
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Distance
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Call
-import fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Function
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Wait
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Grab
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Release
-import fr.unice.polytech.robotproject.model.RobotProjectModel.Condition
-import fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation
-import fr.unice.polytech.robotproject.model.RobotProjectModel.InstructionBlock
-import fr.unice.polytech.robotproject.model.RobotProjectModel.If
-import java.util.List
 import fr.unice.polytech.deantoni.vrep.polybot.utils.Blob
 import fr.unice.polytech.deantoni.vrep.polybot.utils.Position2D
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Amount
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Angle
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Call
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Condition
+import fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedObjectIs
+import fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedType
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Distance
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Duration
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Function
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Grab
+import fr.unice.polytech.robotproject.model.RobotProjectModel.HomeDirection
+import fr.unice.polytech.robotproject.model.RobotProjectModel.If
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Instruction
+import fr.unice.polytech.robotproject.model.RobotProjectModel.InstructionBlock
+import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Release
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot
+import fr.unice.polytech.robotproject.model.RobotProjectModel.SensorActivation
+import fr.unice.polytech.robotproject.model.RobotProjectModel.TimedInstruction
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Turn
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Wait
+import java.util.List
+
+import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.FunctionAspect.*
+import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.RobotAspect.*
+import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect.*
+import fr.unice.polytech.robotproject.model.RobotProjectModel.ContainsInstructionBlock
 
 @Aspect(className=Instruction)
 abstract class InstructionAspect {
@@ -44,9 +49,10 @@ class DurationAspect {
 }
 
 
+
 @Aspect(className=Angle)
 class AngleAspect {
-	def int computeValue(){
+	def int computeValue(PolyRob rob){
 		return _self.value *_self.angleUnit.value
 	}
 }
@@ -59,13 +65,51 @@ class DistanceAspect {
 	}
 }
 
-@Aspect(className=InstructionBlock)
-abstract class InstructionBlockAspect extends InstructionAspect {
-	def void execute(PolyRob rob){
+@Aspect(className=HomeDirection)
+class HomeDirectionAspect extends AngleAspect{
+	Position2D safePlace = new Position2D(-45, 500);
+	
+	def int computeValue(PolyRob rob){
+		var robPos = rob.position
+		var robOrientation = rob.orientation
+		var angleToReach = Math.atan2(_self.safePlace.y - robPos.y, _self.safePlace.x - robPos.x)
+		var angleToDo = robOrientation - angleToReach;
+		if (angleToDo > Math.PI) {
+			angleToDo = angleToDo - 2*Math.PI ; 
+		}
+		println("Home angle "+ angleToDo)
+		return (angleToDo * 180 / Math.PI * _self.angleUnit.value) as int;
 	}
-	 def void execute_block(PolyRob rob){
-    	for(i :_self.instructions){
-    		i.execute(rob);
+
+}
+
+@Aspect(className=If)
+class IfAspect extends InstructionAspect {
+	def void execute(PolyRob rob){
+		if(ConditionAspect.eval(_self.condition,rob)){
+			_self.execute_block(rob, _self.trueBlock)
+		} else if(_self.falseBlock !==null){
+			_self.execute_block(rob, _self.falseBlock)
+		}
+		
+	}
+	
+	def void execute_block(PolyRob rob,InstructionBlock block){
+		for(i : block.instructions){
+			i.execute(rob)
+		}
+	}
+}
+
+@Aspect(className=Function)
+class FunctionAspect extends InstructionAspect {
+   
+    def void execute(PolyRob rob) {
+    }
+    
+    def void execute_block(PolyRob rob){
+    	for(i : _self.instructionBlock.instructions){
+    		i.execute(rob)
     	}
     }
 }
@@ -79,21 +123,10 @@ class CallAspect extends InstructionAspect {
 }
 
 
-@Aspect(className=If)
-class IfAspect extends InstructionBlockAspect {
-	def void execute(PolyRob rob){
-		if(_self.condition === null || ConditionAspect.eval(_self.condition,rob)){
-			println("Condition is true if")
-			_self.execute_block(rob);
-		}else{
-			println("Condition is false not if")
-		}
-	}
-}
-
 @Aspect(className=Grab)
 class GrabAspect extends InstructionAspect {
 	def void execute(PolyRob rob){
+		RobotAspect.closedGrip = false;
 		rob.closeGrip();
 	}
 }
@@ -102,6 +135,8 @@ class GrabAspect extends InstructionAspect {
 @Aspect(className=Release)
 class ReleaseAspect extends InstructionAspect {
 	def void execute(PolyRob rob){
+		println("Released claw")
+		RobotAspect.closedGrip = false;
 		rob.openGrip();
 	}
 }
@@ -128,10 +163,8 @@ class MoveStraightAspect extends TimedInstructionAspect {
 		var pos = rob.position;
 		var distance = DistanceAspect.computeValue(_self.distance)
 		var duration = _self.durationValue()
-		println("Moving distance: " + distance + " for " + duration + " ms");
 		rob.goStraight((distance / duration) as int , duration);
 		var dist = Math.sqrt(Math.pow(pos.x - rob.position.x,2) + Math.pow(pos.y - rob.position.y,2));
-		println("distance = "+dist);		
 	}
 }
 
@@ -152,47 +185,39 @@ class WaitAspect extends TimedInstructionAspect {
 class TurnAspect extends TimedInstructionAspect {
 	def void execute(PolyRob rob){
 		var duration = _self.durationValue()
-		var angle = AngleAspect.computeValue(_self.angle)
+		var angle = AngleAspect.computeValue(_self.angle, rob)
+		var orientation = rob.orientation
 		println("Turning: " + _self.angle.value + " in " + duration + " ms");
 		rob.turnRight((angle / duration) as int , duration);
+		println("Turned " + (rob.orientation - orientation)*180/Math.PI)
 	}
 }
 
 
-@Aspect(className=Function)
-class FunctionAspect extends InstructionBlockAspect {
-    def void execute(PolyRob rob) {
-    }
-    
-}
-class Viewable {
-	public static List<Blob> blobs;
-	 
-	def public static boolean checkIfDetectedObjectIsAPaintBomb(Position2D objectCoordinate) {
-		var addIt = true;
-		for(Blob b: blobs) {
-			if ((Math.abs(b.positionX - objectCoordinate.x) <= 50) && (Math.abs(b.positionY - objectCoordinate.y) <= 50)) {
-				System.out.println("detected object is a paint bomb");
-				addIt = false;
-			}
-		}
-		return addIt;
-	}
-}
+
 
 @Aspect(className=Robot)
 class RobotAspect {
 	
+	public static boolean closedGrip = false;
+	
 	@Main
     def void main() {
-		var rob = new PolyRob("127.0.0.1", 19997);
-    	println("Starting main");
-    	Viewable.blobs = rob.viewableBlobs;
-    	rob.start();
-    	for(i :_self.instructions){
-    		i.execute(rob);
-    	}
-    	rob.stopSimulation()
+    	try{
+			var rob = new PolyRob("127.0.0.1", 19997);
+			println("Starting main");
+	    	rob.start();
+	    	rob.openGrip();
+	    	rob.stepSimulationOnce()
+	    	for(i :_self.instructions){
+	    		i.execute(rob);
+	    		
+	    	}
+	    	rob.stopSimulation()
+		}catch(RuntimeException e){
+			e.printStackTrace;
+		}
+    	
     }
 }
 
@@ -201,18 +226,41 @@ abstract class ConditionAspect  {
 	def boolean eval(PolyRob rob);
 }
 
+@Aspect(className=DetectedObjectIs)
+class DetectedObjectIsAspect extends ConditionAspect {
+	
+	def boolean eval(PolyRob rob){
+		return _self.detectType(rob) == _self.rightOperand
+	}
+	def double computeDistance(int x1,int y1,int x2,int y2){
+		Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2))
+	}
+	def DetectedType detectType(PolyRob rob){
+		if(rob.hasDetectedAnObject()&&!RobotAspect.closedGrip){
+			println("dist "+ rob.detectedObjectDistance)
+			var blobs = rob.viewableBlobs
+			var pos = rob.position
+			var orientation = rob.orientation
+			
+			for(blob : blobs){
+				var angle=Math.atan2(pos.y - blob.positionY,pos.x - blob.positionX)+Math.PI
+				println(orientation+" "+angle)
+				// println("distance is " + _self.computeDistance(pos.x, pos.y, blob.positionX, blob.positionY)+" angle " + Math.abs(angle-orientation))
+				if(Math.abs(angle-orientation)<0.6 && _self.computeDistance(pos.x, pos.y, blob.positionX, blob.positionY) <= 400){
+					println('this is a ball')
+					return DetectedType.BALL
+				}
+			}
+			return DetectedType.WALL
+		}
+		return DetectedType.NULL
+	}
+}
+
 
 @Aspect(className=SensorActivation)
 class SensorActivationAspect extends ConditionAspect {
 	def boolean eval(PolyRob rob){
-		var objDist = rob.getDetectedObjectDistance();
-		System.out.println("object distance: "+objDist+ "("+rob.orientation+") --> "+rob.position.x+","+rob.position.y);
-
-		Position2D objectCoordinate = new Position2D(
-											(int)Math.round(robPos.x+Math.cos(robOrientation)*objDist),
-											(int)Math.round(robPos.y+Math.sin(robOrientation)*objDist)
-		Viewable.checkIfDetectedObjectIsAPaintBomb(rob.position)
-		println()
-		rob.hasDetectedAnObject();
+		return rob.hasDetectedAnObject()
 	}
 }

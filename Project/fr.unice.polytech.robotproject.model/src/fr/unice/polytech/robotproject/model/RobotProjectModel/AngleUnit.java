@@ -26,7 +26,7 @@ public enum AngleUnit implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DEGREES(100, "DEGREES", "deg");
+	DEGREES(95, "DEGREES", "deg");
 
 	/**
 	 * The '<em><b>DEGREES</b></em>' literal value.
@@ -41,7 +41,7 @@ public enum AngleUnit implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DEGREES_VALUE = 100;
+	public static final int DEGREES_VALUE = 95;
 
 	/**
 	 * An array of all the '<em><b>Angle Unit</b></em>' enumerators.

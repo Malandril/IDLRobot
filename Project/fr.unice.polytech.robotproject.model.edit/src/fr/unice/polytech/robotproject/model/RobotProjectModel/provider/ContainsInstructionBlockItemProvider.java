@@ -20,12 +20,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue} object.
+ * This is the item provider adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.ContainsInstructionBlock} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntegerValueItemProvider 
+public class ContainsInstructionBlockItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -39,7 +39,7 @@ public class IntegerValueItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntegerValueItemProvider(AdapterFactory adapterFactory) {
+	public ContainsInstructionBlockItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,14 +59,14 @@ public class IntegerValueItemProvider
 	}
 
 	/**
-	 * This returns IntegerValue.gif.
+	 * This returns ContainsInstructionBlock.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IntegerValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContainsInstructionBlock"));
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class IntegerValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_IntegerValue_type");
+		return getString("_UI_ContainsInstructionBlock_type");
 	}
 
 

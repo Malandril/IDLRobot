@@ -114,16 +114,9 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RobotProjectModelPackage.INTEGER_VALUE: {
-				IntegerValue integerValue = (IntegerValue)theEObject;
-				T result = caseIntegerValue(integerValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RobotProjectModelPackage.FUNCTION: {
 				Function function = (Function)theEObject;
 				T result = caseFunction(function);
-				if (result == null) result = caseInstructionBlock(function);
 				if (result == null) result = caseInstruction(function);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -187,7 +180,6 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 			case RobotProjectModelPackage.IF: {
 				If if_ = (If)theEObject;
 				T result = caseIf(if_);
-				if (result == null) result = caseInstructionBlock(if_);
 				if (result == null) result = caseInstruction(if_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -196,6 +188,21 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 				InstructionBlock instructionBlock = (InstructionBlock)theEObject;
 				T result = caseInstructionBlock(instructionBlock);
 				if (result == null) result = caseInstruction(instructionBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.DETECTED_OBJECT_IS: {
+				DetectedObjectIs detectedObjectIs = (DetectedObjectIs)theEObject;
+				T result = caseDetectedObjectIs(detectedObjectIs);
+				if (result == null) result = caseCondition(detectedObjectIs);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RobotProjectModelPackage.HOME_DIRECTION: {
+				HomeDirection homeDirection = (HomeDirection)theEObject;
+				T result = caseHomeDirection(homeDirection);
+				if (result == null) result = caseAngle(homeDirection);
+				if (result == null) result = caseAmount(homeDirection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -305,21 +312,6 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDuration(Duration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Integer Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Integer Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIntegerValue(IntegerValue object) {
 		return null;
 	}
 
@@ -485,6 +477,36 @@ public class RobotProjectModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInstructionBlock(InstructionBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Detected Object Is</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Detected Object Is</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDetectedObjectIs(DetectedObjectIs object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Home Direction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Home Direction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHomeDirection(HomeDirection object) {
 		return null;
 	}
 

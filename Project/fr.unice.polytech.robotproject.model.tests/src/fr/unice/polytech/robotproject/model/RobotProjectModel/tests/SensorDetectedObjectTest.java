@@ -2,8 +2,8 @@
  */
 package fr.unice.polytech.robotproject.model.RobotProjectModel.tests;
 
-import fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.SensorDetectedObject;
 
 import junit.framework.TestCase;
 
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Integer Value</b></em>'.
+ * A test case for the model object '<em><b>Sensor Detected Object</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntegerValueTest extends TestCase {
+public class SensorDetectedObjectTest extends TestCase {
 
 	/**
-	 * The fixture for this Integer Value test case.
+	 * The fixture for this Sensor Detected Object test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntegerValue fixture = null;
+	protected SensorDetectedObject fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class IntegerValueTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(IntegerValueTest.class);
+		TestRunner.run(SensorDetectedObjectTest.class);
 	}
 
 	/**
-	 * Constructs a new Integer Value test case with the given name.
+	 * Constructs a new Sensor Detected Object test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntegerValueTest(String name) {
+	public SensorDetectedObjectTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Integer Value test case.
+	 * Sets the fixture for this Sensor Detected Object test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(IntegerValue fixture) {
+	protected void setFixture(SensorDetectedObject fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Integer Value test case.
+	 * Returns the fixture for this Sensor Detected Object test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntegerValue getFixture() {
+	protected SensorDetectedObject getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class IntegerValueTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(RobotProjectModelFactory.eINSTANCE.createIntegerValue());
+		setFixture(RobotProjectModelFactory.eINSTANCE.createSensorDetectedObject());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class IntegerValueTest extends TestCase {
 		setFixture(null);
 	}
 
-} //IntegerValueTest
+} //SensorDetectedObjectTest

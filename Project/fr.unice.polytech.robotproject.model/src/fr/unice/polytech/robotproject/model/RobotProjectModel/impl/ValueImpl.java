@@ -2,8 +2,8 @@
  */
 package fr.unice.polytech.robotproject.model.RobotProjectModel.impl;
 
-import fr.unice.polytech.robotproject.model.RobotProjectModel.IntegerValue;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Value;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -11,18 +11,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Integer Value</b></em>'.
+ * An implementation of the model object '<em><b>Value</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class IntegerValueImpl extends MinimalEObjectImpl.Container implements IntegerValue {
+public class ValueImpl extends MinimalEObjectImpl.Container implements Value {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntegerValueImpl() {
+	protected ValueImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public class IntegerValueImpl extends MinimalEObjectImpl.Container implements In
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RobotProjectModelPackage.Literals.INTEGER_VALUE;
+		return RobotProjectModelPackage.Literals.VALUE;
 	}
 
-} //IntegerValueImpl
+} //ValueImpl

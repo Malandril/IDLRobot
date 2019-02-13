@@ -183,11 +183,11 @@ ruleInstruction returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getInstructionBlockParserRuleCall_3());
+			newCompositeNode(grammarAccess.getInstructionAccess().getFunctionParserRuleCall_3());
 		}
-		this_InstructionBlock_3=ruleInstructionBlock
+		this_Function_3=ruleFunction
 		{
-			$current = $this_InstructionBlock_3.current;
+			$current = $this_Function_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -197,6 +197,15 @@ ruleInstruction returns [EObject current=null]
 		this_Call_4=ruleCall
 		{
 			$current = $this_Call_4.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getInstructionAccess().getIfParserRuleCall_5());
+		}
+		this_If_5=ruleIf
+		{
+			$current = $this_If_5.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -220,32 +229,39 @@ ruleInstructionBlock returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getInstructionBlockAccess().getIfParserRuleCall_0_0());
-			}
-			this_If_0=ruleIf
-			{
-				$current = $this_If_0.current;
-				afterParserOrEnumRuleCall();
-			}
-			    |
-			{
-				newCompositeNode(grammarAccess.getInstructionBlockAccess().getFunctionParserRuleCall_0_1());
-			}
-			this_Function_1=ruleFunction
-			{
-				$current = $this_Function_1.current;
-				afterParserOrEnumRuleCall();
+				$current = forceCreateModelElement(
+					grammarAccess.getInstructionBlockAccess().getInstructionBlockAction_0(),
+					$current);
 			}
 		)
-		otherlv_2='{'
+		otherlv_1='{'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getInstructionBlockAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getInstructionBlockAccess().getLeftCurlyBracketKeyword_1());
 		}
 		(
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getInstructionBlockAccess().getInstructionsInstructionParserRuleCall_2_0_0());
+					}
+					lv_instructions_2_0=ruleInstruction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getInstructionBlockRule());
+						}
+						add(
+							$current,
+							"instructions",
+							lv_instructions_2_0,
+							"fr.unice.polytech.robotproject.xtextdsl.MyDsl.Instruction");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getInstructionBlockAccess().getInstructionsInstructionParserRuleCall_2_1_0());
 					}
 					lv_instructions_3_0=ruleInstruction
 					{
@@ -260,30 +276,11 @@ ruleInstructionBlock returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getInstructionBlockAccess().getInstructionsInstructionParserRuleCall_2_1_0());
-					}
-					lv_instructions_4_0=ruleInstruction
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getInstructionBlockRule());
-						}
-						add(
-							$current,
-							"instructions",
-							lv_instructions_4_0,
-							"fr.unice.polytech.robotproject.xtextdsl.MyDsl.Instruction");
-						afterParserOrEnumRuleCall();
-					}
-				)
 			)*
 		)?
-		otherlv_5='}'
+		otherlv_4='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getInstructionBlockAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getInstructionBlockAccess().getRightCurlyBracketKeyword_3());
 		}
 	)
 ;
@@ -323,6 +320,25 @@ ruleFunction returns [EObject current=null]
 						"name",
 						lv_name_1_0,
 						"fr.unice.polytech.robotproject.xtextdsl.MyDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFunctionAccess().getInstructionBlockInstructionBlockParserRuleCall_2_0());
+				}
+				lv_instructionBlock_2_0=ruleInstructionBlock
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFunctionRule());
+					}
+					set(
+						$current,
+						"instructionBlock",
+						lv_instructionBlock_2_0,
+						"fr.unice.polytech.robotproject.xtextdsl.MyDsl.InstructionBlock");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -374,6 +390,50 @@ ruleIf returns [EObject current=null]
 						"fr.unice.polytech.robotproject.xtextdsl.MyDsl.Condition");
 					afterParserOrEnumRuleCall();
 				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getIfAccess().getTrueBlockInstructionBlockParserRuleCall_3_0());
+				}
+				lv_trueBlock_3_0=ruleInstructionBlock
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getIfRule());
+					}
+					set(
+						$current,
+						"trueBlock",
+						lv_trueBlock_3_0,
+						"fr.unice.polytech.robotproject.xtextdsl.MyDsl.InstructionBlock");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4='else'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getIfAccess().getElseKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getIfAccess().getFalseBlockInstructionBlockParserRuleCall_4_1_0());
+					}
+					lv_falseBlock_5_0=ruleInstructionBlock
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getIfRule());
+						}
+						set(
+							$current,
+							"falseBlock",
+							lv_falseBlock_5_0,
+							"fr.unice.polytech.robotproject.xtextdsl.MyDsl.InstructionBlock");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)?
 	)
@@ -742,42 +802,83 @@ ruleAngle returns [EObject current=null]
 	(
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getAngleAccess().getValueEIntParserRuleCall_0_0());
-				}
-				lv_value_0_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAngleRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getAngleAccess().getValueEIntParserRuleCall_0_0_0());
 					}
-					set(
-						$current,
-						"value",
-						lv_value_0_0,
-						"fr.unice.polytech.robotproject.xtextdsl.MyDsl.EInt");
-					afterParserOrEnumRuleCall();
-				}
+					lv_value_0_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAngleRule());
+						}
+						set(
+							$current,
+							"value",
+							lv_value_0_0,
+							"fr.unice.polytech.robotproject.xtextdsl.MyDsl.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getAngleAccess().getAngleUnitAngleUnitEnumRuleCall_1_0());
-				}
-				lv_angleUnit_1_0=ruleAngleUnit
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAngleRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getAngleAccess().getAngleUnitAngleUnitEnumRuleCall_0_1_0());
 					}
-					set(
-						$current,
-						"angleUnit",
-						lv_angleUnit_1_0,
-						"fr.unice.polytech.robotproject.xtextdsl.MyDsl.AngleUnit");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
+					lv_angleUnit_1_0=ruleAngleUnit
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAngleRule());
+						}
+						set(
+							$current,
+							"angleUnit",
+							lv_angleUnit_1_0,
+							"fr.unice.polytech.robotproject.xtextdsl.MyDsl.AngleUnit");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)?
+		)
+		    |
+		{
+			newCompositeNode(grammarAccess.getAngleAccess().getHomeDirectionParserRuleCall_1());
+		}
+		this_HomeDirection_2=ruleHomeDirection
+		{
+			$current = $this_HomeDirection_2.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleHomeDirection
+entryRuleHomeDirection returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getHomeDirectionRule()); }
+	iv_ruleHomeDirection=ruleHomeDirection
+	{ $current=$iv_ruleHomeDirection.current; }
+	EOF;
+
+// Rule HomeDirection
+ruleHomeDirection returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getHomeDirectionAccess().getHomeDirectionAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='home'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getHomeDirectionAccess().getHomeKeyword_1());
+		}
 	)
 ;
 
@@ -925,14 +1026,71 @@ ruleCondition returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getConditionAccess().getSensorActivationParserRuleCall());
-	}
-	this_SensorActivation_0=ruleSensorActivation
-	{
-		$current = $this_SensorActivation_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		{
+			newCompositeNode(grammarAccess.getConditionAccess().getSensorActivationParserRuleCall_0());
+		}
+		this_SensorActivation_0=ruleSensorActivation
+		{
+			$current = $this_SensorActivation_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getConditionAccess().getDetectedObjectIsParserRuleCall_1());
+		}
+		this_DetectedObjectIs_1=ruleDetectedObjectIs
+		{
+			$current = $this_DetectedObjectIs_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleDetectedObjectIs
+entryRuleDetectedObjectIs returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDetectedObjectIsRule()); }
+	iv_ruleDetectedObjectIs=ruleDetectedObjectIs
+	{ $current=$iv_ruleDetectedObjectIs.current; }
+	EOF;
+
+// Rule DetectedObjectIs
+ruleDetectedObjectIs returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='detected'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDetectedObjectIsAccess().getDetectedKeyword_0());
+		}
+		otherlv_1='is'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDetectedObjectIsAccess().getIsKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDetectedObjectIsAccess().getRightOperandDetectedTypeEnumRuleCall_2_0());
+				}
+				lv_rightOperand_2_0=ruleDetectedType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDetectedObjectIsRule());
+					}
+					set(
+						$current,
+						"rightOperand",
+						lv_rightOperand_2_0,
+						"fr.unice.polytech.robotproject.xtextdsl.MyDsl.DetectedType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
 ;
 
 // Entry rule entryRuleSensorActivation
@@ -1057,6 +1215,41 @@ ruleAngleUnit returns [Enumerator current=null]
 			$current = grammarAccess.getAngleUnitAccess().getDEGREESEnumLiteralDeclaration().getEnumLiteral().getInstance();
 			newLeafNode(enumLiteral_0, grammarAccess.getAngleUnitAccess().getDEGREESEnumLiteralDeclaration());
 		}
+	)
+;
+
+// Rule DetectedType
+ruleDetectedType returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='ball'
+			{
+				$current = grammarAccess.getDetectedTypeAccess().getBALLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDetectedTypeAccess().getBALLEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='nothing'
+			{
+				$current = grammarAccess.getDetectedTypeAccess().getNULLEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDetectedTypeAccess().getNULLEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='wall'
+			{
+				$current = grammarAccess.getDetectedTypeAccess().getWALLEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDetectedTypeAccess().getWALLEnumLiteralDeclaration_2());
+			}
+		)
 	)
 ;
 
