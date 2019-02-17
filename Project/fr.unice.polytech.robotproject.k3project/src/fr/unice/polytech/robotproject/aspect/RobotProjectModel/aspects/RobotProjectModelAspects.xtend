@@ -30,9 +30,8 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.Wait
 import java.util.List
 
 import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.FunctionAspect.*
-import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.RobotAspect.*
 import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect.*
-import fr.unice.polytech.robotproject.model.RobotProjectModel.ContainsInstructionBlock
+import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.RobotAspect.*
 
 @Aspect(className=Instruction)
 abstract class InstructionAspect {
@@ -85,6 +84,7 @@ class HomeDirectionAspect extends AngleAspect{
 
 @Aspect(className=If)
 class IfAspect extends InstructionAspect {
+	@Step
 	def void execute(PolyRob rob){
 		if(ConditionAspect.eval(_self.condition,rob)){
 			_self.execute_block(rob, _self.trueBlock)
@@ -117,7 +117,10 @@ class FunctionAspect extends InstructionAspect {
 
 @Aspect(className=Call)
 class CallAspect extends InstructionAspect {
+	@Step
 	def void execute(PolyRob rob){
+		rob.displayFunction(_self.destination.name)
+		rob.printToStatusbar("Calling function " + _self.destination.name)
 		_self.destination.execute_block(rob);
 	}
 }
@@ -125,7 +128,9 @@ class CallAspect extends InstructionAspect {
 
 @Aspect(className=Grab)
 class GrabAspect extends InstructionAspect {
+	@Step
 	def void execute(PolyRob rob){
+		rob.printToStatusbar("Closing claws")
 		RobotAspect.closedGrip = false;
 		rob.closeGrip();
 	}
@@ -134,8 +139,9 @@ class GrabAspect extends InstructionAspect {
 
 @Aspect(className=Release)
 class ReleaseAspect extends InstructionAspect {
+	@Step
 	def void execute(PolyRob rob){
-		println("Released claw")
+		rob.printToStatusbar("Opening claws")
 		RobotAspect.closedGrip = false;
 		rob.openGrip();
 	}
@@ -163,8 +169,10 @@ class MoveStraightAspect extends TimedInstructionAspect {
 		var pos = rob.position;
 		var distance = DistanceAspect.computeValue(_self.distance)
 		var duration = _self.durationValue()
+		// rob.printToStatusbar("Moving: " + distance + " in " + duration + " ms");
 		rob.goStraight((distance / duration) as int , duration);
 		var dist = Math.sqrt(Math.pow(pos.x - rob.position.x,2) + Math.pow(pos.y - rob.position.y,2));
+		rob.printToStatusbar("Moved: " + dist);
 	}
 }
 
@@ -174,22 +182,23 @@ class WaitAspect extends TimedInstructionAspect {
 	@Step
 	def void execute(PolyRob rob){
 		var duration = _self.durationValue();
-		println("Waiting for: " + duration + " ms");
+		rob.printToStatusbar("Waiting for: " + duration + " ms");
 		rob.stepSimulation(duration);
-		println("Finished waiting ");		
+		rob.printToStatusbar("Finished waiting");		
 	}
 }
 
 
 @Aspect(className=Turn)
 class TurnAspect extends TimedInstructionAspect {
+	@Step
 	def void execute(PolyRob rob){
 		var duration = _self.durationValue()
 		var angle = AngleAspect.computeValue(_self.angle, rob)
 		var orientation = rob.orientation
-		println("Turning: " + _self.angle.value + " in " + duration + " ms");
+		// rob.printToStatusbar("Turning: " + _self.angle.value + " in " + duration + " ms");
 		rob.turnRight((angle / duration) as int , duration);
-		println("Turned " + (rob.orientation - orientation)*180/Math.PI)
+		rob.printToStatusbar("Turned: " + (rob.orientation - orientation)*180/Math.PI)
 	}
 }
 
@@ -230,7 +239,12 @@ abstract class ConditionAspect  {
 class DetectedObjectIsAspect extends ConditionAspect {
 	
 	def boolean eval(PolyRob rob){
-		return _self.detectType(rob) == _self.rightOperand
+		val detected = _self.detectType(rob)
+		if(detected != DetectedType.NULL){
+			rob.displayDetected(detected.getName)
+			rob.printToStatusbar("Detected: " + detected.getName)
+		}
+		return detected == _self.rightOperand
 	}
 	def double computeDistance(int x1,int y1,int x2,int y2){
 		Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2))
@@ -245,7 +259,6 @@ class DetectedObjectIsAspect extends ConditionAspect {
 			for(blob : blobs){
 				var angle=Math.atan2(pos.y - blob.positionY,pos.x - blob.positionX)+Math.PI
 				println(orientation+" "+angle)
-				// println("distance is " + _self.computeDistance(pos.x, pos.y, blob.positionX, blob.positionY)+" angle " + Math.abs(angle-orientation))
 				if(Math.abs(angle-orientation)<0.6 && _self.computeDistance(pos.x, pos.y, blob.positionX, blob.positionY) <= 400){
 					println('this is a ball')
 					return DetectedType.BALL

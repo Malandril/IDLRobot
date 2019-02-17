@@ -13,6 +13,7 @@ package fr.unice.polytech.deantoni.vrep.polybot.robot;
 import java.util.ArrayList;
 
 import coppelia.BoolW;
+import coppelia.CharWA;
 import coppelia.FloatWA;
 import coppelia.FloatWAA;
 import coppelia.IntW;
@@ -23,8 +24,8 @@ import fr.unice.polytech.deantoni.vrep.polybot.utils.Position2D;
 public class PolyRob {
 
 	protected int clientID = -1;
-	protected remoteApi vrep = new remoteApi();
-	
+	public remoteApi vrep = new remoteApi();
+
 	// handler of robot equipments
 	protected IntW rightGrip = new IntW(0);
 	protected IntW rightGripBis = new IntW(0);
@@ -50,7 +51,7 @@ public class PolyRob {
 
 	public PolyRob(String IP, int portNumber) {
 		clientID = vrep.simxStart(IP, portNumber, true, true, 5000, 5);
-		
+
 		if (clientID == -1) {
 			throw new RuntimeException("impossible to connect to V-REP server");
 		} else {
@@ -82,7 +83,7 @@ public class PolyRob {
 	public void readNoseSensor() {
 		vrep.simxReadProximitySensor(clientID, proxSensor.getValue(), objectDetected, detectedObjectPoint,
 				handleDetectedObj, mapDetectedObject, remoteApi.simx_opmode_blocking);
-		
+
 		return;
 	}
 
@@ -119,9 +120,8 @@ public class PolyRob {
 	 * make the robot go forward straight if @speed is positive and backward
 	 * if @speed is negative
 	 * 
-	 * @param speed:
-	 *            the desired speed (0 = stopped, negative = backward, positive =
-	 *            forward)
+	 * @param speed: the desired speed (0 = stopped, negative = backward, positive =
+	 *        forward)
 	 */
 	public void goStraight(int speed) {
 		vrep.simxSetJointTargetVelocity(clientID, leftMotor.getValue(), (float) speed, remoteApi.simx_opmode_streaming);
@@ -133,20 +133,16 @@ public class PolyRob {
 	 * make the robot go forward straight if @speed is positive and backward
 	 * if @speed is negative
 	 * 
-	 * @param speed:
-	 *            the desired speed (0 = stopped, negative = backward, positive =
-	 *            forward)
-	 * @param duration:
-	 *            the duration, in milliseconds during which the robot goes straight
-	 *            and then stop
+	 * @param speed: the desired speed (0 = stopped, negative = backward, positive =
+	 *        forward)
+	 * @param duration: the duration, in milliseconds during which the robot goes
+	 *        straight and then stop
 	 */
 	public void goStraight(int speed, int duration) {
 		goStraight(speed);
 		stepSimulation(duration);
 		goStraight(0);
 	}
-	
-	
 
 	public void turnRight(int speed) {
 		vrep.simxSetJointTargetVelocity(clientID, leftMotor.getValue(), (float) speed, remoteApi.simx_opmode_streaming);
@@ -204,6 +200,20 @@ public class PolyRob {
 		res.y = (int) Math.round(((2.3 + -y) / 4.6) * mapFactor);
 		res.x = (int) Math.round(((2.3 + x) / 4.6) * mapFactor);
 		return res;
+	}
+
+	public void displayFunction(String function_name) {
+		vrep.simxWriteStringStream(clientID, "display", new CharWA("f:" + function_name + ","),
+				remoteApi.simx_opmode_oneshot);
+	}
+
+	public void displayDetected(String object) {
+		vrep.simxWriteStringStream(clientID, "display", new CharWA("d:detected " + object + ","),
+				remoteApi.simx_opmode_oneshot);
+	}
+
+	public void printToStatusbar(String message) {
+		vrep.simxAddStatusbarMessage(clientID, vrep.simxGetLastCmdTime(clientID)+"ms : "+message, remoteApi.simx_opmode_oneshot);
 	}
 
 	/**
@@ -267,18 +277,18 @@ public class PolyRob {
 	public void log2vrep(String s) {
 		vrep.simxAddStatusbarMessage(clientID, s, remoteApi.simx_opmode_oneshot);
 	}
-	
+
 	public void stepSimulationOnce() {
 		vrep.simxSynchronousTrigger(clientID);
 	}
 
 	public void stepSimulation(int ms) {
-			long startTime = vrep.simxGetLastCmdTime(clientID);
-			long time;
-			do {
-				stepSimulationOnce();
-				time = vrep.simxGetLastCmdTime(clientID);
-			}while(time - startTime < ms);
-			
-		}
+		long startTime = vrep.simxGetLastCmdTime(clientID);
+		long time;
+		do {
+			stepSimulationOnce();
+			time = vrep.simxGetLastCmdTime(clientID);
+		} while (time - startTime < ms);
+
+	}
 }

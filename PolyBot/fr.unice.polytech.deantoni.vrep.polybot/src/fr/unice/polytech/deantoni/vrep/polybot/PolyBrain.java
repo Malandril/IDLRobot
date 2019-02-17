@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import coppelia.CharWA;
+import coppelia.remoteApi;
 import fr.unice.polytech.deantoni.vrep.polybot.robot.PolyRob;
 import fr.unice.polytech.deantoni.vrep.polybot.utils.AStar;
 import fr.unice.polytech.deantoni.vrep.polybot.utils.Blob;
@@ -75,9 +77,16 @@ public class PolyBrain extends PolyRob{
 	public static void main(String[] args) {
 		PolyBrain rob = new PolyBrain("127.0.0.1", 19997);
 		rob.start();
-		rob.realizeMission();
+//		rob.realizeMission();
+		
+		rob.displayFunction("helololo");
+		rob.displayDetected("lol");
+		rob.stepSimulation(2000);
+		rob.displayFunction("waow");
+		rob.stepSimulation(5000);
+		rob.stopSimulation();
 	}
-
+	
 	public void realizeMission() {
 		this.openGrip();
 		this.readNoseSensor();

@@ -6,6 +6,7 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.Function;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
 
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -59,7 +60,6 @@ public class FunctionTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Function getFixture() {
 		return fixture;
 	}

@@ -35,8 +35,8 @@ Robot{
 		} else {
 			if detected is wall{
 				release
-				moveStraight 4 cm in 1s
-				moveStraight -5 cm in 1s
+				moveStraight 5 cm in 2s
+				moveStraight -8 cm in 2s
 				turn 135 in 4 s
 			}
 		}
