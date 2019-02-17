@@ -463,6 +463,29 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Print} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PrintItemProvider printItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.robotproject.model.RobotProjectModel.Print}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPrintAdapter() {
+		if (printItemProvider == null) {
+			printItemProvider = new PrintItemProvider(this);
+		}
+
+		return printItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -578,6 +601,7 @@ public class RobotProjectModelItemProviderAdapterFactory extends RobotProjectMod
 		if (instructionBlockItemProvider != null) instructionBlockItemProvider.dispose();
 		if (detectedObjectIsItemProvider != null) detectedObjectIsItemProvider.dispose();
 		if (homeDirectionItemProvider != null) homeDirectionItemProvider.dispose();
+		if (printItemProvider != null) printItemProvider.dispose();
 	}
 
 }

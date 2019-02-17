@@ -192,6 +192,11 @@ public class InstructionBlockItemProvider
 			(createChildParameter
 				(RobotProjectModelPackage.Literals.INSTRUCTION_BLOCK__INSTRUCTIONS,
 				 RobotProjectModelFactory.eINSTANCE.createInstructionBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.INSTRUCTION_BLOCK__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createPrint()));
 	}
 
 	/**

@@ -56,6 +56,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDurationAccess().getGroup(), "rule__Duration__Group__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getCallAccess().getGroup(), "rule__Call__Group__0");
+			builder.put(grammarAccess.getPrintAccess().getGroup(), "rule__Print__Group__0");
 			builder.put(grammarAccess.getDetectedObjectIsAccess().getGroup(), "rule__DetectedObjectIs__Group__0");
 			builder.put(grammarAccess.getSensorActivationAccess().getGroup(), "rule__SensorActivation__Group__0");
 			builder.put(grammarAccess.getRobotAccess().getInstructionsAssignment_3_0(), "rule__Robot__InstructionsAssignment_3_0");
@@ -79,6 +80,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDurationAccess().getValueAssignment_0(), "rule__Duration__ValueAssignment_0");
 			builder.put(grammarAccess.getDurationAccess().getTimeUnitAssignment_1(), "rule__Duration__TimeUnitAssignment_1");
 			builder.put(grammarAccess.getCallAccess().getDestinationAssignment_1(), "rule__Call__DestinationAssignment_1");
+			builder.put(grammarAccess.getPrintAccess().getStringAssignment_2(), "rule__Print__StringAssignment_2");
 			builder.put(grammarAccess.getDetectedObjectIsAccess().getRightOperandAssignment_2(), "rule__DetectedObjectIs__RightOperandAssignment_2");
 		}
 	}

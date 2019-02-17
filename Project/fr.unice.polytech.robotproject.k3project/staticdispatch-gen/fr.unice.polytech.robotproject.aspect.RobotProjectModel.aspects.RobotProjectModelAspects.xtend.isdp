@@ -53,3 +53,8 @@
 			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.ReleaseAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.Release)_self,rob);
 		} else
 		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.ReleaseAspect
+	// BeginInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.PrintAspect
+		if (_self instanceof fr.unice.polytech.robotproject.model.RobotProjectModel.Print){
+			fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.PrintAspect.execute((fr.unice.polytech.robotproject.model.RobotProjectModel.Print)_self,rob);
+		} else
+		// EndInjectInto fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect#void execute(PolyRob) from fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.PrintAspect

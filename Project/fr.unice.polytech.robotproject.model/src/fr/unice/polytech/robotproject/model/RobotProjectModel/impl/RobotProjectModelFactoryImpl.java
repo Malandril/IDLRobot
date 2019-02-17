@@ -74,6 +74,7 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 			case RobotProjectModelPackage.INSTRUCTION_BLOCK: return createInstructionBlock();
 			case RobotProjectModelPackage.DETECTED_OBJECT_IS: return createDetectedObjectIs();
 			case RobotProjectModelPackage.HOME_DIRECTION: return createHomeDirection();
+			case RobotProjectModelPackage.PRINT: return createPrint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -289,6 +290,16 @@ public class RobotProjectModelFactoryImpl extends EFactoryImpl implements RobotP
 	public HomeDirection createHomeDirection() {
 		HomeDirectionImpl homeDirection = new HomeDirectionImpl();
 		return homeDirection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Print createPrint() {
+		PrintImpl print = new PrintImpl();
+		return print;
 	}
 
 	/**

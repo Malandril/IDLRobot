@@ -23,6 +23,8 @@ import fr.unice.polytech.deantoni.vrep.polybot.utils.Position2D;
 
 public class PolyRob {
 
+	private static final int DISPLAY_RATE = 200;
+	private static final String DELIMITER = ";";
 	protected int clientID = -1;
 	public remoteApi vrep = new remoteApi();
 
@@ -203,17 +205,28 @@ public class PolyRob {
 	}
 
 	public void displayFunction(String function_name) {
-		vrep.simxWriteStringStream(clientID, "display", new CharWA("f:" + function_name + ","),
+		vrep.simxWriteStringStream(clientID, "display", new CharWA("f:" + function_name + DELIMITER),
+				remoteApi.simx_opmode_oneshot);
+	}
+
+	public void displayPos(Position2D pos) {
+		vrep.simxWriteStringStream(clientID, "display", new CharWA("p:" + pos + DELIMITER),
+				remoteApi.simx_opmode_oneshot);
+	}
+
+	public void displayOrientation(double orientation) {
+		vrep.simxWriteStringStream(clientID, "display", new CharWA("o:" + String.format("%.2f",((orientation - Math.PI) * 180 / Math.PI)) + DELIMITER),
 				remoteApi.simx_opmode_oneshot);
 	}
 
 	public void displayDetected(String object) {
-		vrep.simxWriteStringStream(clientID, "display", new CharWA("d:detected " + object + ","),
+		vrep.simxWriteStringStream(clientID, "display", new CharWA("d:" + object + DELIMITER),
 				remoteApi.simx_opmode_oneshot);
 	}
 
 	public void printToStatusbar(String message) {
-		vrep.simxAddStatusbarMessage(clientID, vrep.simxGetLastCmdTime(clientID)+"ms : "+message, remoteApi.simx_opmode_oneshot);
+		vrep.simxAddStatusbarMessage(clientID, vrep.simxGetLastCmdTime(clientID) + "ms : " + message,
+				remoteApi.simx_opmode_oneshot);
 	}
 
 	/**
@@ -284,10 +297,16 @@ public class PolyRob {
 
 	public void stepSimulation(int ms) {
 		long startTime = vrep.simxGetLastCmdTime(clientID);
+		long lastTime = startTime;
 		long time;
 		do {
 			stepSimulationOnce();
 			time = vrep.simxGetLastCmdTime(clientID);
+			if (time - lastTime > DISPLAY_RATE) {
+				displayPos(getPosition());
+				displayOrientation(getOrientation());
+				lastTime = time;
+			}
 		} while (time - startTime < ms);
 
 	}

@@ -156,56 +156,65 @@ ruleInstruction returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getTimedInstructionParserRuleCall_0());
+			newCompositeNode(grammarAccess.getInstructionAccess().getPrintParserRuleCall_0());
 		}
-		this_TimedInstruction_0=ruleTimedInstruction
+		this_Print_0=rulePrint
 		{
-			$current = $this_TimedInstruction_0.current;
+			$current = $this_Print_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getGrabParserRuleCall_1());
+			newCompositeNode(grammarAccess.getInstructionAccess().getTimedInstructionParserRuleCall_1());
 		}
-		this_Grab_1=ruleGrab
+		this_TimedInstruction_1=ruleTimedInstruction
 		{
-			$current = $this_Grab_1.current;
+			$current = $this_TimedInstruction_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getReleaseParserRuleCall_2());
+			newCompositeNode(grammarAccess.getInstructionAccess().getGrabParserRuleCall_2());
 		}
-		this_Release_2=ruleRelease
+		this_Grab_2=ruleGrab
 		{
-			$current = $this_Release_2.current;
+			$current = $this_Grab_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getFunctionParserRuleCall_3());
+			newCompositeNode(grammarAccess.getInstructionAccess().getReleaseParserRuleCall_3());
 		}
-		this_Function_3=ruleFunction
+		this_Release_3=ruleRelease
 		{
-			$current = $this_Function_3.current;
+			$current = $this_Release_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getCallParserRuleCall_4());
+			newCompositeNode(grammarAccess.getInstructionAccess().getFunctionParserRuleCall_4());
 		}
-		this_Call_4=ruleCall
+		this_Function_4=ruleFunction
 		{
-			$current = $this_Call_4.current;
+			$current = $this_Function_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getInstructionAccess().getIfParserRuleCall_5());
+			newCompositeNode(grammarAccess.getInstructionAccess().getCallParserRuleCall_5());
 		}
-		this_If_5=ruleIf
+		this_Call_5=ruleCall
 		{
-			$current = $this_If_5.current;
+			$current = $this_Call_5.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getInstructionAccess().getIfParserRuleCall_6());
+		}
+		this_If_6=ruleIf
+		{
+			$current = $this_If_6.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -1005,6 +1014,54 @@ ruleCall returns [EObject current=null]
 				ruleEString
 				{
 					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRulePrint
+entryRulePrint returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPrintRule()); }
+	iv_rulePrint=rulePrint
+	{ $current=$iv_rulePrint.current; }
+	EOF;
+
+// Rule Print
+rulePrint returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getPrintAccess().getPrintAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='print'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getPrintAccess().getPrintKeyword_1());
+		}
+		(
+			(
+				lv_string_2_0=RULE_STRING
+				{
+					newLeafNode(lv_string_2_0, grammarAccess.getPrintAccess().getStringSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPrintRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"string",
+						lv_string_2_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)

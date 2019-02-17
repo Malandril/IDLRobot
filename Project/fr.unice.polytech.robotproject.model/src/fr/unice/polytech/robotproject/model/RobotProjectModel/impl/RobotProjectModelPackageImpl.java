@@ -19,6 +19,7 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.If;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Instruction;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.InstructionBlock;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Print;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Release;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelFactory;
@@ -183,6 +184,13 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * @generated
 	 */
 	private EClass homeDirectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass printEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -602,6 +610,24 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPrint() {
+		return printEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPrint_String() {
+		return (EAttribute)printEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDistanceUnit() {
 		return distanceUnitEEnum;
 	}
@@ -717,6 +743,9 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 
 		homeDirectionEClass = createEClass(HOME_DIRECTION);
 
+		printEClass = createEClass(PRINT);
+		createEAttribute(printEClass, PRINT__STRING);
+
 		// Create enums
 		distanceUnitEEnum = createEEnum(DISTANCE_UNIT);
 		angleUnitEEnum = createEEnum(ANGLE_UNIT);
@@ -768,6 +797,7 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		instructionBlockEClass.getESuperTypes().add(this.getInstruction());
 		detectedObjectIsEClass.getESuperTypes().add(this.getCondition());
 		homeDirectionEClass.getESuperTypes().add(this.getAngle());
+		printEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(instructionEClass, Instruction.class, "Instruction", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -825,6 +855,9 @@ public class RobotProjectModelPackageImpl extends EPackageImpl implements RobotP
 		initEAttribute(getDetectedObjectIs_RightOperand(), this.getDetectedType(), "rightOperand", null, 1, 1, DetectedObjectIs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(homeDirectionEClass, HomeDirection.class, "HomeDirection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(printEClass, Print.class, "Print", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPrint_String(), ecorePackage.getEString(), "string", null, 0, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(distanceUnitEEnum, DistanceUnit.class, "DistanceUnit");

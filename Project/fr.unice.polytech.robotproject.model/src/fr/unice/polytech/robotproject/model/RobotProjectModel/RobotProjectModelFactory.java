@@ -175,6 +175,15 @@ public interface RobotProjectModelFactory extends EFactory {
 	HomeDirection createHomeDirection();
 
 	/**
+	 * Returns a new object of class '<em>Print</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Print</em>'.
+	 * @generated
+	 */
+	Print createPrint();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

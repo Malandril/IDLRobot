@@ -32,6 +32,7 @@ import java.util.List
 import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.FunctionAspect.*
 import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.InstructionAspect.*
 import static extension fr.unice.polytech.robotproject.aspect.RobotProjectModel.aspects.RobotAspect.*
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Print
 
 @Aspect(className=Instruction)
 abstract class InstructionAspect {
@@ -205,6 +206,64 @@ class TurnAspect extends TimedInstructionAspect {
 
 
 
+
+@Aspect(className=Condition)
+abstract class ConditionAspect  {
+	def boolean eval(PolyRob rob);
+}
+
+@Aspect(className=DetectedObjectIs)
+class DetectedObjectIsAspect extends ConditionAspect {
+	
+	def boolean eval(PolyRob rob){
+		val detected = _self.detectType(rob)
+		if(detected != DetectedType.NULL){
+			rob.displayDetected(detected.getName+" distance: "+rob.detectedObjectDistance)
+			rob.printToStatusbar("Detected: " + detected.getName)
+		}
+		return detected == _self.rightOperand
+	}
+	def double computeDistance(int x1,int y1,int x2,int y2){
+		Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2))
+	}
+	def DetectedType detectType(PolyRob rob){
+		if(rob.hasDetectedAnObject()&&!RobotAspect.closedGrip){
+			println("dist "+ rob.detectedObjectDistance)
+			var blobs = rob.viewableBlobs
+			var pos = rob.position
+			var orientation = rob.orientation
+			
+			for(blob : blobs){
+				var angle=Math.atan2(pos.y - blob.positionY,pos.x - blob.positionX) + Math.PI
+				println(orientation+" "+angle)
+				if(Math.abs(angle-orientation)<0.6 && _self.computeDistance(pos.x, pos.y, blob.positionX, blob.positionY) <= 400){
+					println('this is a ball')
+					return DetectedType.BALL
+				}
+			}
+			return DetectedType.WALL
+		}
+		return DetectedType.NULL
+	}
+}
+
+
+@Aspect(className=SensorActivation)
+class SensorActivationAspect extends ConditionAspect {
+	def boolean eval(PolyRob rob){
+		return rob.hasDetectedAnObject()
+	}
+}
+
+@Aspect(className=Print)
+class PrintAspect extends InstructionAspect {
+	@Step
+	def void execute(PolyRob rob){
+		rob.printToStatusbar(_self.string)
+	}
+}
+
+
 @Aspect(className=Robot)
 class RobotAspect {
 	
@@ -228,52 +287,4 @@ class RobotAspect {
 		}
     	
     }
-}
-
-@Aspect(className=Condition)
-abstract class ConditionAspect  {
-	def boolean eval(PolyRob rob);
-}
-
-@Aspect(className=DetectedObjectIs)
-class DetectedObjectIsAspect extends ConditionAspect {
-	
-	def boolean eval(PolyRob rob){
-		val detected = _self.detectType(rob)
-		if(detected != DetectedType.NULL){
-			rob.displayDetected(detected.getName)
-			rob.printToStatusbar("Detected: " + detected.getName)
-		}
-		return detected == _self.rightOperand
-	}
-	def double computeDistance(int x1,int y1,int x2,int y2){
-		Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2))
-	}
-	def DetectedType detectType(PolyRob rob){
-		if(rob.hasDetectedAnObject()&&!RobotAspect.closedGrip){
-			println("dist "+ rob.detectedObjectDistance)
-			var blobs = rob.viewableBlobs
-			var pos = rob.position
-			var orientation = rob.orientation
-			
-			for(blob : blobs){
-				var angle=Math.atan2(pos.y - blob.positionY,pos.x - blob.positionX)+Math.PI
-				println(orientation+" "+angle)
-				if(Math.abs(angle-orientation)<0.6 && _self.computeDistance(pos.x, pos.y, blob.positionX, blob.positionY) <= 400){
-					println('this is a ball')
-					return DetectedType.BALL
-				}
-			}
-			return DetectedType.WALL
-		}
-		return DetectedType.NULL
-	}
-}
-
-
-@Aspect(className=SensorActivation)
-class SensorActivationAspect extends ConditionAspect {
-	def boolean eval(PolyRob rob){
-		return rob.hasDetectedAnObject()
-	}
 }

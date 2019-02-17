@@ -12,7 +12,7 @@ Robot returns Robot:
 	'}';
 
 Instruction returns Instruction:
-	TimedInstruction | Grab | Release | Function | Call | If;
+	Print | TimedInstruction | Grab | Release | Function | Call | If;
 
 	
 InstructionBlock returns InstructionBlock:
@@ -80,6 +80,9 @@ EInt returns ecore::EInt:
 
 Call returns Call:
 	'call' destination=[Function|EString];
+
+Print returns Print:
+	{Print} 'print' string=STRING;
 
 Condition returns Condition:
 	SensorActivation|DetectedObjectIs;

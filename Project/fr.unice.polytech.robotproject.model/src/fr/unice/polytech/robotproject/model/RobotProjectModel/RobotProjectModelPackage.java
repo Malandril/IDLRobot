@@ -835,6 +835,43 @@ public interface RobotProjectModelPackage extends EPackage {
 	int HOME_DIRECTION_OPERATION_COUNT = ANGLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.PrintImpl <em>Print</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.PrintImpl
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getPrint()
+	 * @generated
+	 */
+	int PRINT = 20;
+
+	/**
+	 * The feature id for the '<em><b>String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT__STRING = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Print</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Print</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -842,7 +879,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDistanceUnit()
 	 * @generated
 	 */
-	int DISTANCE_UNIT = 20;
+	int DISTANCE_UNIT = 21;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.AngleUnit <em>Angle Unit</em>}' enum.
@@ -852,7 +889,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getAngleUnit()
 	 * @generated
 	 */
-	int ANGLE_UNIT = 21;
+	int ANGLE_UNIT = 22;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.TimeUnit <em>Time Unit</em>}' enum.
@@ -862,7 +899,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 22;
+	int TIME_UNIT = 23;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DetectedType <em>Detected Type</em>}' enum.
@@ -872,7 +909,7 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getDetectedType()
 	 * @generated
 	 */
-	int DETECTED_TYPE = 23;
+	int DETECTED_TYPE = 24;
 
 
 	/**
@@ -1250,6 +1287,27 @@ public interface RobotProjectModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getHomeDirection();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Print <em>Print</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Print</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Print
+	 * @generated
+	 */
+	EClass getPrint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Print#getString <em>String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>String</em>'.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Print#getString()
+	 * @see #getPrint()
+	 * @generated
+	 */
+	EAttribute getPrint_String();
 
 	/**
 	 * Returns the meta object for enum '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}'.
@@ -1641,6 +1699,24 @@ public interface RobotProjectModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass HOME_DIRECTION = eINSTANCE.getHomeDirection();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.impl.PrintImpl <em>Print</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.PrintImpl
+		 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.impl.RobotProjectModelPackageImpl#getPrint()
+		 * @generated
+		 */
+		EClass PRINT = eINSTANCE.getPrint();
+
+		/**
+		 * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRINT__STRING = eINSTANCE.getPrint_String();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.DistanceUnit <em>Distance Unit</em>}' enum.

@@ -15,6 +15,7 @@ import fr.unice.polytech.robotproject.model.RobotProjectModel.HomeDirection;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.If;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.InstructionBlock;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.MoveStraight;
+import fr.unice.polytech.robotproject.model.RobotProjectModel.Print;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Release;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.Robot;
 import fr.unice.polytech.robotproject.model.RobotProjectModel.RobotProjectModelPackage;
@@ -79,6 +80,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RobotProjectModelPackage.MOVE_STRAIGHT:
 				sequence_MoveStraight(context, (MoveStraight) semanticObject); 
+				return; 
+			case RobotProjectModelPackage.PRINT:
+				sequence_Print(context, (Print) semanticObject); 
 				return; 
 			case RobotProjectModelPackage.RELEASE:
 				sequence_Release(context, (Release) semanticObject); 
@@ -276,6 +280,25 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_MoveStraight(ISerializationContext context, MoveStraight semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Print
+	 *     Print returns Print
+	 *
+	 * Constraint:
+	 *     string=STRING
+	 */
+	protected void sequence_Print(ISerializationContext context, Print semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RobotProjectModelPackage.Literals.PRINT__STRING) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RobotProjectModelPackage.Literals.PRINT__STRING));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrintAccess().getStringSTRINGTerminalRuleCall_2_0(), semanticObject.getString());
+		feeder.finish();
 	}
 	
 	

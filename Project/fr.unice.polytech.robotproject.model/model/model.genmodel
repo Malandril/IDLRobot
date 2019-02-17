@@ -71,5 +71,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//DetectedObjectIs/rightOperand"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//HomeDirection"/>
+    <genClasses ecoreClass="model.ecore#//Print">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Print/string"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

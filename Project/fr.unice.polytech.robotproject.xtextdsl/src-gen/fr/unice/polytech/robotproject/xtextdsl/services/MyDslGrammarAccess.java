@@ -80,37 +80,41 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Instruction");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTimedInstructionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cGrabParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cReleaseParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cFunctionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cCallParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cIfParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cPrintParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTimedInstructionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cGrabParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cReleaseParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cFunctionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cCallParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cIfParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Instruction:
-		//	TimedInstruction | Grab | Release | Function | Call | If;
+		//	Print | TimedInstruction | Grab | Release | Function | Call | If;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TimedInstruction | Grab | Release | Function | Call | If
+		//Print | TimedInstruction | Grab | Release | Function | Call | If
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//Print
+		public RuleCall getPrintParserRuleCall_0() { return cPrintParserRuleCall_0; }
+		
 		//TimedInstruction
-		public RuleCall getTimedInstructionParserRuleCall_0() { return cTimedInstructionParserRuleCall_0; }
+		public RuleCall getTimedInstructionParserRuleCall_1() { return cTimedInstructionParserRuleCall_1; }
 		
 		//Grab
-		public RuleCall getGrabParserRuleCall_1() { return cGrabParserRuleCall_1; }
+		public RuleCall getGrabParserRuleCall_2() { return cGrabParserRuleCall_2; }
 		
 		//Release
-		public RuleCall getReleaseParserRuleCall_2() { return cReleaseParserRuleCall_2; }
+		public RuleCall getReleaseParserRuleCall_3() { return cReleaseParserRuleCall_3; }
 		
 		//Function
-		public RuleCall getFunctionParserRuleCall_3() { return cFunctionParserRuleCall_3; }
+		public RuleCall getFunctionParserRuleCall_4() { return cFunctionParserRuleCall_4; }
 		
 		//Call
-		public RuleCall getCallParserRuleCall_4() { return cCallParserRuleCall_4; }
+		public RuleCall getCallParserRuleCall_5() { return cCallParserRuleCall_5; }
 		
 		//If
-		public RuleCall getIfParserRuleCall_5() { return cIfParserRuleCall_5; }
+		public RuleCall getIfParserRuleCall_6() { return cIfParserRuleCall_6; }
 	}
 	public class InstructionBlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.InstructionBlock");
@@ -559,6 +563,33 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getDestinationFunctionEStringParserRuleCall_1_0_1() { return cDestinationFunctionEStringParserRuleCall_1_0_1; }
 	}
+	public class PrintElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Print");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPrintAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cPrintKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cStringAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStringSTRINGTerminalRuleCall_2_0 = (RuleCall)cStringAssignment_2.eContents().get(0);
+		
+		//Print:
+		//	{Print} 'print' string=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Print} 'print' string=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//{Print}
+		public Action getPrintAction_0() { return cPrintAction_0; }
+		
+		//'print'
+		public Keyword getPrintKeyword_1() { return cPrintKeyword_1; }
+		
+		//string=STRING
+		public Assignment getStringAssignment_2() { return cStringAssignment_2; }
+		
+		//STRING
+		public RuleCall getStringSTRINGTerminalRuleCall_2_0() { return cStringSTRINGTerminalRuleCall_2_0; }
+	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.robotproject.xtextdsl.MyDsl.Condition");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -758,6 +789,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final AngleUnitElements eAngleUnit;
 	private final EIntElements pEInt;
 	private final CallElements pCall;
+	private final PrintElements pPrint;
 	private final ConditionElements pCondition;
 	private final DetectedObjectIsElements pDetectedObjectIs;
 	private final DetectedTypeElements eDetectedType;
@@ -793,6 +825,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.eAngleUnit = new AngleUnitElements();
 		this.pEInt = new EIntElements();
 		this.pCall = new CallElements();
+		this.pPrint = new PrintElements();
 		this.pCondition = new ConditionElements();
 		this.pDetectedObjectIs = new DetectedObjectIsElements();
 		this.eDetectedType = new DetectedTypeElements();
@@ -841,7 +874,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Instruction:
-	//	TimedInstruction | Grab | Release | Function | Call | If;
+	//	Print | TimedInstruction | Grab | Release | Function | Call | If;
 	public InstructionElements getInstructionAccess() {
 		return pInstruction;
 	}
@@ -1034,6 +1067,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCallRule() {
 		return getCallAccess().getRule();
+	}
+	
+	//Print:
+	//	{Print} 'print' string=STRING;
+	public PrintElements getPrintAccess() {
+		return pPrint;
+	}
+	
+	public ParserRule getPrintRule() {
+		return getPrintAccess().getRule();
 	}
 	
 	//Condition:

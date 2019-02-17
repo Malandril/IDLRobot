@@ -192,6 +192,11 @@ public class RobotItemProvider
 			(createChildParameter
 				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
 				 RobotProjectModelFactory.eINSTANCE.createInstructionBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RobotProjectModelPackage.Literals.ROBOT__INSTRUCTIONS,
+				 RobotProjectModelFactory.eINSTANCE.createPrint()));
 	}
 
 	/**

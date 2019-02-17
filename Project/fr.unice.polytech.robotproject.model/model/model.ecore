@@ -81,4 +81,7 @@
         eType="#//DetectedType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HomeDirection" eSuperTypes="#//Angle"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Print" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

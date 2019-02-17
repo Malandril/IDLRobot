@@ -148,6 +148,10 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 				return createHomeDirectionAdapter();
 			}
 			@Override
+			public Adapter casePrint(Print object) {
+				return createPrintAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -444,6 +448,20 @@ public class RobotProjectModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHomeDirectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.robotproject.model.RobotProjectModel.Print <em>Print</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.robotproject.model.RobotProjectModel.Print
+	 * @generated
+	 */
+	public Adapter createPrintAdapter() {
 		return null;
 	}
 
