@@ -46,7 +46,7 @@ public class PolyRob {
 	public FloatWA detectedObjectPoint = new FloatWA(0);
 	public IntW handleDetectedObj = new IntW(0);
 	public FloatWA mapDetectedObject = new FloatWA(0);
-
+	private long lastDisplayTime = 0;
 	// robot parameters
 	protected float gripForce = (float) 0.08;
 	public int mapFactor = 1000;
@@ -297,15 +297,14 @@ public class PolyRob {
 
 	public void stepSimulation(int ms) {
 		long startTime = vrep.simxGetLastCmdTime(clientID);
-		long lastTime = startTime;
 		long time;
 		do {
 			stepSimulationOnce();
 			time = vrep.simxGetLastCmdTime(clientID);
-			if (time - lastTime > DISPLAY_RATE) {
+			if (time - lastDisplayTime >= DISPLAY_RATE) {
 				displayPos(getPosition());
 				displayOrientation(getOrientation());
-				lastTime = time;
+				lastDisplayTime = time;
 			}
 		} while (time - startTime < ms);
 

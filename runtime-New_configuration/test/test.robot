@@ -21,22 +21,22 @@ Robot{
 	}
 	function detected_ball {
 		release
-		moveStraight 18 cm in 2 s
+		moveStraight 16 cm in 2 s
 		grab
-		moveStraight 7 cm in 1100 ms
+		moveStraight 8 cm in 1100 ms
 		call go_home
 	}
 	function go_home{
-		turn home in 2 s
+		turn home in 1500 ms
 		moveStraight 8 cm in 800 ms
-		moveStraight 2 cm in 500 ms
+		moveStraight 2 cm in 400 ms
 		if detected is nothing {
 			call go_home
 		} else {
 			if detected is wall{
 				release
-				moveStraight 5 cm in 2s
-				moveStraight -8 cm in 2s
+				moveStraight 6 cm in 1 s
+				moveStraight -8 cm in 2 s
 				turn 135 in 4 s
 			}
 		}
