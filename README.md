@@ -1,6 +1,15 @@
 # Projet Interprétation Des Langages robot Vrep
-## Installation and usage
-
+## Installation et utilisation
+### Installation
+- Ouvrir Le dossier `Project` en tant que workspace avec eclipse
+- Cliquer sur File -> Import -> Existing Projects; sélectionner le dossier `Project`
+- Répéter la même opération mais importer les projets du dossier PolyBot
+- Attendre que les projets build
+### Pour lancer l'exemple
+- Lancer la configuration eclipse `Linux_Workbench` qui se trouve dans le dossier `launch_configurations` du projet `fr.unice.polytech.robotproject.dsl`
+- Dans le nouvel eclipse importer le projet `test` qui est dans `runtime-New_configuration`
+- Lancer V-REP et importer le fichier `PolyBot\scenes\polyBotVersusPaintBomb.ttt`
+- Dans le nouvel eclipse lancez la configuration qui est dans `test/launch_configurations`
 ## Model
 ![alt](model.svg)
 J'ai choisi que mon langage allait être impératif.
@@ -19,5 +28,5 @@ Ces permettent de faire des boucles grâce à la récursivité.
 
 Plutot que cette manière impérative, j'aurais préféré mettre en place un système réactif.
 En se basant sur mon modèle actuel on pourrait penser rajouter une classe `When` qui contiendrait une condition et qui aurait aussi une référence vers une fonction. Il faudrait aussi ensuite qu'à chaque étape de la simulation les `When` déclarés soit parcourus et leur condition évaluées ce qui permettrait de lancer la fonction référencée.
-## Author
+## Auteur
 *Canava Thomas*
